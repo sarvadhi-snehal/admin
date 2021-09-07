@@ -1,0 +1,72 @@
+@mixin flex-mixin {
+  display: flex;
+  align-items: center;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-column-between {
+  @include flex-mixin;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-between {
+  @include flex-mixin;
+  justify-content: space-between;
+}
+.fix-card {
+}
+.violet-color {
+  background-color: #4dc0c8;
+}
+
+.orange-color {
+  background-color: #f39678;
+}
+
+.btn-s {
+  border-radius: 5rem;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.7rem;
+  border: none;
+  outline: none;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.scroll-div {
+  max-height: 650px;
+  overflow-y: auto;
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+}
+
+.scroll-div2 {
+  max-height: 450px;
+  overflow-y: auto;
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+}
+.scroll-div3 {
+  max-height: 350px;
+  overflow-y: auto;
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+}
+.max-height {
+  max-height: 950px;
+  height: 100%;
+}

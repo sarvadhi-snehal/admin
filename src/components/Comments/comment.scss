@@ -1,0 +1,23 @@
+.hover {
+  opacity: 0;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.customHoverFocus {
+  &:hover {
+    color: "#64b5f6";
+  }
+}
+.customHoverFocusRed {
+  &:hover {
+    color: "#ff4081";
+  }
+}
+.hover-effect {
+  background-color: #fff;
+  &:hover {
+    background-color: #fafafa;
+  }
+}

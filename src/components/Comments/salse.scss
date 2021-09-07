@@ -1,0 +1,25 @@
+.flex {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+.table {
+  width: 100%;
+  font-size: 1rem;
+  .tr > * {
+    padding: 0.7rem;
+  }
+}
+.btn {
+  border-radius: 5em;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.7rem;
+  height: 100%;
+  border: none;
+  outline: none;
+  color: white;
+  font-weight: 700;
+}
+.header {
+  padding: 0.4rem;
+}
