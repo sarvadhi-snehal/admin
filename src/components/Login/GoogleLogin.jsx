@@ -1,21 +1,23 @@
 import GoogleLogin from "react-google-login";
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useContext } from "react";
+import { withRouter, useLocation } from "react-router-dom";
 import React from "react";
-// import {login} from '../../Store/actions/action'
-function GoogleSignin() {
-  const history = useHistory();
+import loginContext from "../../Store";
+
+function GoogleSignin({ history }) {
   // const dispatch = useDispatch();
+  const { dispatch } = useContext(loginContext);
+  const location = useLocation();
+
   const responseGoogle = (response) => {
     console.log(response);
     const userObj = {
       token: response.Zb,
       user: response.profileObj,
+      history,
+      pathname: location.pathname,
     };
-    // dispatch(login(userObj))
-    history.push({
-      pathname: "/dashboard",
-    });
+    // dispatch({ type: "login", payload: userObj });
   };
   const responseGoogleError = (response) => {
     alert(`Something went wrong, login again`);
@@ -32,4 +34,4 @@ function GoogleSignin() {
   );
 }
 
-export default GoogleSignin;
+export default withRouter(GoogleSignin);

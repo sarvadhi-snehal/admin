@@ -7,28 +7,19 @@ const data = {
     {
       label: "# of Votes",
       data: [12, 19, 3, 5, 2, 3],
-      backgroundColor: [
-        "rgba(255, 99, 132, 0.2)",
-        "rgba(54, 162, 235, 0.2)",
-        "rgba(255, 206, 86, 0.2)",
-        "rgba(75, 192, 192, 0.2)",
-        "rgba(153, 102, 255, 0.2)",
-        "rgba(255, 159, 64, 0.2)",
-      ],
-      borderColor: [
-        "rgba(255, 99, 132, 1)",
-        "rgba(54, 162, 235, 1)",
-        "rgba(255, 206, 86, 1)",
-        "rgba(75, 192, 192, 1)",
-        "rgba(153, 102, 255, 1)",
-        "rgba(255, 159, 64, 1)",
-      ],
+      backgroundColor: "rgba(54, 162, 235, 1)",
+      barPercentage: 0.5,
+      barThickness: 6,
+      maxBarThickness: 8,
+      minBarLength: 2,
       borderWidth: 1,
     },
   ],
 };
 
 const options = {
+  maintainAspectRatio: false,
+  responsive: true,
   plugins: {
     legend: {
       display: false,
@@ -46,16 +37,18 @@ const options = {
 
 const SalseDiif = () => {
   return (
-    <div className="p-4 bg-white  mt-4">
-      <h6>SALES DIFFERENCE</h6>
-      <div className="flex-between">
-        <div>
-          <h4>$647</h4>
-          <p>APRIL 2017</p>
-          <h6>(150 Sales)</h6>
-        </div>
-        <div>
-          <Bar width={100} data={data} options={options} />
+    <div style={{ height: 230 }} className="mt-4 bg-danger w-100">
+      <div className="bg-white h-100 w-100 p-4  flex-between text-dark ">
+        <div className="flex-between w-100  h-100">
+          <div className=" h-100 flex-column">
+            <h6>SALES DIFFERENCE</h6>
+            <h1 className="mt-auto text-primary">$647</h1>
+            <p className="text-secondary">APRIL 2017</p>
+            <h6>(150 Sales)</h6>
+          </div>
+          <div className="ms-auto">
+            <Bar width={100} data={data} options={options} />
+          </div>
         </div>
       </div>
     </div>

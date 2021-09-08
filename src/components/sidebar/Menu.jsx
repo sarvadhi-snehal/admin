@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 import List from "@material-ui/core/List";
@@ -6,8 +6,6 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Collapse from "@material-ui/core/Collapse";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import { Speedometer } from "react-bootstrap-icons";
@@ -16,10 +14,12 @@ const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
     maxWidth: 360,
-    backgroundColor: theme.palette.background.paper,
   },
   nested: {
-    paddingLeft: theme.spacing(4),
+    paddingLeft: theme.spacing(8),
+    "&:hover": {
+      color: "green",
+    },
   },
   items: {
     backgroundColor: "#4DC0C8",
@@ -27,19 +27,29 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "0.7rem",
     color: "White",
   },
+  item: {
+    color: "grey",
+    "&:hover": {
+      color: "green",
+    },
+  },
+  activeLink: {
+    color: "green",
+  },
 }));
 
-export default function NestedList() {
+export default function NestedList({ isClose }) {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState({});
 
-  const handleClick = () => {
-    setOpen(!open);
+  const handleClick = (key) => {
+    setOpen({ [key]: !open[key] });
   };
 
   const menu = [
     {
-      name: "dashboard",
+      name: "Dashboard",
+      key: "dashboard",
       links: [
         {
           href: "/minimal",
@@ -50,11 +60,11 @@ export default function NestedList() {
           name: "Analitical",
         },
         {
-          href: "/",
+          href: "/demographical",
           name: "Demographical",
         },
         {
-          href: "/",
+          href: "/morden",
           name: "Morden",
         },
       ],
@@ -62,6 +72,8 @@ export default function NestedList() {
 
     {
       name: "Apps",
+      key: "apps",
+
       links: [
         {
           href: "/dashboard",
@@ -91,6 +103,8 @@ export default function NestedList() {
     },
     {
       name: "Inbox",
+      key: "inbox",
+
       links: [
         {
           href: "/dashboard",
@@ -110,32 +124,40 @@ export default function NestedList() {
 
   return (
     <>
-      {menu.map((menuItem) => (
-        <List className={classes.root}>
-          <ListItem button onClick={handleClick}>
-            <ListItemIcon>
-              <Speedometer size={20} />
-            </ListItemIcon>
-            <ListItemText primary={menuItem.name} />{" "}
-            <span className={classes.items}> {menuItem.links.length}</span>
-            {open ? <ExpandLess /> : <ExpandMore />}
-          </ListItem>
-          <Collapse in={open} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
-              {menuItem.links.map((item) => (
-                <ListItem
-                  button
-                  component="a"
-                  href={item.href}
-                  className={classes.nested}
-                >
-                  <ListItemText primary={item.name} />
-                </ListItem>
-              ))}
-            </List>
-          </Collapse>
-        </List>
-      ))}
+      {menu.map((menuItem) => {
+        const { key } = menuItem;
+
+        return (
+          <List className={classes.root}>
+            <ListItem
+              button
+              onClick={() => handleClick(key)}
+              className={[classes.item, open[key] && classes.activeLink]}
+            >
+              <ListItemIcon color="inherit">
+                <Speedometer size={20} color="inherit" />
+              </ListItemIcon>
+              <ListItemText primary={menuItem.name} />
+              <span className={classes.items}> {menuItem.links.length}</span>
+              {open[key] ? <ExpandLess /> : <ExpandMore />}
+            </ListItem>
+            <Collapse in={open[key]} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                {menuItem.links.map((item) => (
+                  <ListItem
+                    button
+                    component="a"
+                    href={item.href}
+                    className={classes.nested}
+                  >
+                    <ListItemText primary={item.name} />
+                  </ListItem>
+                ))}
+              </List>
+            </Collapse>
+          </List>
+        );
+      })}
     </>
   );
 }

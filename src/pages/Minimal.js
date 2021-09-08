@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Summary from "../components/Summary/Summary";
 import Graph from "../components/Graph";
 import Weather from "../components/Weather";
@@ -10,17 +11,21 @@ import Chat from "../components/Chat/Chat";
 import GraphContainer from "../components/SalesDiffrnce/GrapContainer";
 const Minimal = () => {
   return (
-    <main className="container-fluid bg-light px-4 pb-4">
+    <section className="container-fluid bg-light px-4 pb-4">
       <Summary />
-      <section className="row h-100">
-        <Graph />
-
-        <div className=" col col-sm-12 col-md-12  col-lg-4  ">
+      <section className="row flex-between ">
+        <div
+          className="col col-md-12 col-lg-8 col-sm-12  mt-4 "
+          style={{ height: 500 }}
+        >
+          <Graph />
+        </div>
+        <div className=" col col-sm-12 col-md-12 col-lg-4 flex-column-between">
           <Weather />
           <Quotes />
         </div>
       </section>
-      <section className="row ">
+      <section className="row">
         <RecentComments />
         <SalesOverview />
       </section>
@@ -30,7 +35,7 @@ const Minimal = () => {
         <Message />
         <Chat />
       </section>
-    </main>
+    </section>
   );
 };
 

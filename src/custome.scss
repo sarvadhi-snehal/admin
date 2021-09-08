@@ -23,8 +23,7 @@
   @include flex-mixin;
   justify-content: space-between;
 }
-.fix-card {
-}
+
 .violet-color {
   background-color: #4dc0c8;
 }
@@ -35,13 +34,17 @@
 
 .btn-s {
   border-radius: 5rem;
-  padding: 0.3rem 0.7rem;
-  font-size: 0.7rem;
+  padding: 0 0.7rem;
+  font-size: 0.8rem;
+  height: 20px;
   border: none;
   outline: none;
+  background-color: orange;
   color: white;
-  font-weight: 700;
+  font-weight: 500;
   cursor: pointer;
+  display: grid;
+  place-items: center;
 }
 
 .scroll-div {
@@ -69,4 +72,24 @@
 .max-height {
   max-height: 950px;
   height: 100%;
+}
+.bg {
+  background-image: url("https://www.licious.in/blog/wp-content/uploads/2021/02/crabss-750x750.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.5;
+}
+
+.content {
+  z-index: 5;
+}
+
+.invert {
+  filter: grayscale(1) invert(1);
+}
+
+span {
+  // font-size: 0.7rem;
+  // color: grey;
 }

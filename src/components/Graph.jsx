@@ -1,5 +1,7 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
+import { Dot } from "react-bootstrap-icons";
+
 const data = {
   labels: ["2010", "2011", "2012", "2013", "2014", "2015", "2016"],
   datasets: [
@@ -9,6 +11,8 @@ const data = {
       fill: false,
       backgroundColor: "rgb(255, 99, 132)",
       borderColor: "rgba(255, 99, 132, 0.2)",
+      cubicInterpolationMode: "monotone",
+      tension: 0.4,
     },
     {
       label: "Ipad",
@@ -16,6 +20,8 @@ const data = {
       fill: false,
       backgroundColor: "rgb(54, 162, 235)",
       borderColor: "rgba(54, 162, 235, 0.2)",
+      cubicInterpolationMode: "monotone",
+      tension: 0.4,
     },
     {
       label: "Ipod",
@@ -23,33 +29,60 @@ const data = {
       fill: false,
       backgroundColor: "rgb(54, 162, 235)",
       borderColor: "rgba(54, 162, 235, 0.2)",
+      cubicInterpolationMode: "monotone",
+      tension: 0.4,
     },
   ],
 };
 
 const options = {
+  maintainAspectRatio: false,
+  responsive: true,
+  plugins: {
+    legend: {
+      display: false,
+    },
+  },
   scales: {
-    yAxes: [
-      {
-        ticks: {
-          beginAtZero: true,
-        },
+    yAxes: {
+      ticks: {
+        beginAtZero: true,
       },
-    ],
-    xAxes: [
-      {
-        gridLines: {
-          show: false,
-        },
-      },
-    ],
+    },
+
+    xAxes: {
+      display: false,
+    },
   },
 };
 
 const MultiAxisLine = () => {
   return (
-    <div className="col  p-3 bg-white col-md-12 col-lg-8 max-height  col-sm-12 mt-4 ">
-      <Line data={data} options={options} />
+    <div className="h-100 p-3 bg-white">
+      <div className="header flex-between ">
+        <div className="flex-center ">
+          <strong>YEARLY SALES</strong>
+        </div>
+        <div className="flex-center ">
+          <div>
+            <Dot className="text-info" size={40} />
+            <span>Iphone</span>
+          </div>
+          <div>
+            <Dot className="text-secondary" size={40} />
+
+            <span>Ipad</span>
+          </div>
+          <div>
+            <Dot className="text-primary" size={40} />
+
+            <span>Ipod</span>
+          </div>
+        </div>
+      </div>
+      <div className=" ">
+        <Line data={data} options={options} />
+      </div>
     </div>
   );
 };

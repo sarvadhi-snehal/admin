@@ -2,22 +2,14 @@ import React from "react";
 import { Pie } from "react-chartjs-2";
 
 const data = {
-  labels: ["Red", "Blue", "Yellow"],
+  maintainAspectRatio: false,
+  responsive: true,
+  labels: ["cyan", "white", "violet"],
   datasets: [
     {
       label: "# of Votes",
       data: [12, 19, 3],
-      backgroundColor: [
-        "rgba(255, 99, 132, 0.2)",
-        "rgba(54, 162, 235, 0.2)",
-        "rgba(255, 206, 86, 0.2)",
-      ],
-      borderColor: [
-        "rgba(255, 99, 132, 1)",
-        "rgba(54, 162, 235, 1)",
-        "rgba(255, 206, 86, 1)",
-      ],
-      borderWidth: 1,
+      backgroundColor: ["#7D5AB6", "white", "#4DC0C8"],
     },
   ],
 };
@@ -40,15 +32,21 @@ const options = {
 
 const SalseDiif = () => {
   return (
-    <div className=" mt-4 bg-white ">
-      <h6>SALES DIFFERENCE</h6>
-      <div className="flex-between">
-        <div>
-          <h4>$647</h4>
-          <p>APRIL 2017</p>
-          <h6>(150 Sales)</h6>
+    <div style={{ height: 230 }} className="mt-4 bg-danger w-100">
+      <div
+        className=" h-100 w-100 p-4  flex-between text-white "
+        style={{ backgroundColor: "#AB8CE4" }}
+      >
+        <div className="flex-between w-100  h-100">
+          <div className=" h-100 flex-column">
+            <h6>SALES DIFFERENCE</h6>
+
+            <h1 className="mt-auto">$647</h1>
+            <p>APRIL 2017</p>
+            <h6>(150 Sales)</h6>
+          </div>
         </div>
-        <div>
+        <div className="ms-auto">
           <Pie width={100} data={data} options={options} />
         </div>
       </div>

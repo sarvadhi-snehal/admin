@@ -50,28 +50,27 @@ const options = {
   },
 };
 
-const Graph = () => {
+const Salse = () => {
   return (
-    <div className="h-100 p-3 bg-white">
-      <div className="header flex-between ">
-        <div className="flex-center ">
-          <strong>SALES DIFFERENCE</strong>
-        </div>
-        <div className="flex-center ">
-          <div>
-            <Dot className="text-info" size={40} />
-            <span>SITE A</span>
-          </div>
-          <div>
-            <Dot className="text-secondary" size={40} />
-
-            <span>SITE B</span>
-          </div>
+    <section className="row m-4 bg-white p-4 mb-4">
+      <h6> SALES IN 2018 </h6>
+      <div className="col col-sm-12 col-md-4 col-lg-4 p-4">
+        <p>
+          Lorem ipsum dolor sit amet, ectetur adipiscing elit. viverra tellus.
+          ipsumdolorsitda amet, ectetur adipiscing elit.
+        </p>
+        <p>
+          Ectetur adipiscing elit. viverra tellus.ipsum dolor sit amet, dag adg
+          ecteturadipiscingda elitdglj. vadghiverra tellus.
+        </p>
+      </div>
+      <div className="col col-sm-12 col-md-8 col-lg-8">
+        <div className="h-100">
+          <Line data={data} options={options} />
         </div>
       </div>
-      <Line data={data} options={options} />
-    </div>
+    </section>
   );
 };
 
-export default Graph;
+export default Salse;

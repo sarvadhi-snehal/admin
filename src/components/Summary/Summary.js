@@ -34,7 +34,7 @@ let data = [
 
 const Summary = () => {
   return (
-    <section className="col  flex-center mx-1 ">
+    <section className="row  flex-center mx-1 ">
       {data.map((item, index) => (
         <CardItem
           key={index}
