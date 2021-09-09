@@ -18,7 +18,7 @@ const Person = ({ open }) => {
 
   const responseGoogle = () => {
     dispatch({ type: "logout" });
-    history.push("/");
+    history.push("/login");
     // console.log("logout");
   };
   const action = [
@@ -87,7 +87,6 @@ const Person = ({ open }) => {
     </div>
   );
 
-  console.log(open);
   return (
     <>
       {open ? (

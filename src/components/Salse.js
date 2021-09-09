@@ -52,7 +52,7 @@ const options = {
 
 const Salse = () => {
   return (
-    <section className="row m-4 bg-white p-4 mb-4">
+    <article className="row mt-4 mx-3 bg-white p-4 ">
       <h6> SALES IN 2018 </h6>
       <div className="col col-sm-12 col-md-4 col-lg-4 p-4">
         <p>
@@ -69,7 +69,7 @@ const Salse = () => {
           <Line data={data} options={options} />
         </div>
       </div>
-    </section>
+    </article>
   );
 };
 

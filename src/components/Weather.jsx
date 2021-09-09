@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Card from "./UI/SmallCard";
 
 export default function OutlinedCard({ className }) {
   const [weather, setWeather] = useState({
@@ -12,7 +13,6 @@ export default function OutlinedCard({ className }) {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setWeather({
           temp: data.main.temp.toFixed(1),
           icon: data.weather[0].icon,
@@ -21,29 +21,27 @@ export default function OutlinedCard({ className }) {
   }, []);
   let d = new Date();
   return (
-    <div style={{ height: 230 }} className="mt-4 bg-danger w-100">
-      <div className="violet-color h-100 w-100 text-white p-4  flex-between text-white ">
-        <div className="mt-auto ">
-          <p className="fs-1  m-0">
-            {weather.temp}
-            <sup>
-              <sup>o</sup>F
-            </sup>
-          </p>
-          <p>Surat,india</p>
-        </div>
-        <div className="mb-auto">
-          <img
-            className="m-0 p-0 text-white"
-            src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`}
-            alt=""
-            srcset=""
-          />
-          <p className="m-0 ">
-            {d.toLocaleString("en-us", { month: "long" })} {d.getDate()}
-          </p>
-        </div>
+    <Card className="violet-color text-white flex-between">
+      <div className="mt-auto ">
+        <p className="fs-1  m-0">
+          {weather.temp}
+          <sup>
+            <sup>o</sup>F
+          </sup>
+        </p>
+        <p>Surat,india</p>
       </div>
-    </div>
+      <div className="mb-auto">
+        <img
+          className="m-0 p-0 text-white"
+          src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`}
+          alt=""
+          srcset=""
+        />
+        <p className="m-0 ">
+          {d.toLocaleString("en-us", { month: "long" })} {d.getDate()}
+        </p>
+      </div>
+    </Card>
   );
 }

@@ -59,28 +59,26 @@ const options = {
 };
 const Visit = () => {
   return (
-    <section className="row  flex-center mx-1  ">
-      <div className="row mx-1 ">
-        {visits.map((item) => (
-          <div className=" border-0 col-sm-12 col-xs-12 col-md-6 col-lg-3  mt-4">
-            <div className=" bg-white">
-              <div className="d-flex flex-column text-start align-items-center  pt-4 p-2">
-                <h6 className="w-100 ps-4">{item.name}</h6>
-                <div className="flex-between w-100 px-4 flex-row-reverse ps-4">
-                  <h2>
-                    <ArrowUp className={`text-${item.type}`} />
-                    {item.number}
-                  </h2>
-                  <div className="">
-                    <Bar data={data} options={options} width={50} height={30} />
-                  </div>
+    <article className="row  flex-between mx-1">
+      {visits.map((item) => (
+        <div className=" border-0 col-sm-12 col-xs-12 col-md-6 col-lg-3  mt-4 ">
+          <div className=" bg-white">
+            <div className="d-flex flex-column text-start align-items-center  pt-4 p-2">
+              <h6 className="w-100 ps-4">{item.name}</h6>
+              <div className="flex-between w-100 px-4 flex-row-reverse ps-4">
+                <h2>
+                  <ArrowUp className={`text-${item.type}`} />
+                  {item.number}
+                </h2>
+                <div className="">
+                  <Bar data={data} options={options} width={50} height={30} />
                 </div>
               </div>
             </div>
           </div>
-        ))}
-      </div>
-    </section>
+        </div>
+      ))}
+    </article>
   );
 };
 

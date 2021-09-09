@@ -1,7 +1,7 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
 import { Dot } from "react-bootstrap-icons";
-
+import Card from "./UI/Col8Card";
 const data = {
   labels: ["2010", "2011", "2012", "2013", "2014", "2015", "2016"],
   datasets: [
@@ -58,32 +58,34 @@ const options = {
 
 const MultiAxisLine = () => {
   return (
-    <div className="h-100 p-3 bg-white">
-      <div className="header flex-between ">
-        <div className="flex-center ">
-          <strong>YEARLY SALES</strong>
+    <Card>
+      <div className="h-100 p-3 bg-white ">
+        <div className="header flex-between ">
+          <div className="flex-center ">
+            <strong>YEARLY SALES</strong>
+          </div>
+          <div className="flex-center ">
+            <div>
+              <Dot className="text-info" size={40} />
+              <span>Iphone</span>
+            </div>
+            <div>
+              <Dot className="text-secondary" size={40} />
+
+              <span>Ipad</span>
+            </div>
+            <div>
+              <Dot className="text-primary" size={40} />
+
+              <span>Ipod</span>
+            </div>
+          </div>
         </div>
-        <div className="flex-center ">
-          <div>
-            <Dot className="text-info" size={40} />
-            <span>Iphone</span>
-          </div>
-          <div>
-            <Dot className="text-secondary" size={40} />
-
-            <span>Ipad</span>
-          </div>
-          <div>
-            <Dot className="text-primary" size={40} />
-
-            <span>Ipod</span>
-          </div>
+        <div className=" ">
+          <Line data={data} height={410} options={options} />
         </div>
       </div>
-      <div className=" ">
-        <Line data={data} options={options} />
-      </div>
-    </div>
+    </Card>
   );
 };
 

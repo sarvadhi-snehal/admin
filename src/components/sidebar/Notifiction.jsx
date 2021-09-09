@@ -1,68 +1,83 @@
-import React from "react";
-import Box from "@material-ui/core/Box";
-import MailOutlineIcon from "@material-ui/icons/MailOutline";
-import CreateIcon from "@material-ui/icons/Create";
-import SettingsIcon from "@material-ui/icons/Settings";
-import LayersIcon from "@material-ui/icons/Layers";
-import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import Badge from "@material-ui/core/Badge";
-const useStyles = makeStyles((theme) => ({
-  box: {
-    minWidth: 200,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    color: "white",
-  },
-  btn: {
-    color: "white",
-  },
-  badge: {
-    display: "inline-block",
-    backgroundColor: "lighten(red, 20%)",
-    borderRadius: "50%",
-    color: "#fff",
-    padding: "0.5em 0.75em",
-    position: "relative",
-    '&::before' :{
-      content: '',
-      display: "block",
-      position: "absolute",
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      animation: "pulse 1s ease infinite",
-      borderRadius: "50%",
-      border: "4px double lighten(red, 20%)",
-    }
-  }
-}))
+import { Envelope } from "react-bootstrap-icons";
+import { PencilSquare } from "react-bootstrap-icons";
+import { LayoutThreeColumns } from "react-bootstrap-icons";
+import { Gear } from "react-bootstrap-icons";
+import MessagesList from "../Messages/MessagesList";
+import NotificationInfo from "../Notification/NotificationInfo";
 const Notifiction = () => {
-  const classes = useStyles()
+  const data = [
+    {
+      Icon: Envelope,
+      target: "notification",
+      Component: MessagesList,
+      title: "Notifications",
+      size: "sm",
+      footer: "Clear all notification",
+    },
+    {
+      Icon: PencilSquare,
+      target: "msg",
+      Component: MessagesList,
+      title: "YOU HAVE 4 MESSAGES",
+      size: "sm",
+      footer: "See all e-mails ",
+    },
+    {
+      Icon: LayoutThreeColumns,
+      target: "cacl",
+      Component: NotificationInfo,
+      size: "fullscreen",
+      title: false,
+      footer: false,
+    },
+  ];
+
   return (
-    <Box ml="auto" className={classes.box}>
-      <Button className={classes.btn}>
-      
-          <MailOutlineIcon />
-     
-      </Button>
+    <div className="ms-auto me-4 d-flex ">
+      {data.map((item) => {
+        const { target, Icon, Component, size, title, footer } = item;
+        return (
+          <div className="flex-center ">
+            <div
+              className={" btn text-white"}
+              data-bs-target={`#${target}`}
+              data-bs-toggle="dropdown"
+              data-bs-whatever={target}
+            >
+              <label className={title && " badgeAnimation"}>
+                <Icon size={20} />
+              </label>
+            </div>
+            <ul className="dropdown-menu mt-2" id={target} aria-hidden="true">
+              <div className="">
+                <div className="">
+                  {title && (
+                    <div className="modal-header">
+                      <p className="modal-title text-dark">{title}</p>
+                    </div>
+                  )}
+                  <div className="row">
+                    <Component classname="scroll-div3 scroll" />
+                  </div>
+                  {footer && (
+                    <div className=" p-3 text-center">
+                      <h6 className="fs-bold text-dark m-auto">
+                        {footer} &gt;
+                      </h6>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </ul>
+          </div>
+        );
+      })}
 
-      <Button className={classes.btn}>
-        
-          <CreateIcon />
-        
-      </Button>
+      <label className="btn text-white">
+        <Gear />
+      </label>
+    </div>
+  );
+};
 
-      <Button className={classes.btn}>
-        <LayersIcon />
-      </Button>
-      <Button className={classes.btn}>
-        <SettingsIcon />
-      </Button>
-    </Box>
-  )
-}
-
-export default Notifiction
+export default Notifiction;

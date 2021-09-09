@@ -52,7 +52,7 @@ export default function NestedList({ isClose }) {
       key: "dashboard",
       links: [
         {
-          href: "/minimal",
+          href: "/",
           name: "Minimal",
         },
         {

@@ -111,7 +111,7 @@ const SiteTraffic = () => {
   ];
 
   return (
-    <div className="row flex-between mt-4 mx-2 ">
+    <article className="row flex-between mt-4 mx-2 ">
       {data.map((item) => (
         <SiteTrafficItem
           name={item.name}
@@ -122,7 +122,7 @@ const SiteTraffic = () => {
           options={item.options}
         />
       ))}
-    </div>
+    </article>
   );
 };
 

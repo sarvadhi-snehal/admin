@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(0, 1),
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
+    position: "relative",
   },
   content: {
     flexGrow: 1,
@@ -38,8 +39,8 @@ export default function Layout({ children }) {
         {/* <Alert /> */}
         <BreadCumb link={location.pathname.substring(1)} />
         {children}
+        <Footer />
       </main>
-      {/* <Footer /> */}
     </div>
   );
 }

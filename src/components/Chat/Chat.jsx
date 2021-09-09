@@ -43,7 +43,7 @@ const Chat = () => {
       <div className="bg-white p-4">
         <h6>Chat</h6>
       </div>
-      <div className="scroll-div3 bg-white">
+      <div className="scroll-div3 scroll bg-white">
         {msges.map((msg) => (
           <MsgItem msg={msg} />
         ))}

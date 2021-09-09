@@ -32,12 +32,12 @@ const data = [
 ];
 const ClientProject = () => {
   return (
-    <div className="container-fluid py-4">
+    <div className="container-fluid ">
       <div className="row ">
-        <div className="col-md-6 col-lg 6 col col-sm-12 ">
+        <div className="col-md-6 col-lg-6 col col-sm-12 d-flex flex-wrap bg-dark">
           {data.map((item) => (
-            <div className="col-sm-12 col-lg-6 col-md-6">
-              <div className="bg-white p-4">
+            <div className="w-50 w-sm-100  w-xs-100">
+              <div className="bg-white ">
                 <h6>{item.name}</h6>
                 <div className="body flex-between ">
                   <item.Icon size={50} className={`text-${item.type}`} />
@@ -47,6 +47,8 @@ const ClientProject = () => {
             </div>
           ))}
         </div>
+
+        {/* *TODO : need  change to collaser */}
         <div className="col-md-6 col-lg 6 col col-sm-12">
           <div
             className="info h-100 flex-center flex-column p-5 text-center"

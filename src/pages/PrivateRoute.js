@@ -1,15 +1,19 @@
-import { useContext, useEffect } from "react";
-import { Route, Redirect, useHistory } from "react-router-dom";
+import { useContext } from "react";
+import { Route, useHistory, Redirect } from "react-router-dom";
 import contextProvider from "../Store";
 const PrivateRoute = ({ component: Component, ...rest }) => {
-  const { state } = useContext(contextProvider);
-  const { isAuthenticated } = state;
-  const history = useHistory();
-  console.log(state);
+  const {
+    state: { isAuthenticated },
+  } = useContext(contextProvider);
 
-  !isAuthenticated && history.push("/");
-
-  return <Route {...rest} render={(props) => <Component {...props} />} />;
+  return (
+    <Route
+      {...rest}
+      render={(props) =>
+        !isAuthenticated ? <Redirect to="/" /> : <Component {...props} />
+      }
+    />
+  );
 };
 
 export default PrivateRoute;

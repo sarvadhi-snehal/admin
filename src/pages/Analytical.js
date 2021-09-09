@@ -3,7 +3,6 @@ import SiteTraffic from "../components/SiteTraffic/SiteTraffic";
 import Map from "../components/SiteVisit/Map";
 import List from "../components/SiteVisit/List";
 import Summary from "../components/SiteVisit/Summary";
-import SmallCard from "../components/UI/SmallCard";
 import BrowserState from "../components/BrowserState";
 import Cpu from "../components/Cpu";
 import ContactCard from "../components/ContactCard";
@@ -13,10 +12,10 @@ const Analytical = () => {
       <SiteTraffic />
       <div className="row mx-4 bg-white mt-4">
         <Map />
-        <SmallCard>
+        <div className="col col-sm-12 col-md-12 col-lg-4 p-4  ">
           <List />
           <Summary />
-        </SmallCard>
+        </div>
       </div>
       <div className="row  mx-2  d-flex">
         <BrowserState />

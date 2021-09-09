@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useReducer, useEffect } from "react";
 import "./custome.scss";
 import "./App.scss";
 import Minimal from "./pages/Minimal";
@@ -10,28 +10,23 @@ import Login from "./components/Login/Login";
 import Demographical from "./pages/Demographical";
 import Morden from "./pages/Morden";
 import { ContextProvider, reducer, initialState } from "./Store";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import PrivateRoute from "./pages/PrivateRoute";
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const { isAuthenticated } = state;
-  console.log(isAuthenticated);
 
+  console.log(state);
   return (
     <BrowserRouter>
       <ContextProvider value={{ state, dispatch }}>
         <Switch>
-          <Route exact path="/" component={Login} />
+          <Route exact path="/login" component={Login} />
 
           <Layout>
-            <PrivateRoute exact path="/minimal" component={Minimal} />
-            <PrivateRoute exact path="/analytical" component={Analytical} />
-            <PrivateRoute
-              exact
-              path="/demographical"
-              component={Demographical}
-            />
-            <PrivateRoute exact path="/morden" component={Morden} />
+            <Route exact path="/" component={Minimal} />
+            <Route exact path="/analytical" component={Analytical} />
+            <Route exact path="/demographical" component={Demographical} />
+            <Route exact path="/morden" component={Morden} />
             {/* <Footer /> */}
           </Layout>
         </Switch>

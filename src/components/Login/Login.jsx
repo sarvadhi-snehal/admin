@@ -4,7 +4,7 @@ import LoginForm from "./LoginForm";
 import { useContext } from "react";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core";
-import { useHistory, useLocation } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import contextProvider from "../../Store";
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,12 +15,15 @@ const useStyles = makeStyles((theme) => ({
     height: "100vh",
   },
 }));
-const Login = () => {
-  const { state } = useContext(contextProvider);
-  console.log(state);
-  const history = useHistory();
-  const location = useLocation();
 
+const Login = () => {
+  const {
+    state: { isAuthenticated },
+  } = useContext(contextProvider);
+  console.log(isAuthenticated);
+  // if (isAuthenticated) {
+  //   <Redirect to="/minimal" />;
+  // }
   const classes = useStyles();
   return (
     <Grid container className={classes.root}>

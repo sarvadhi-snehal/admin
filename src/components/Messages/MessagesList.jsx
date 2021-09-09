@@ -1,42 +1,43 @@
-export default function MessagesList() {
-  const listItems = [
-    {
-      avatar: "https://material-ui.com/static/images/avatar/1.jpg",
-      name: "Sonu Nigam",
-      msg: "Lorem ipsum dolor sit elit.",
-      time: "6:12 AM",
-    },
-    {
-      avatar: "https://material-ui.com/static/images/avatar/2.jpg",
+export const listItems = [
+  {
+    avatar: "https://material-ui.com/static/images/avatar/1.jpg",
+    name: "Sonu Nigam",
+    msg: "Lorem ipsum dolor sit elit.",
+    time: "6:12 AM",
+  },
+  {
+    avatar: "https://material-ui.com/static/images/avatar/2.jpg",
 
-      name: "Arijit singh",
-      msg: "Lorem ipsum dolor sit amet, c.",
-      time: "6:12 AM",
-    },
-    {
-      avatar: "https://material-ui.com/static/images/avatar/2.jpg",
+    name: "Arijit singh",
+    msg: "Lorem ipsum dolor sit amet, c.",
+    time: "6:12 AM",
+  },
+  {
+    avatar: "https://material-ui.com/static/images/avatar/2.jpg",
 
-      name: "Pranav kumar",
-      msg: "Lorem ipsum dolor sit amet, ng elit.",
-      time: "6:12 AM",
-    },
-    {
-      avatar: "https://material-ui.com/static/images/avatar/2.jpg",
+    name: "Pranav kumar",
+    msg: "Lorem ipsum dolor sit amet, ng elit.",
+    time: "6:12 AM",
+  },
+  {
+    avatar: "https://material-ui.com/static/images/avatar/2.jpg",
 
-      name: "Arijit singh",
-      msg: "Lorem ipsum dolor sit amet",
-      time: "6:12 AM",
-    },
-    {
-      avatar: "https://material-ui.com/static/images/avatar/2.jpg",
+    name: "Arijit singh",
+    msg: "Lorem ipsum dolor sit amet",
+    time: "6:12 AM",
+  },
+  {
+    avatar: "https://material-ui.com/static/images/avatar/2.jpg",
 
-      name: "Pranav kumar",
-      msg: "Lorem ipsum dolor sit amet,",
-      time: "6:12 AM",
-    },
-  ];
+    name: "Pranav kumar",
+    msg: "Lorem ipsum dolor sit amet,",
+    time: "6:12 AM",
+  },
+];
+
+export default function MessagesList({ classname }) {
   return (
-    <div className="scroll-div2 ">
+    <div className={classname}>
       {listItems.map((list) => (
         <div className="border-bottom bg-white d-flex p-2">
           <div
@@ -50,10 +51,10 @@ export default function MessagesList() {
             />
           </div>
           <div className="ms-2 h-25">
-            <h6>{list.name}</h6>
-            <p>{list.msg}</p>
+            <h6 className="text-dark">{list.name}</h6>
+            <p className="text-secondary small">{list.msg}</p>
 
-            <p>{list.time}</p>
+            <p className="text-secondary">{list.time}</p>
           </div>
         </div>
       ))}

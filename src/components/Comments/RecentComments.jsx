@@ -1,5 +1,6 @@
 import React from "react";
 import CommetnItem from "./CommentItem";
+import Card from "../UI/HalfCard";
 
 const comments = [
   {
@@ -44,7 +45,7 @@ const comments = [
 
 const RecentComments = () => {
   return (
-    <div className="col col-sm-12 col-md-6  mt-4 ">
+    <Card>
       <div className=" bg-white p-3">
         <h6>Recent Comments</h6>
       </div>
@@ -53,7 +54,7 @@ const RecentComments = () => {
           <CommetnItem key={index} comment={comment} />
         ))}
       </div>
-    </div>
+    </Card>
   );
 };
 

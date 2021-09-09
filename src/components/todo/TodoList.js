@@ -51,7 +51,7 @@ const TodoList = () => {
     },
   ];
   return (
-    <div className="scroll-div2">
+    <div className="scroll-div2 scroll">
       {todos.map((todo) => (
         <TodoItem todo={todo} />
       ))}

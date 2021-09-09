@@ -1,17 +1,14 @@
 import SalseDiif from "./SalseDiif";
 import ViewStatics from "./ViewStatics";
 import Graph from "./SalesGraph";
-
+import BigCard from "../UI/Col8Card";
 const GraphContainer = (props) => {
   return (
     <section className="row flex-between ">
-      <div
-        className="col col-md-12 col-lg-8 col-sm-12  mt-4 "
-        style={{ height: 500 }}
-      >
+      <BigCard>
         <Graph />
-      </div>
-      <div className=" col col-sm-12 col-md-12 col-lg-4 flex-column-between">
+      </BigCard>
+      <div className="col col-sm-12 col-md-12 col-lg-4 flex-column-between">
         <SalseDiif />
 
         <ViewStatics />

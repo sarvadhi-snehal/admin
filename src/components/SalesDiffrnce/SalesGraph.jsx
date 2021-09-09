@@ -69,7 +69,9 @@ const Graph = () => {
           </div>
         </div>
       </div>
-      <Line data={data} options={options} />
+      <div>
+        <Line data={data} height={410} options={options} />
+      </div>
     </div>
   );
 };

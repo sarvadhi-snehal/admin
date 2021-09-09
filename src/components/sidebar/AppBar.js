@@ -11,32 +11,34 @@ import Logo from "./Logo";
 const AppBarContainer = ({ open, handleDrawerOpen }) => {
   const classes = useStyles();
   return (
-    <AppBar
-      position="fixed"
-      className={clsx(classes.appBar, {
-        [classes.appBarShift]: open,
-      })}
-    >
-      <Toolbar className={classes.toolbar}>
-        <Logo open={open} />
-        <IconButton
-          color="inherit"
-          aria-label="open drawer"
-          onClick={handleDrawerOpen}
-          edge="start"
-          className={classes.menuButton}
-        >
-          <MenuIcon />
-        </IconButton>
+    <>
+      <AppBar
+        position="fixed"
+        className={clsx(classes.appBar, {
+          [classes.appBarShift]: open,
+        })}
+      >
+        <div className={classes.toolbar}>
+          <Logo open={open} />
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            className={classes.menuButton}
+          >
+            <MenuIcon />
+          </IconButton>
 
-        <input
-          type="text"
-          className={`${classes.searchInput}  d-md-block d-lg-block d-none`}
-          placeholder="Search and enter"
-        />
-        <Notifiction />
-      </Toolbar>
-    </AppBar>
+          <input
+            type="text"
+            className={`${classes.searchInput}  d-md-block d-lg-block d-none`}
+            placeholder="Search and enter"
+          />
+          <Notifiction />
+        </div>
+      </AppBar>
+    </>
   );
 };
 

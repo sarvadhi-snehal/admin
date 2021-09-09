@@ -1,6 +1,6 @@
 import React from "react";
 import { Bar, defaults } from "react-chartjs-2";
-
+import Card from "../UI/SmallCard";
 const data = {
   labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
   datasets: [
@@ -37,21 +37,19 @@ const options = {
 
 const SalseDiif = () => {
   return (
-    <div style={{ height: 230 }} className="mt-4 bg-danger w-100">
-      <div className="bg-white h-100 w-100 p-4  flex-between text-dark ">
-        <div className="flex-between w-100  h-100">
-          <div className=" h-100 flex-column">
-            <h6>SALES DIFFERENCE</h6>
-            <h1 className="mt-auto text-primary">$647</h1>
-            <p className="text-secondary">APRIL 2017</p>
-            <h6>(150 Sales)</h6>
-          </div>
-          <div className="ms-auto">
-            <Bar width={100} data={data} options={options} />
-          </div>
+    <Card className="flex-between bg-white  text-dark">
+      <div className="flex-between w-100  h-100">
+        <div className=" h-100 flex-column">
+          <h6>SALES DIFFERENCE</h6>
+          <h1 className="mt-auto text-primary">$647</h1>
+          <p className="text-secondary">APRIL 2017</p>
+          <h6>(150 Sales)</h6>
+        </div>
+        <div className="ms-auto">
+          <Bar width={100} data={data} options={options} />
         </div>
       </div>
-    </div>
+    </Card>
   );
 };
 

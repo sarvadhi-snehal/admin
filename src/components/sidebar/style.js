@@ -8,6 +8,7 @@ export const useStyles = makeStyles((theme) => ({
     border: "none",
   },
   appBar: {
+    height: "auto",
     // width: `calc(100% - ${theme.spacing(9) + 1}px)`,
     boxShadow: "0 0 0",
     zIndex: theme.zIndex.drawer + 1,
@@ -15,6 +16,7 @@ export const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+    display: "flex",
   },
   appBarShift: {
     transition: theme.transitions.create(["width", "margin"], {
@@ -69,11 +71,9 @@ export const useStyles = makeStyles((theme) => ({
   toolbar: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "flex-end",
-    border: "none",
 
-    padding: theme.spacing(0, 0),
-    // necessary for content to be below app bar
+    border: "none",
+    width: "100%",
     ...theme.mixins.toolbar,
   },
   content: {
@@ -116,6 +116,7 @@ export const useStyles = makeStyles((theme) => ({
     height: theme.spacing(8),
     width: theme.spacing(8),
     border: "none",
+
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -129,6 +130,22 @@ export const useStyles = makeStyles((theme) => ({
     width: drawerWidth,
     [theme.breakpoints.down("sm")]: {
       width: theme.spacing(8),
+    },
+  },
+  badgeAnimation: {
+    position: "relative",
+    "&::after": {
+      content: " ",
+      position: "absolute",
+      top: "-.1rem",
+      left: "-.1rem",
+      backgroundColor: "red",
+      border: "2px solid rgba(255,0,0,.5)",
+      // opacity:0,
+      borderRadius: "50%",
+      width: "100%",
+      height: "50%",
+      // animation: "sonar 1.5s 1",
     },
   },
 }));

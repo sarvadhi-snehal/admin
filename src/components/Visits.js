@@ -1,7 +1,7 @@
 import React from "react";
 import { Bar, defaults } from "react-chartjs-2";
 import { ArrowUp } from "react-bootstrap-icons";
-import Graph from "./Graph";
+import Graph from "./SalesDiffrnce/SalesGraph";
 const visits = [
   {
     name: "visit",
@@ -78,7 +78,9 @@ const Visits = () => {
         ))}
       </div>
       <div className="col col-lg-12" style={{ height: 500 }}>
-        <Graph />
+        <div className="mx-1">
+          <Graph />
+        </div>
       </div>
     </section>
   );

@@ -28,8 +28,8 @@ const ActivityItem = ({ title, time, info, action, person }) => {
         <p>{info}</p>
         {action && (
           <div>
-            <button className="btn btn-success">Approve</button>
-            <button className="btn btn-danger">Refuse</button>
+            <button className="btn btn-success m-1">Approve</button>
+            <button className="btn btn-danger m-1">Refuse</button>
           </div>
         )}
       </div>

@@ -16,7 +16,7 @@ const SiteLinks = () => {
 
   const responseGoogle = () => {
     dispatch({ type: "logout" });
-    history.push("/");
+    history.push("/login");
   };
   return (
     <List>
