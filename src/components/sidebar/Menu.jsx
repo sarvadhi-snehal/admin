@@ -30,20 +30,26 @@ const useStyles = makeStyles((theme) => ({
   item: {
     color: "grey",
     "&:hover": {
-      color: "green",
+      color: "orange",
     },
+    fontFamily: "Poppins",
   },
   activeLink: {
-    color: "green",
+    color: "orange",
   },
 }));
 
 export default function NestedList({ isClose }) {
   const classes = useStyles();
   const [open, setOpen] = useState({});
+  const [isselescted, setIsSelected] = useState({});
 
   const handleClick = (key) => {
     setOpen({ [key]: !open[key] });
+  };
+  const SelectedMenu = (item) => {
+    console.log(item);
+    setIsSelected({ [item]: !isselescted[item] });
   };
 
   const menu = [
@@ -80,23 +86,23 @@ export default function NestedList({ isClose }) {
           name: "Calander",
         },
         {
-          href: "/",
+          href: "/chat",
           name: "Chat App",
         },
         {
-          href: "/",
+          href: "/support",
           name: "Support Ticket",
         },
         {
-          href: "/",
-          name: "Contact /Employee",
+          href: "/contact",
+          name: "Contact / Employee",
         },
         {
-          href: "/",
+          href: "/contact2",
           name: "Contact Grid",
         },
         {
-          href: "/",
+          href: "/contact3",
           name: "Contact Detail",
         },
       ],
@@ -107,15 +113,15 @@ export default function NestedList({ isClose }) {
 
       links: [
         {
-          href: "/dashboard",
+          href: "/mailbox",
           name: "Mailbox ",
         },
         {
-          href: "/",
+          href: "/mailboxdetail",
           name: "Mailbox Detail",
         },
         {
-          href: "/",
+          href: "/composemail",
           name: "Compose Mail",
         },
       ],
@@ -148,7 +154,11 @@ export default function NestedList({ isClose }) {
                     button
                     component="a"
                     href={item.href}
-                    className={classes.nested}
+                    onClick={() => SelectedMenu(item.name)}
+                    className={[
+                      classes.nested,
+                      isselescted[item.name] && classes.activeLink,
+                    ]}
                   >
                     <ListItemText primary={item.name} />
                   </ListItem>

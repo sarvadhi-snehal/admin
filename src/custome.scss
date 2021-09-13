@@ -78,13 +78,6 @@
 }
 .scroll {
   overflow-y: auto;
-  ::-webkit-scrollbar {
-    opacity: 0;
-    background: transparent;
-  }
-  ::-webkit-scrollbar:hover {
-    opacity: 1;
-  }
 }
 .scroll-div2 {
   max-height: 450px;
@@ -150,4 +143,31 @@ span {
     }
     @include animate(blink, 1.5s, infinite);
   }
+}
+
+.no-focus {
+  &:focus {
+    border: none;
+  }
+}
+.avatarImg {
+  @include flex-mixin();
+  justify-content: center;
+}
+.me {
+  height: 100%;
+  position: relative;
+  background-color: #000000;
+  background-blend-mode: lighten;
+  @include flex-mixin();
+  justify-content: center;
+  .overlay {
+    opacity: 0.2;
+  }
+}
+
+.small-font {
+  font-size: 0.8rem;
+  color: grey;
+  margin: 0;
 }

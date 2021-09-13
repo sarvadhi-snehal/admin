@@ -1,0 +1,23 @@
+.toolbar li {
+  border: 1px solid rgb(214, 214, 214);
+  padding: 0.5em;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  button {
+    border: 0;
+    background: transparent;
+  }
+  .dropdown-toggle {
+    width: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .more {
+    width: 4rem;
+  }
+  &:hover {
+    border: 1px solid transparent;
+  }
+}

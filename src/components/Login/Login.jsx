@@ -17,13 +17,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Login = () => {
-  const {
-    state: { isAuthenticated },
-  } = useContext(contextProvider);
-  console.log(isAuthenticated);
+  const { state } = useContext(contextProvider);
+  console.log(state);
   // if (isAuthenticated) {
   //   <Redirect to="/minimal" />;
   // }
+
   const classes = useStyles();
   return (
     <Grid container className={classes.root}>

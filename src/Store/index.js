@@ -7,7 +7,7 @@ export const ContextProvider = loginContext.Provider;
 
 export const initialState = {
   token: null,
-  isAuthenticated: null,
+  isAuthenticated: false,
   loading: true,
   user: null,
 };
@@ -15,6 +15,7 @@ export const initialState = {
 export const reducer = (state, action) => {
   const { type, payload } = action;
   switch (type) {
+    case "loadUser":
     case "login":
       return {
         token: payload.token,

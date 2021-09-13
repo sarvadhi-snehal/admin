@@ -25,7 +25,7 @@ export const useStyles = makeStyles((theme) => ({
     }),
   },
   menuButton: {
-    margin: 3,
+    margin: 5,
   },
   hide: {
     display: "none",
@@ -35,6 +35,7 @@ export const useStyles = makeStyles((theme) => ({
     // flexShrink: 0,
     // border: "none",
     // whiteSpace: "nowrap",
+    fontFamily: "Poppins",
   },
   drawerOpen: {
     width: drawerWidth,
@@ -48,6 +49,7 @@ export const useStyles = makeStyles((theme) => ({
     "&::-webkit-scrollbar": {
       display: "none",
     },
+    fontFamily: "Poppins",
   },
   drawerClose: {
     transition: theme.transitions.create("width", {
@@ -56,7 +58,7 @@ export const useStyles = makeStyles((theme) => ({
     }),
 
     top: theme.spacing(8),
-
+    fontFamily: "Poppins",
     border: "none",
     color: "grey",
     overflowX: "hidden",
@@ -71,7 +73,7 @@ export const useStyles = makeStyles((theme) => ({
   toolbar: {
     display: "flex",
     alignItems: "center",
-
+    backgroundColor: "#F39678",
     border: "none",
     width: "100%",
     ...theme.mixins.toolbar,

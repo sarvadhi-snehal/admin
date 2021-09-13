@@ -1,5 +1,6 @@
 import MsgItem from "./MsgItem";
 import { Telegram } from "react-bootstrap-icons";
+import Users from "./Users";
 const msges = [
   {
     name: "James Anderson",
@@ -37,30 +38,37 @@ const msges = [
     date: "11:00 am",
   },
 ];
-const Chat = () => {
+const Chat = ({ className, header, list }) => {
   return (
-    <div className="col col-sm-12 col-md-4 mt-4">
-      <div className="bg-white p-4">
-        <h6>Chat</h6>
-      </div>
-      <div className="scroll-div3 scroll bg-white">
-        {msges.map((msg) => (
-          <MsgItem msg={msg} />
-        ))}
-      </div>
+    <div className={className}>
+      <div className="div d-flex mt-4 ">
+        <Users className={list} />
+        <div className="w-100 ">
+          <div className="bg-white p-4">
+            <h6>Chat</h6>
+          </div>
+          <div className="scroll-div3 scroll bg-white d-flex ">
+            <div className="w-100">
+              {msges.map((msg) => (
+                <MsgItem msg={msg} />
+              ))}
+            </div>
+          </div>
 
-      <div className="border-top  p-4 bg-white ">
-        <form className="flex-between">
-          <input
-            className="border-0 "
-            type="text"
-            name="message"
-            placeholder="Type your message here"
-          />
-          <button className="btn">
-            <Telegram size={40} color="#0dcaf0" />
-          </button>
-        </form>
+          <div className="border-top  p-4 bg-white ">
+            <form className="flex-between">
+              <input
+                className="border-0 "
+                type="text"
+                name="message"
+                placeholder="Type your message here"
+              />
+              <button className="btn">
+                <Telegram size={40} color="#0dcaf0" />
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   );

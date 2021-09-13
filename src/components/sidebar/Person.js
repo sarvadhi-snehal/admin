@@ -54,7 +54,7 @@ const Person = ({ open }) => {
           aria-labelledby="dropdownMenuButton1"
         >
           {action.map((menu) => (
-            <a className="dropdown-item d-flex p-2" href="nowhere">
+            <a className="dropdown-item p-2" href="nowhere">
               <menu.Icon className="me-1" />
               {menu.name}
             </a>

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 const BreadCumb = ({ link }) => {
   return (
-    <nav aria-label="breadcrumb" className="bg-white p-3 d-flex ">
+    <div aria-label="breadcrumb" className="bg-white p-3  flex-center">
       <h4 className="text-capitalize">{link}</h4>
       <ol className="breadcrumb ms-auto">
         <li className="breadcrumb-item">
@@ -12,7 +12,7 @@ const BreadCumb = ({ link }) => {
           <Link to={`/${link}`}>{link}</Link>
         </li>
       </ol>
-    </nav>
+    </div>
   );
 };
 

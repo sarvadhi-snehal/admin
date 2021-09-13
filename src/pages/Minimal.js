@@ -12,11 +12,9 @@ import GraphContainer from "../components/SalesDiffrnce/GrapContainer";
 import contextProvider from "../Store";
 import { Redirect } from "react-router-dom";
 const Minimal = () => {
-  const {
-    state: { isAuthenticated },
-  } = useContext(contextProvider);
-  console.log(isAuthenticated);
-
+  const { state } = useContext(contextProvider);
+  console.log(state);
+  const fourbyTwelve = "col col-sm-12 col-md-4 ";
   return (
     <section className="container-fluid bg-light px-4 pb-4">
       <Summary />
@@ -35,8 +33,8 @@ const Minimal = () => {
       <GraphContainer />
       <section className="row  h-100">
         <Todo />
-        <Message className="col col-sm-12 col-md-4 mt-4" />
-        <Chat />
+        <Message className={`mt-4 ${fourbyTwelve}`} />
+        <Chat className={fourbyTwelve} list="d-none" />
       </section>
     </section>
   );

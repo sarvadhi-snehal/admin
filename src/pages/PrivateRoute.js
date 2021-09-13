@@ -2,16 +2,19 @@ import { useContext } from "react";
 import { Route, useHistory, Redirect } from "react-router-dom";
 import contextProvider from "../Store";
 const PrivateRoute = ({ component: Component, ...rest }) => {
-  const {
-    state: { isAuthenticated },
-  } = useContext(contextProvider);
+  const { state } = useContext(contextProvider);
+  console.log(state);
+  const { isAuthenticated, loading } = state;
 
   return (
     <Route
       {...rest}
-      render={(props) =>
-        !isAuthenticated ? <Redirect to="/" /> : <Component {...props} />
-      }
+      render={(props) => (
+        // loading ? (
+        //   <Redirect to="/loading" />
+        // ) :
+        <Component {...props} />
+      )}
     />
   );
 };
