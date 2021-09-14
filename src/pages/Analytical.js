@@ -6,7 +6,10 @@ import Summary from "../components/SiteVisit/Summary";
 import BrowserState from "../components/BrowserState";
 import Cpu from "../components/Cpu";
 import ContactCard from "../components/ContactCard";
+import { useSelector } from "react-redux";
 const Analytical = () => {
+  const state = useSelector((state) => state);
+  console.log(state);
   return (
     <section className="container-fluid bg-light ">
       <SiteTraffic />

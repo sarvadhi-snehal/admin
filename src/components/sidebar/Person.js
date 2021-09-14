@@ -8,18 +8,18 @@ import { Wallet2 } from "react-bootstrap-icons";
 import { Envelope } from "react-bootstrap-icons";
 import { Gear } from "react-bootstrap-icons";
 import { Power } from "react-bootstrap-icons";
-import contextProvider from "../../Store";
 import { GoogleLogout } from "react-google-login";
 import { useHistory } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../../Store/actions/action";
 const Person = ({ open }) => {
-  const { state, dispatch } = useContext(contextProvider);
-
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state);
   const history = useHistory();
-
+  console.log(state);
   const responseGoogle = () => {
-    dispatch({ type: "logout" });
+    dispatch(logout());
     history.push("/login");
-    // console.log("logout");
   };
   const action = [
     {
@@ -37,7 +37,7 @@ const Person = ({ open }) => {
   ];
 
   const body = (
-    <div className="dropdown ">
+    <div className="dropdown w-75">
       <label
         className="btn d-block dropdown-toggle border-none "
         type="button"
@@ -46,11 +46,11 @@ const Person = ({ open }) => {
         aria-expanded="false"
         style={{ color: "grey" }}
       >
-        {!state.loading && state.user.name}
+        {state.user === null ? "" : state.user.name}
       </label>
       <Flip right>
         <ul
-          className="dropdown-menu mt-5 "
+          className="dropdown-menu mt-5 overflow-hidden "
           aria-labelledby="dropdownMenuButton1"
         >
           {action.map((menu) => (
@@ -93,8 +93,8 @@ const Person = ({ open }) => {
         <div className="d-flex align-items-center flex-column justify-content-center pt-4 pb-5">
           <div className="avatar">
             <Avatar
-              alt={!state.loading && state.user.name}
-              src={!state.loading && state.user.imageUrl}
+              alt={state.user === null ? "" : state.user.name}
+              src={state.user === null ? "" : state.user.imageUrl}
             />
           </div>
           {body}
@@ -103,8 +103,8 @@ const Person = ({ open }) => {
         <ListItem button>
           <ListItemIcon>
             <Avatar
-              alt={!state.loading && state.user.name}
-              src={!state.loading && state.user.imageUrl}
+              alt={state.user === null ? "" : state.user.name}
+              src={state.user === null ? "" : state.user.imageUrl}
             />
           </ListItemIcon>
         </ListItem>

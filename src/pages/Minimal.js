@@ -9,11 +9,9 @@ import Todo from "../components/todo/Todo";
 import Message from "../components/Messages/Message";
 import Chat from "../components/Chat/Chat";
 import GraphContainer from "../components/SalesDiffrnce/GrapContainer";
-import contextProvider from "../Store";
+
 import { Redirect } from "react-router-dom";
 const Minimal = () => {
-  const { state } = useContext(contextProvider);
-  console.log(state);
   const fourbyTwelve = "col col-sm-12 col-md-4 ";
   return (
     <section className="container-fluid bg-light px-4 pb-4">

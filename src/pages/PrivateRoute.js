@@ -1,20 +1,27 @@
 import { useContext } from "react";
-import { Route, useHistory, Redirect } from "react-router-dom";
-import contextProvider from "../Store";
-const PrivateRoute = ({ component: Component, ...rest }) => {
-  const { state } = useContext(contextProvider);
-  console.log(state);
+import { Route, useLocation, Redirect } from "react-router-dom";
+import { useSelector } from "react-redux";
+const PrivateRoute = ({ children, ...rest }) => {
+  const state = useSelector((state) => state);
   const { isAuthenticated, loading } = state;
+  console.log(isAuthenticated);
+  const location = useLocation();
 
   return (
     <Route
       {...rest}
-      render={(props) => (
-        // loading ? (
-        //   <Redirect to="/loading" />
-        // ) :
-        <Component {...props} />
-      )}
+      render={({ location }) =>
+        isAuthenticated ? (
+          children
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/login",
+              state: { from: location },
+            }}
+          />
+        )
+      }
     />
   );
 };

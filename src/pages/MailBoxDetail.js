@@ -1,12 +1,12 @@
 import React from "react";
 import MailLayout from "../components/Mailbox/MailLayout";
-import Mails from "../components/Mailbox/Mails";
-const Inbox = () => {
+import Mail from "../components/Mailbox/Mail";
+const MailBoxDetail = () => {
   return (
     <MailLayout>
-      <Mails />
+      <Mail />
     </MailLayout>
   );
 };
 
-export default Inbox;
+export default MailBoxDetail;

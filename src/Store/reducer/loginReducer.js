@@ -1,15 +1,35 @@
-import { LOGIN_SUCCESS, LOGIN_FAILURE, LOG_OUT } from "../actions/type";
+import {
+  LOGIN_SUCCESS,
+  LOGIN_FAILURE,
+  LOG_OUT,
+  LOAD_USER,
+} from "../actions/type";
 
-const reducer = (state, action) => {
+const initialState = {
+  token: null,
+  isAuthenticated: false,
+  loading: true,
+  user: null,
+};
+
+const reducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
+    case LOAD_USER:
+      console.log(payload);
+      return {
+        token: payload.token,
+        user: payload.user,
+        isAuthenticated: true,
+        loading: false,
+      };
     case LOGIN_SUCCESS:
       console.log(payload);
       return {
-        ...state,
-        // user: payload.user,
-        // isAuthenticated: true,
-        // loading: false,
+        token: payload.token,
+        user: payload.user,
+        isAuthenticated: true,
+        loading: false,
       };
     case LOGIN_FAILURE:
     case LOG_OUT:

@@ -2,24 +2,8 @@ import GoogleLogin from "react-google-login";
 import { useContext, useState } from "react";
 import { withRouter, useLocation } from "react-router-dom";
 import React from "react";
-import ContextProvider from "../../Store";
-function GoogleSignin({ history }) {
-  const location = useLocation();
-  const { dispatch } = useContext(ContextProvider);
-  console.log(location.pathname);
-  const [isClicked, setIsClicked] = useState(false);
-  const responseGoogle = (response) => {
-    console.log(response);
-    // const userObj = {
-    //   token: response.Zb,
-    //   user: response.profileObj,
-    //   history,
-    //   pathname: location.pathname,
-    // };
-    // dispatch({ type: "login", payload: userObj });
-    // history.push("/");
-  };
-
+// import ContextProvider from "../../Store";
+function GoogleSignin({ responseGoogle }) {
   const responseGoogleError = (response) => {
     alert(`Something went wrong, login again`);
   };
@@ -31,7 +15,6 @@ function GoogleSignin({ history }) {
       onFailure={responseGoogleError}
       cookiePolicy={"single_host_origin"}
       isSignedIn={true}
-      onClick={() => setIsClicked(true)}
     />
   );
 }

@@ -8,9 +8,9 @@ import {
   ForwardFill,
   ArrowClockwise,
 } from "react-bootstrap-icons";
-const ToolBar = () => {
+const ToolBar = ({ className }) => {
   return (
-    <ul className="d-flex flex-wrap  w-100 bg-info toolbar ">
+    <ul className={`d-flex flex-wrap  toolbar ${className}`}>
       <li>
         <InboxFill />
       </li>

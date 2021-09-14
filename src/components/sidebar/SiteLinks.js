@@ -7,15 +7,11 @@ import RadioButtonUncheckedIcon from "@material-ui/icons/RadioButtonUnchecked";
 import { GoogleLogout } from "react-google-login";
 import { useStyles } from "./style";
 import { useHistory } from "react-router-dom";
-import loginContext from "../../Store";
-
 const SiteLinks = () => {
   const classes = useStyles();
   const history = useHistory();
-  const { dispatch, state } = useContext(loginContext);
 
   const responseGoogle = () => {
-    dispatch({ type: "logout" });
     history.push("/login");
   };
   return (

@@ -51,35 +51,39 @@ const MailMenu = () => {
     { name: "Corporate", type: "success" },
   ];
   return (
-    <div className="col col-sm-12 col-xs-12 col-md-4 col-lg-4 bg-white flex-column p-4 ">
-      <button className="btn btn-danger">Compose</button>
-      <nav className="flex-column p-3">
-        <ul className="p-0">
-          {menu.map((item) => (
-            <li className="flex-view p-2 mt-4">
-              <item.Icon />
-              <span className="ms-2">{item.name}</span>
-              {item.number && (
-                <button
-                  className={`ms-auto btn-${item.type}  px-2 border-0 rounded-3`}
-                >
-                  {item.number}
-                </button>
-              )}
-            </li>
-          ))}
-        </ul>
-      </nav>
-      <div className="lables p-3">
-        <h3>Lables</h3>
-        <ul className="p-0">
-          {labels.map((label) => (
-            <li key={label} className="text-danger p-3">
-              <CircleFill className={`text-${label.type} me-3`} />
-              {label.name}
-            </li>
-          ))}
-        </ul>
+    <div className="col col-sm-12 col-xs-12 col-md-4 col-lg-4 ">
+      <div className="ms-4 mt-4 flex-column h-100  w-100  ">
+        <div className="bg-white flex-column h-100 p-4">
+          <button className="btn btn-danger">Compose</button>
+          <nav className="flex-column p-3">
+            <ul className="p-0">
+              {menu.map((item) => (
+                <li className="flex-view p-2 mt-4">
+                  <item.Icon />
+                  <span className="ms-2">{item.name}</span>
+                  {item.number && (
+                    <button
+                      className={`ms-auto btn-${item.type}  px-2 border-0 rounded-3`}
+                    >
+                      {item.number}
+                    </button>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <div className="lables p-3">
+            <h3>Lables</h3>
+            <ul className="p-0">
+              {labels.map((label) => (
+                <li key={label} className="text-danger p-3">
+                  <CircleFill className={`text-${label.type} me-3`} />
+                  {label.name}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   );

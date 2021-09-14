@@ -1,23 +1,30 @@
-import { LOGIN_SUCCESS, LOGIN_FAILURE, LOG_OUT } from "./type";
+import { LOGIN_SUCCESS, LOGIN_FAILURE, LOG_OUT, LOAD_USER } from "./type";
 
-export const login = (userObj) => async (dispatch) => {
-  console.log(userObj);
-  try {
+export const loaduser = () => (dispatch) => {
+  if (localStorage.getItem("userObj")) {
+    let userObj = localStorage.getItem("userObj");
+
     dispatch({
-      type: LOGIN_SUCCESS,
-      payload: userObj,
+      type: LOAD_USER,
+      payload: JSON.parse(userObj),
     });
-  } catch (error) {
-    dispatch({ type: LOGIN_FAILURE, payload: error.message });
+  } else {
+    return;
   }
 };
 
-export const logout = (userObj) => async (dispatch) => {
-  try {
-    dispatch({
-      type: LOG_OUT,
-    });
-  } catch (error) {
-    dispatch({ type: LOGIN_FAILURE, payload: error.message });
-  }
+export const login = (userObj) => (dispatch) => {
+  localStorage.setItem("userObj", JSON.stringify(userObj));
+  dispatch({
+    type: LOGIN_SUCCESS,
+    payload: userObj,
+  });
+  dispatch(loaduser());
+};
+
+export const logout = (userObj) => (dispatch) => {
+  localStorage.removeItem("userObj");
+  dispatch({
+    type: LOG_OUT,
+  });
 };
