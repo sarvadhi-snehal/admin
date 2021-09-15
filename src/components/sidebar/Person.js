@@ -1,5 +1,5 @@
+import { useEffect } from "react";
 import Avatar from "@material-ui/core/Avatar";
-import { useContext } from "react";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Flip from "react-reveal/Flip";
@@ -9,18 +9,14 @@ import { Envelope } from "react-bootstrap-icons";
 import { Gear } from "react-bootstrap-icons";
 import { Power } from "react-bootstrap-icons";
 import { GoogleLogout } from "react-google-login";
-import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { logout } from "../../Store/actions/action";
-const Person = ({ open }) => {
-  const dispatch = useDispatch();
+import { loaduser } from "../../Store";
+const Person = ({ open, responseGoogle }) => {
   const state = useSelector((state) => state);
-  const history = useHistory();
-  console.log(state);
-  const responseGoogle = () => {
-    dispatch(logout());
-    history.push("/login");
-  };
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(loaduser());
+  }, [dispatch]);
   const action = [
     {
       name: "Profile",
@@ -54,7 +50,7 @@ const Person = ({ open }) => {
           aria-labelledby="dropdownMenuButton1"
         >
           {action.map((menu) => (
-            <a className="dropdown-item p-2" href="nowhere">
+            <a className="dropdown-item p-2" href="nowhere" key={menu.name}>
               <menu.Icon className="me-1" />
               {menu.name}
             </a>

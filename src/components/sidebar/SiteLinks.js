@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
@@ -6,14 +5,10 @@ import ListItemText from "@material-ui/core/ListItemText";
 import RadioButtonUncheckedIcon from "@material-ui/icons/RadioButtonUnchecked";
 import { GoogleLogout } from "react-google-login";
 import { useStyles } from "./style";
-import { useHistory } from "react-router-dom";
-const SiteLinks = () => {
-  const classes = useStyles();
-  const history = useHistory();
 
-  const responseGoogle = () => {
-    history.push("/login");
-  };
+const SiteLinks = ({ responseGoogle }) => {
+  const classes = useStyles();
+
   return (
     <List>
       <ListItem button className={classes.hover}>

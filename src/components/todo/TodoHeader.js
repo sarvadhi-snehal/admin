@@ -2,9 +2,9 @@ import { Plus } from "react-bootstrap-icons";
 const TodoHeader = () => {
   const body = (
     <div
-      class="modal fade"
+      className="modal fade"
       id="exampleModal"
-      tabindex="-1"
+      tabIndex="-1"
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
     >
@@ -14,7 +14,7 @@ const TodoHeader = () => {
             <h5 className="modal-title">Add Task</h5>
             <button
               type="button"
-              class="btn-close"
+              className="btn-close"
               data-bs-dismiss="modal"
               aria-label="Close"
             ></button>
@@ -22,7 +22,7 @@ const TodoHeader = () => {
           <div className="modal-body">
             <form>
               <div className="mb-3">
-                <label for="task" className="form-label">
+                <label htmlFor="task" className="form-label">
                   Email address
                 </label>
                 <input
@@ -37,7 +37,7 @@ const TodoHeader = () => {
                   className="form-select"
                   aria-label="Default select example"
                 >
-                  <option selected>Sachin</option>
+                  <option defaultValue>Sachin</option>
                   <option value="1">Shehwag</option>
                   <option value="2">Alia</option>
                   <option value="3">Varun</option>

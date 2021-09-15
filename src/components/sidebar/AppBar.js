@@ -1,15 +1,17 @@
 import clsx from "clsx";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+
 import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
 
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Notifiction from "./Notifiction";
 import { useStyles } from "./style";
 import Logo from "./Logo";
+import { useSelector } from "react-redux";
 const AppBarContainer = ({ open, handleDrawerOpen }) => {
   const classes = useStyles();
+  const headerColor = useSelector((state) => state.headerColor);
+  console.log(typeof headerColor);
   return (
     <>
       <AppBar
@@ -18,7 +20,10 @@ const AppBarContainer = ({ open, handleDrawerOpen }) => {
           [classes.appBarShift]: open,
         })}
       >
-        <div className={classes.toolbar}>
+        <div
+          className={classes.toolbar}
+          style={{ backgroundColor: headerColor }}
+        >
           <Logo open={open} />
           <IconButton
             color="inherit"

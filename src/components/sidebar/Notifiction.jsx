@@ -4,7 +4,9 @@ import { LayoutThreeColumns } from "react-bootstrap-icons";
 import { Gear } from "react-bootstrap-icons";
 import MessagesList from "../Messages/MessagesList";
 import NotificationInfo from "../Notification/NotificationInfo";
-const Notifiction = () => {
+import ServicePannel from "./ServicePannel";
+
+const Notifiction = ({ panelColor }) => {
   const data = [
     {
       Icon: Envelope,
@@ -34,17 +36,17 @@ const Notifiction = () => {
 
   return (
     <div className="ms-auto me-4 d-flex ">
-      {data.map((item) => {
-        const { target, Icon, Component, size, title, footer } = item;
+      {data.map((item, index) => {
+        const { target, Icon, Component, title, footer } = item;
         return (
-          <div className="flex-center ">
+          <div className="flex-center " key={index}>
             <div
               className={" btn text-white"}
               data-bs-target={`#${target}`}
               data-bs-toggle="dropdown"
               data-bs-whatever={target}
             >
-              <label className={title && " badgeAnimation"}>
+              <label className={title ? " badgeAnimation" : undefined}>
                 <Icon size={20} />
               </label>
             </div>
@@ -72,10 +74,8 @@ const Notifiction = () => {
           </div>
         );
       })}
-
-      <label className="btn text-white">
-        <Gear />
-      </label>
+      {/* <Gear />÷ */}
+      <ServicePannel />
     </div>
   );
 };

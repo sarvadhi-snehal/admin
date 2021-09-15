@@ -1,22 +1,30 @@
 import React from "react";
 import clsx from "clsx";
 import Drawer from "@material-ui/core/Drawer";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Divider from "@material-ui/core/Divider";
+
 import Person from "./Person";
 import Menu from "./Menu";
-import Logo from "./Logo";
+
 import AppBarContainer from "./AppBar";
 import { useStyles } from "./style";
 import SiteLinks from "./SiteLinks";
-
+import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../Store/actions/action";
 const Bar = () => {
   const classes = useStyles();
-
+  const history = useHistory();
+  const dispatch = useDispatch();
   const [open, setOpen] = React.useState(false);
+  const sidebarColor = useSelector((state) => state.sidebarColor);
 
   const handleDrawerOpen = () => {
     setOpen(!open);
+  };
+
+  const responseGoogle = () => {
+    dispatch(logout());
+    history.push("/login");
   };
   return (
     <>
@@ -39,19 +47,20 @@ const Bar = () => {
         {/* <Logo /> */}
 
         {/* user */}
+        <div style={{ backgroundColor: sidebarColor }}>
+          <Person open={open} responseGoogle={responseGoogle} />
 
-        <Person open={open} />
-
-        {open && (
-          <span
-            className="text-uppercase"
-            style={{ fontSize: "0.7rem", letterSpacing: "2px" }}
-          >
-            <span style={{ fontSize: "1rem" }}>---</span> personal
-          </span>
-        )}
-        <Menu isClose={open} />
-        <SiteLinks />
+          {open && (
+            <span
+              className="text-uppercase"
+              style={{ fontSize: "0.7rem", letterSpacing: "2px" }}
+            >
+              <span style={{ fontSize: "1rem" }}>---</span> personal
+            </span>
+          )}
+          <Menu isClose={open} />
+          <SiteLinks responseGoogle={responseGoogle} />
+        </div>
       </Drawer>
     </>
   );

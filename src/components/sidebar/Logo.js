@@ -2,8 +2,12 @@ import React from "react";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import { useStyles } from "./style";
+
 import clsx from "clsx";
+import { useSelector } from "react-redux";
 const Logo = ({ open }) => {
+  const sidebarColor = useSelector((state) => state.sidebarColor);
+
   const classes = useStyles();
   return (
     <ListItem
@@ -11,6 +15,7 @@ const Logo = ({ open }) => {
       className={clsx(classes.logo, {
         [classes.logoOpen]: open,
       })}
+      style={{ backgroundColor: sidebarColor }}
     >
       <ListItemIcon>
         <img

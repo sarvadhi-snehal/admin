@@ -17,10 +17,10 @@ const MsgItem = ({ msg }) => {
     >
       {msg.avatar === "" ? "" : avatar}
       <div style={msg.name === "me" ? { marginLeft: "auto" } : {}}>
-        {me ? "" : <h6>{msg.name}</h6>}
+        {me ? "" : <h6 className="text-secondary">{msg.name}</h6>}
         <p className="flex-column ">
           {" "}
-          <span
+          <p
             className="p-2"
             style={
               me
@@ -31,7 +31,7 @@ const MsgItem = ({ msg }) => {
             }
           >
             {msg.message}
-          </span>
+          </p>
           <span>{msg.date}</span>
         </p>
       </div>

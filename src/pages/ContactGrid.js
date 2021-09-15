@@ -1,5 +1,5 @@
 import React from "react";
-import Avatar from "@material-ui/core/Avatar";
+
 const contacts = [
   {
     name: "Johnathan Doe",
@@ -90,8 +90,11 @@ const ContactGrid = () => {
   return (
     <section className="container-fluid bg-light pb-4">
       <div className="row mx-1 ">
-        {contacts.map((contact) => (
-          <div className="col-sm-12 col-xs-12 col-md-6 col-lg-6 bg-light">
+        {contacts.map((contact, i) => (
+          <div
+            className="col-sm-12 col-xs-12 col-md-6 col-lg-6 bg-light"
+            key={i}
+          >
             <div className="mt-4  p-4 bg-white d-flex">
               <div className="avatarImg">
                 <img

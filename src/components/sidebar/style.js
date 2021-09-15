@@ -1,5 +1,4 @@
 import { makeStyles } from "@material-ui/core";
-import { Display } from "react-bootstrap-icons";
 const drawerWidth = 230;
 
 export const useStyles = makeStyles((theme) => ({
@@ -31,11 +30,8 @@ export const useStyles = makeStyles((theme) => ({
     display: "none",
   },
   drawer: {
-    // width: drawerWidth,
-    // flexShrink: 0,
-    // border: "none",
-    // whiteSpace: "nowrap",
     fontFamily: "Poppins",
+    display: "flex",
   },
   drawerOpen: {
     width: drawerWidth,
@@ -62,7 +58,7 @@ export const useStyles = makeStyles((theme) => ({
     border: "none",
     color: "grey",
     overflowX: "hidden",
-    width: theme.spacing(8) + 1,
+    width: theme.spacing(8),
     // [theme.breakpoints.up("sm")]: {
     //   width: theme.spacing(8) + 1,
     // },
@@ -73,7 +69,7 @@ export const useStyles = makeStyles((theme) => ({
   toolbar: {
     display: "flex",
     alignItems: "center",
-    backgroundColor: "#F39678",
+
     border: "none",
     width: "100%",
     ...theme.mixins.toolbar,
@@ -123,10 +119,6 @@ export const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    backgroundColor: "white",
-    "&:hover": {
-      backgroundColor: "white",
-    },
   },
   logoOpen: {
     width: drawerWidth,

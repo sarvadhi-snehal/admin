@@ -1,6 +1,5 @@
 import GoogleLogin from "react-google-login";
-import { useContext, useState } from "react";
-import { withRouter, useLocation } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import React from "react";
 // import ContextProvider from "../../Store";
 function GoogleSignin({ responseGoogle }) {

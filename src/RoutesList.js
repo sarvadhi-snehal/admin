@@ -1,8 +1,6 @@
-import React from "react";
 import PrivateRoute from "./pages/PrivateRoute";
 import ContactGrid from "./pages/ContactGrid";
 import ContactDetail from "./pages/ContactDetail";
-import { Loading } from "./pages/Loading";
 import Inbox from "./pages/Inbox";
 import MailBoxDetail from "./pages/MailBoxDetail";
 import ComposeMail from "./pages/ComposeMail";
@@ -12,17 +10,15 @@ import Chat from "./pages/Chat";
 import SupportTickets from "./pages/SupportTickets";
 import ContactEmployee from "./pages/ContactEmployee";
 import Minimal from "./pages/Minimal";
-import Home from "./pages/Home";
 import Analytical from "./pages/Analytical";
-import Footer from "./components/Footer";
 const RoutesList = () => {
   return (
     <>
-      <PrivateRoute exact path="/">
+      <PrivateRoute exact path="/minimal">
         <Minimal />
       </PrivateRoute>
 
-      <PrivateRoute exact path="/analytical">
+      <PrivateRoute path="/analytical">
         <Analytical />
       </PrivateRoute>
 

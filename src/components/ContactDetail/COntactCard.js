@@ -8,7 +8,7 @@ const COntactCard = () => {
       <div className="me my-4 text-white  ">
         <div className="overlay w-100 h-100">
           <img
-            src="https://images.unsplash.com/photo-1568051243851-f9b136146e97?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=375&q=80"
+            src="https://www.licious.in/blog/wp-content/uploads/2021/02/crabss-750x750.jpg"
             alt=""
             className="img-fluid h-100 w-100"
           />
@@ -45,7 +45,7 @@ const COntactCard = () => {
             width="100%"
             height="200"
             style={{ border: 0 }}
-            allowfullscreen=""
+            allowFullScreen=""
             loading="lazy"
           ></iframe>
         </div>

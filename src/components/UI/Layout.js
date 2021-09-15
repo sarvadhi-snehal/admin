@@ -5,6 +5,8 @@ import { useLocation } from "react-router-dom";
 import Bar from "../sidebar/Bar";
 import Alert from "../Alert";
 import Footer from "../Footer";
+import { useSelector } from "react-redux";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -30,7 +32,8 @@ const useStyles = makeStyles((theme) => ({
 export default function Layout({ children }) {
   const location = useLocation();
   const classes = useStyles();
-
+  const state = useSelector((state) => state);
+  console.log(state);
   return (
     <div className={classes.root}>
       <Bar />

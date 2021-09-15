@@ -1,13 +1,10 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-import Grid from "@material-ui/core/Grid";
 const SiteTrafficItem = ({ name, growth, monthly, daily, data, options }) => {
   return (
     <div className=" col-sm-12 col-md-4 col-lg-4   mt-4">
       <div className=" bg-white p-4">
-        <h6 className="h6 ">
-          <strong>Site {name} Traffic</strong>
-        </h6>
+        <h6 className="graph-header">Site {name} Traffic</h6>
         <div className="d-flex">
           <div className="m-2">
             <p>Growth</p>

@@ -5,7 +5,9 @@ const Todo = () => {
   return (
     <div className="col col-sm-12 col-md-4 mt-4">
       <TodoHeader />
-      <TodoList />
+      <div className="bg-white">
+        <TodoList />
+      </div>
     </div>
   );
 };

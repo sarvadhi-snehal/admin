@@ -14,22 +14,29 @@ const useStyles = makeStyles((theme) => ({
 const ActivityItem = ({ title, time, info, action, person }) => {
   const classes = useStyles();
   return (
-    <div className={`border-start border-bottom flex-center ${classes.root}`}>
-      <Avatar className={classes.inBorder}></Avatar>
-      <div className="text-start w-100 py-2  ms-5 ">
-        <p className="m-0">
+    <div className={`border-start border-bottom flex-center  ${classes.root}`}>
+      <Avatar className={classes.inBorder} src=""></Avatar>
+      <div className="text-start w-100 py-3  ms-5 ">
+        <div className="m-0 d-flex ">
           {action ? (
-            <label className="m-0  ">{person}</label>
+            <p className="m-0  text-warning">{person}</p>
           ) : (
-            <label className="m-0  fw-bolder">{title}</label>
+            <p className="m-0">{title}</p>
           )}
-          <span className="ms-1 ">{time}</span>
-        </p>
+          <span className="ms-1 small-font">{time}</span>
+        </div>
         <p>{info}</p>
         {action && (
           <div>
-            <button className="btn btn-success m-1">Approve</button>
-            <button className="btn btn-danger m-1">Refuse</button>
+            <button
+              className="btn border-success text-success rounded-pill m-1"
+              style={{}}
+            >
+              Approve
+            </button>
+            <button className="btn border-danger text-danger rounded-pill m-1">
+              Refuse
+            </button>
           </div>
         )}
       </div>

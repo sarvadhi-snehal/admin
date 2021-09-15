@@ -4,9 +4,7 @@ const Cpu = () => {
   return (
     <div className="col-sm-12 col-md-12 col-lg-4 h-100 ">
       <div className="mt-4 bg-white flex-column " style={{ height: "75vh" }}>
-        <h6 className="p-3">
-          <strong>CPU LOAD</strong>
-        </h6>
+        <h6 className="p-3 graph-header">CPU Load</h6>
         <div className="d-flex">
           <div className="m-2">
             <p>Usage</p>

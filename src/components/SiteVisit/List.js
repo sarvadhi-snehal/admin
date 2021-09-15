@@ -1,5 +1,4 @@
 import React from "react";
-import SmallCard from "../UI/SmallCard";
 
 const data = [
   {
@@ -37,12 +36,12 @@ const data = [
 
 const List = () => {
   return (
-    <div style={{ height: 300, overflowY: "auto" }}>
+    <div style={{ height: 300 }} className="scroll">
       {data.map((item) => (
-        <div className="p-2">
-          <h1 className="text-dark">{item.visitor}</h1>
-          <span>from {item.from}</span>
-          <p className="text-dark">{item.percent}</p>
+        <div className="p-3 flex-column" key={item.from}>
+          <h3 className="text-dark">{item.visitor}</h3>
+          <span className="fw-normal">from {item.from}</span>
+          <p className="fw-normal">{item.percent}</p>
           <div className="progress" style={{ height: 5 }}>
             <div
               className={`progress-bar bg-${item.type}`}

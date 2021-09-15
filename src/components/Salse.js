@@ -1,6 +1,6 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-import { Dot } from "react-bootstrap-icons";
+
 const data = {
   labels: ["2010", "2011", "2012", "2013", "2014", "2015", "2016"],
   datasets: [
@@ -53,7 +53,7 @@ const options = {
 const Salse = () => {
   return (
     <article className="row mt-4 mx-3 bg-white p-4 ">
-      <h6> SALES IN 2018 </h6>
+      <h6 className="graph-header"> SALES IN 2018 </h6>
       <div className="col col-sm-12 col-md-4 col-lg-4 p-4">
         <p>
           Lorem ipsum dolor sit amet, ectetur adipiscing elit. viverra tellus.

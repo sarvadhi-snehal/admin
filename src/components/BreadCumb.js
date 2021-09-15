@@ -1,17 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Plus } from "react-bootstrap-icons";
 const BreadCumb = ({ link }) => {
   return (
-    <div aria-label="breadcrumb" className="bg-white p-3  flex-center">
-      <h4 className="text-capitalize">{link}</h4>
-      <ol className="breadcrumb ms-auto">
+    <div
+      aria-label="breadcrumb"
+      className="bg-white align-items-center  fleex-wrap flex-center p-3"
+    >
+      <h5 className="text-capitalize fw-normal">{link}</h5>
+      <div className="breadcrumb ms-auto flex-center  my-auto ">
         <li className="breadcrumb-item">
-          <Link to="/">Home</Link>
+          <span className="fw-normal">Home</span>
         </li>
         <li className="breadcrumb-item active" aria-current="page">
-          <Link to={`/${link}`}>{link}</Link>
+          <span className="fw-normal">{link}</span>
         </li>
-      </ol>
+      </div>
+      <button className="btn btn-primary  d-md-block d-lg-block d-none mx-3">
+        <Plus className="text-primary bg-white rounded-circle " size={20} />{" "}
+        create new
+      </button>
     </div>
   );
 };

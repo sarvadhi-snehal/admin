@@ -69,7 +69,7 @@ const rows = [
 
 const SalesOverview = () => {
   return (
-    <Card>
+    <Card className="d-none">
       <div className="h-100 bg-white">
         <div className="bg-white p-4 flex-between">
           <div>
@@ -81,7 +81,7 @@ const SalesOverview = () => {
             <select className="form-select">
               <option name="January">January</option>
               <option name="February">February</option>
-              <option name="March" selected>
+              <option name="March" defaultValue>
                 March
               </option>
               <option name="April">April</option>
@@ -97,7 +97,7 @@ const SalesOverview = () => {
             <h1 className="text-success text-center">$3,690</h1>
           </div>
         </div>
-        <div className="bg-white  ">
+        <div className="bg-white  overflow-auto">
           <table className="table table-hover ">
             <thead>
               <tr className="tr">
@@ -110,8 +110,8 @@ const SalesOverview = () => {
             </thead>
             <tbody>
               {rows.map((row) => (
-                <tr className="tr">
-                  <th scope="row">{row.id}</th>
+                <tr className="tr fw-light" key={row.id}>
+                  <td>{row.id}</td>
                   <td>{row.Name}</td>
                   <td>
                     <button className={`btn-s  bg-${row.variant}`}>

@@ -83,8 +83,8 @@ const Users = ({ className }) => {
         <p>Search Contact</p>
       </div>
       <div className="scroll scroll-div2 flex-column">
-        {list.map((item) => (
-          <div className="btn p-2  d-flex">
+        {list.map((item, i) => (
+          <div className="btn p-2  d-flex" key={i}>
             <Avatar src={item.avatar} alt={item.name} />
 
             <p className="ms-2 p-0 flex-column text-start">

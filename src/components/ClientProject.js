@@ -32,41 +32,43 @@ const data = [
 ];
 const ClientProject = () => {
   return (
-    <div className="container-fluid ">
-      <div className="row ">
-        <div className="col-md-6 col-lg-6 col col-sm-12 d-flex flex-wrap bg-dark">
-          {data.map((item) => (
-            <div className="w-50 w-sm-100  w-xs-100">
-              <div className="bg-white ">
-                <h6>{item.name}</h6>
-                <div className="body flex-between ">
-                  <item.Icon size={50} className={`text-${item.type}`} />
-                  <h1>{item.number}</h1>
-                </div>
+    <article className="row ">
+      {/* need to align with grid */}
+      <div className="col col-md-6 col-lg-6 col col-sm-12 flex-between flex-wrap  p-0">
+        {data.map((item) => (
+          <div className="col col-sm-12 col-md-6 " key={item.name}>
+            <div className="bg-white mt-4 mx-2 p-4 ">
+              <h6>{item.name}</h6>
+              <div className="body flex-between ">
+                <item.Icon size={50} className={`text-${item.type}`} />
+                <h1>{item.number}</h1>
               </div>
             </div>
-          ))}
-        </div>
-
-        {/* *TODO : need  change to collaser */}
-        <div className="col-md-6 col-lg 6 col col-sm-12">
-          <div
-            className="info h-100 flex-center flex-column p-5 text-center"
-            style={{
-              backgroundImage: `url('http://eliteadmin.themedesigner.in/demos/bt4/assets/images/news/slide1.jpg') `,
-              backgroundSize: "cover",
-            }}
-          >
-            <button className="btn-s bg-danger mt-auto">primary</button>
-            <p className="text-white">
-              It has survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged.
-            </p>
-            <a href="nowhre">read more</a>
           </div>
+        ))}
+      </div>
+
+      {/* *TODO : need  change to collaser */}
+      <div
+        className="col col-md-6 col-lg-6 col col-sm-12 col-xs-12 mt-4"
+        style={{ minHeight: "rem" }}
+      >
+        <div
+          className="info h-100 flex-center flex-column  text-center  "
+          style={{
+            backgroundImage: `url('http://eliteadmin.themedesigner.in/demos/bt4/assets/images/news/slide1.jpg') `,
+            backgroundSize: "cover",
+          }}
+        >
+          <button className="btn-s bg-danger mt-auto">primary</button>
+          <p className="text-white">
+            It has survived not only five centuries, but also the leap into
+            electronic typesetting, remaining essentially unchanged.
+          </p>
+          <a href="nowhre">read more</a>
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 

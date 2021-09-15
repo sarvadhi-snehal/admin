@@ -17,26 +17,29 @@ function CommetnItem({ comment }) {
       </div>
       <div className="ps-4">
         <h6>{comment.name}</h6>
-        <p className="">{comment.comment}</p>
-        <button className={`btn-s bg-${comment.type} me-2`}>
-          {comment.text}
-        </button>
+        <p className="fw-light text-secondary">{comment.comment}</p>
+        <div>
+          <span className="text-secondary fw-light p-2">{comment.date}</span>
+          <button className={`btn-s bg-${comment.type} me-2`}>
+            {comment.text}
+          </button>
 
-        <span className={!show && "hover"}>
-          <span className="p-1 customHoverFocus">
-            <PencilSquare />
+          <span className={!show ? "hover" : undefined}>
+            <label className="p-1 customHoverFocus">
+              <PencilSquare />
+            </label>
+            <label className="p-1 customHoverFocus">
+              <XCircle />
+            </label>
+            <label
+              className={`p-1 ${
+                !show ? "customHoverFocus" : "customHoverFocusRed"
+              }`}
+            >
+              <SuitHeart />
+            </label>
           </span>
-          <span className="p-1 customHoverFocus">
-            <XCircle />
-          </span>
-          <span
-            className={`p-1 ${
-              !show ? "customHoverFocus" : "customHoverFocusRed"
-            }`}
-          >
-            <SuitHeart />
-          </span>
-        </span>
+        </div>
       </div>
     </div>
   );

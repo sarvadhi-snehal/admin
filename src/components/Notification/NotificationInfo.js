@@ -32,8 +32,13 @@ const NotificationInfo = () => {
             />
           </div>
 
-          <div class="mb-3">
-            <textarea id="" name="" rows="5" class="form-control"></textarea>
+          <div className="mb-3">
+            <textarea
+              id=""
+              name=""
+              rows="5"
+              className="form-control"
+            ></textarea>
           </div>
           <button type="submit" className="btn btn-primary">
             Submit

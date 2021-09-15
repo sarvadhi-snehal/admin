@@ -11,16 +11,16 @@ const Analytical = () => {
   const state = useSelector((state) => state);
   console.log(state);
   return (
-    <section className="container-fluid bg-light ">
+    <section className="container-fluid bg-light px-4 ">
       <SiteTraffic />
-      <div className="row mx-4 bg-white mt-4">
+      <div className="row mx-1 bg-white mt-4">
         <Map />
         <div className="col col-sm-12 col-md-12 col-lg-4 p-4  ">
           <List />
           <Summary />
         </div>
       </div>
-      <div className="row  mx-2  d-flex">
+      <div className="row    d-flex">
         <BrowserState />
         <Cpu />
         <ContactCard />

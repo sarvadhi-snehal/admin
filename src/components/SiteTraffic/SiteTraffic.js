@@ -1,6 +1,5 @@
 import React from "react";
 import SiteTrafficItem from "./SiteTrafficItem";
-import { Grid } from "@material-ui/core";
 const SiteTraffic = () => {
   const data = [
     {
@@ -111,9 +110,10 @@ const SiteTraffic = () => {
   ];
 
   return (
-    <article className="row flex-between mt-4 mx-2 ">
+    <article className="row flex-between mt-4  ">
       {data.map((item) => (
         <SiteTrafficItem
+          key={item.name}
           name={item.name}
           growth={item.growth}
           daily={item.daily}

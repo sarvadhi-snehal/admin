@@ -1,5 +1,5 @@
 import React from "react";
-import { Bar, defaults } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import Card from "../UI/SmallCard";
 const data = {
   labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
@@ -40,7 +40,7 @@ const SalseDiif = () => {
     <Card className="flex-between bg-white  text-dark">
       <div className="flex-between w-100  h-100">
         <div className=" h-100 flex-column">
-          <h6>SALES DIFFERENCE</h6>
+          <h6 className="graph-header">SALES DIFFERENCE</h6>
           <h1 className="mt-auto text-primary">$647</h1>
           <p className="text-secondary">APRIL 2017</p>
           <h6>(150 Sales)</h6>

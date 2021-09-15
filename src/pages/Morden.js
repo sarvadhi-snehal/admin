@@ -4,6 +4,7 @@ import Sales from "../components/Salse";
 import Weather from "../components/Weather2";
 import UserActivity from "../components/UserActivity/Activity";
 import OrderStatus from "../components/OrderStatus";
+import Feeds from "../components/Feeds/Feeds";
 const Morden = () => {
   return (
     <section className="container-fluid bg-light  pb-4">
@@ -12,7 +13,7 @@ const Morden = () => {
       <section className="row px-3 ">
         <Weather />
         <UserActivity />
-        <Weather />
+        <Feeds />
       </section>
       <OrderStatus />
     </section>

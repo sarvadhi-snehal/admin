@@ -17,10 +17,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Login = () => {
+  const state = useSelector((state) => state);
+  console.log(state);
   const location = useLocation();
   const dispatch = useDispatch();
   const history = useHistory();
-  let { from } = location.state || { from: { pathname: "/" } };
+  let { from } = location.state || { from: { pathname: "/minimal" } };
   const responseGoogle = (response) => {
     console.log(response);
     const userObj = {
@@ -36,13 +38,17 @@ const Login = () => {
   };
   const classes = useStyles();
   return (
-    <Grid container className={classes.root}>
-      <LoginForm />
-      <GoogleSignin
-        responseGoogle={responseGoogle}
-        responseGoogleError={responseGoogleError}
-      />
-    </Grid>
+    <>
+      {
+        <Grid container className={classes.root}>
+          <LoginForm />
+          <GoogleSignin
+            responseGoogle={responseGoogle}
+            responseGoogleError={responseGoogleError}
+          />
+        </Grid>
+      }{" "}
+    </>
   );
 };
 

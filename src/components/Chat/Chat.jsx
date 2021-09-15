@@ -49,8 +49,8 @@ const Chat = ({ className, header, list }) => {
           </div>
           <div className="scroll-div3 scroll bg-white d-flex ">
             <div className="w-100">
-              {msges.map((msg) => (
-                <MsgItem msg={msg} />
+              {msges.map((msg, i) => (
+                <MsgItem msg={msg} key={i} />
               ))}
             </div>
           </div>
@@ -58,7 +58,7 @@ const Chat = ({ className, header, list }) => {
           <div className="border-top  p-4 bg-white ">
             <form className="flex-between">
               <input
-                className="border-0 "
+                className="border-0 form-control shadow-none"
                 type="text"
                 name="message"
                 placeholder="Type your message here"

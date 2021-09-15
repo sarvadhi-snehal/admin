@@ -46,12 +46,19 @@ const useStyles = makeStyles({
 });
 const LoginForm = () => {
   const classes = useStyles();
+  const submitHandler = (e) => {
+    e.preventDefault();
+    let userObj = {
+      token: "gnfgnfgnfkgfg",
+      user: {},
+    };
+  };
   return (
     <Grid item className={classes.root}>
       <Typography variant="h5" gutterBottom>
         Sign In
       </Typography>
-      <form className={classes.form}>
+      <form className={classes.form} onSubmit={(e) => submitHandler(e)}>
         <TextField
           label="Email"
           className={classes.field}
@@ -81,11 +88,10 @@ const LoginForm = () => {
         </Button>
         <div className={classes.actions}>
           <span>
-            {" "}
             <input type="checkbox" />
             Remember me
           </span>
-          <a href="#">Forgot your password?</a>
+          <a href="/">Forgot your password?</a>
         </div>
       </form>
     </Grid>

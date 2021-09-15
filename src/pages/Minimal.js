@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import Summary from "../components/Summary/Summary";
 import Graph from "../components/Graph";
 import Weather from "../components/Weather";
@@ -9,10 +8,12 @@ import Todo from "../components/todo/Todo";
 import Message from "../components/Messages/Message";
 import Chat from "../components/Chat/Chat";
 import GraphContainer from "../components/SalesDiffrnce/GrapContainer";
-
-import { Redirect } from "react-router-dom";
+import { useSelector } from "react-redux";
 const Minimal = () => {
   const fourbyTwelve = "col col-sm-12 col-md-4 ";
+  const state = useSelector((state) => state);
+  console.log(state);
+
   return (
     <section className="container-fluid bg-light px-4 pb-4">
       <Summary />

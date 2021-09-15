@@ -50,12 +50,12 @@ const options = {
   },
 };
 
-const Graph = () => {
+const Graph = ({ className, graphHeader }) => {
   return (
     <div className="h-100 p-3 bg-white">
-      <div className="header flex-between ">
-        <div className="flex-center ">
-          <strong>SALES DIFFERENCE</strong>
+      <div className={graphHeader}>
+        <div className={`flex-center ${className} `}>
+          <h6 className="graph-header">SALES DIFFERENCE</h6>
         </div>
         <div className="flex-center ">
           <div>

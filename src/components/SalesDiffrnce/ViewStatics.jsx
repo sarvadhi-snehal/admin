@@ -39,7 +39,7 @@ const SalseDiif = () => {
       >
         <div className="flex-between w-100  h-100">
           <div className=" h-100 flex-column">
-            <h6>SALES DIFFERENCE</h6>
+            <h6 className="graph-header">VISIT STATASTICS</h6>
 
             <h1 className="mt-auto">$647</h1>
             <p>APRIL 2017</p>

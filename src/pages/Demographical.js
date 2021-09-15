@@ -4,11 +4,11 @@ import ClientProject from "../components/ClientProject";
 import GraphContainer from "../components/SalesDiffrnce/GrapContainer";
 const Demographical = () => {
   return (
-    <div className="container-fluid bg-light">
+    <section className="container-fluid bg-light px-4 pb-4 w-100">
       <Visits />
       <ClientProject />
-      <GraphContainer />
-    </div>
+      <GraphContainer className="flex-column-reverse" />
+    </section>
   );
 };
 

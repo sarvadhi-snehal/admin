@@ -6,4 +6,17 @@ a {
   li {
     list-style: none;
   }
+  p,
+  tr {
+    font-size: 0.9rem;
+  }
+  span {
+    font-size: 0.8rem;
+    margin: 0;
+    font-style: grey;
+    font-weight: 200;
+  }
+  p {
+    margin: 0;
+  }
 }

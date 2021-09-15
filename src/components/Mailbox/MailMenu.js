@@ -57,8 +57,8 @@ const MailMenu = () => {
           <button className="btn btn-danger">Compose</button>
           <nav className="flex-column p-3">
             <ul className="p-0">
-              {menu.map((item) => (
-                <li className="flex-view p-2 mt-4">
+              {menu.map((item, i) => (
+                <li className="flex-view p-2 mt-4" key={i}>
                   <item.Icon />
                   <span className="ms-2">{item.name}</span>
                   {item.number && (
@@ -75,8 +75,9 @@ const MailMenu = () => {
           <div className="lables p-3">
             <h3>Lables</h3>
             <ul className="p-0">
-              {labels.map((label) => (
-                <li key={label} className="text-danger p-3">
+              {labels.map((label, i) => (
+                <li className="text-danger p-3" key={i}>
+                  ð
                   <CircleFill className={`text-${label.type} me-3`} />
                   {label.name}
                 </li>

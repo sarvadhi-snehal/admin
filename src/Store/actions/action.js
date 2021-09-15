@@ -1,4 +1,10 @@
-import { LOGIN_SUCCESS, LOGIN_FAILURE, LOG_OUT, LOAD_USER } from "./type";
+import {
+  LOGIN_SUCCESS,
+  LOG_OUT,
+  LOAD_USER,
+  HEADER_COLOR,
+  SIDEBAR_COLOR,
+} from "./type";
 
 export const loaduser = () => (dispatch) => {
   if (localStorage.getItem("userObj")) {
@@ -26,5 +32,19 @@ export const logout = (userObj) => (dispatch) => {
   localStorage.removeItem("userObj");
   dispatch({
     type: LOG_OUT,
+  });
+};
+
+export const panelColor = (getColor) => (dispatch) => {
+  dispatch({
+    type: HEADER_COLOR,
+    payload: getColor,
+  });
+};
+
+export const sideBar = (getColor) => (dispatch) => {
+  dispatch({
+    type: SIDEBAR_COLOR,
+    payload: getColor,
   });
 };

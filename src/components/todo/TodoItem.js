@@ -3,6 +3,7 @@ const TodoItem = ({ todo }) => {
     <div
       className="avatar rounded-circle"
       style={{ maxWidth: "2rem", padding: "0.1rem" }}
+      key={person}
     >
       <img alt="person" className="w-100 rounded-circle" src={person} />
     </div>
@@ -15,10 +16,10 @@ const TodoItem = ({ todo }) => {
       </div>
       <div className="ps-2">
         <p>{todo.text}</p>
-        <div className="d-flex">{todo.date === "" ? avatr : todo.date}</div>
+        <span className="d-flex ">{todo.date === "" ? avatr : todo.date}</span>
       </div>
       <button className={`bg-${todo.variant} btn-s h-100`}>
-        <span>{todo.status}</span>
+        {todo.status}
       </button>
     </div>
   );

@@ -31,8 +31,11 @@ const SupportTickets = () => {
         </div>
       </div>
       <div className="row  bg-white mx-1 p-3 ">
-        {data.map((item) => (
-          <div className="col-sm-12 col-xs-12 col-md-6 col-lg-3 bg-white">
+        {data.map((item, i) => (
+          <div
+            className="col-sm-12 col-xs-12 col-md-6 col-lg-3 bg-white"
+            key={i}
+          >
             <div
               className={`flex-column text-white  bg-${item.type} text-center py-4 rounded-3`}
             >

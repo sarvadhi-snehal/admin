@@ -9,6 +9,8 @@ const Activity = () => {
       info: "you can write anything",
       person: "",
       action: null,
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/2.jpg",
     },
     {
       title: "Send documents to Clark",
@@ -23,6 +25,8 @@ const Activity = () => {
       info: "Contrary to popular belief",
       person: "",
       action: null,
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/2.jpg",
     },
 
     {
@@ -31,14 +35,17 @@ const Activity = () => {
       action: true,
       time: "5 minutes ago",
       info: "Approve meeting with tiger",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/3.jpg",
     },
   ];
 
   return (
     <Card title="User Activity">
       <div className="p-4 bg-white">
-        {data.map((item) => (
+        {data.map((item, i) => (
           <ActivityItem
+            key={i}
             title={item.title}
             person={item.person}
             action={item.action}

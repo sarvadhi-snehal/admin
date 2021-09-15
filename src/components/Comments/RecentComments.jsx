@@ -45,11 +45,8 @@ const comments = [
 
 const RecentComments = () => {
   return (
-    <Card>
-      <div className=" bg-white p-3">
-        <h6>Recent Comments</h6>
-      </div>
-      <div className="scroll-div">
+    <Card title="Recent Comments">
+      <div className="scroll-div scroll">
         {comments.map((comment, index) => (
           <CommetnItem key={index} comment={comment} />
         ))}

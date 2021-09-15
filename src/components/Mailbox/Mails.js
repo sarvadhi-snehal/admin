@@ -198,8 +198,11 @@ const mails = [
 const Mails = () => {
   return (
     <ul className="bg-white">
-      {mails.map((mail) => (
-        <li className=" border-bottom row overflow-auto w-100  d-flex align-items-center justify-content-evenly py-3">
+      {mails.map((mail, i) => (
+        <li
+          className=" border-bottom row overflow-auto w-100  d-flex align-items-center justify-content-evenly py-3"
+          key={i}
+        >
           <div className="d-flex align-items-center col-4">
             <div className="pe-4">
               <input

@@ -38,11 +38,11 @@ export const listItems = [
 export default function MessagesList({ classname }) {
   return (
     <div className={classname}>
-      {listItems.map((list) => (
-        <div className="border-bottom bg-white d-flex p-2">
+      {listItems.map((list, i) => (
+        <div className="border-bottom bg-white d-flex ms-2 p-4" key={i}>
           <div
             className="avatar rounded-circle"
-            style={{ maxWidth: "3rem", padding: "0.1rem" }}
+            style={{ maxWidth: "4rem", padding: "0.1rem" }}
           >
             <img
               alt="person"
@@ -50,11 +50,11 @@ export default function MessagesList({ classname }) {
               src={list.avatar}
             />
           </div>
-          <div className="ms-2 h-25">
-            <h6 className="text-dark">{list.name}</h6>
-            <p className="text-secondary small">{list.msg}</p>
+          <div className="ms-2 flex-column ">
+            <h6 className="text-dark m-0">{list.name}</h6>
+            <span className="text-secondary fw-normal m-0">{list.msg}</span>
 
-            <p className="text-secondary">{list.time}</p>
+            <span className="text-secondary fw-normal m-0">{list.time}</span>
           </div>
         </div>
       ))}

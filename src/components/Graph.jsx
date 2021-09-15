@@ -62,7 +62,7 @@ const MultiAxisLine = () => {
       <div className="h-100 p-3 bg-white ">
         <div className="header flex-between ">
           <div className="flex-center ">
-            <strong>YEARLY SALES</strong>
+            <h6 className="graph-header">YEARLY SALES</h6>
           </div>
           <div className="flex-center ">
             <div>

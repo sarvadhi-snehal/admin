@@ -25,7 +25,7 @@ const Accordian = () => {
         const { name, text, target } = item;
 
         return (
-          <div className="">
+          <div key={target}>
             <label
               className="btn text-danger"
               data-bs-toggle="collapse"

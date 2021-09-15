@@ -1,5 +1,5 @@
 import React from "react";
-import { Bar, defaults } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import { ArrowUp } from "react-bootstrap-icons";
 import Graph from "./SalesDiffrnce/SalesGraph";
 const visits = [
@@ -60,12 +60,15 @@ const options = {
 };
 const Visits = () => {
   return (
-    <section className="container-fluid ">
-      <div className="row mx-1 ">
+    <article className="row ">
+      <div className="d-flex w-100 flex-wrap  mt-4">
         {visits.map((item) => (
-          <div className="bg-white border-0 col-sm-12 col-xs-12 col-md-6 col-lg-3  mt-4">
-            <div className="d-flex flex-column justify-content-center align-items-center   p-2">
-              <span>{item.name}</span>
+          <div
+            className="col bg-white border-0 col-sm-12 col-xs-12 col-md-6 col-lg-3"
+            key={item.name}
+          >
+            <div className="d-flex flex-column justify-content-center align-items-center    p-2">
+              <span className="fw-normal">{item.name}</span>
               <h2>
                 <ArrowUp className={`text-${item.type}`} />
                 {item.number}
@@ -77,12 +80,10 @@ const Visits = () => {
           </div>
         ))}
       </div>
-      <div className="col col-lg-12" style={{ height: 500 }}>
-        <div className="mx-1">
-          <Graph />
-        </div>
+      <div className="col col-lg-12 " style={{ height: 500 }}>
+        <Graph className="d-none" />
       </div>
-    </section>
+    </article>
   );
 };
 

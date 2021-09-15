@@ -66,11 +66,11 @@ const data = [
 ];
 const OrderStatus = () => {
   return (
-    <article className="bg-white mt-4  mx-3">
+    <article className="bg-white mt-4  mx-3 overflow-auto">
       <div className="order-status p-4">
         <h6 className="p3">ORDER STATUS</h6>
       </div>
-      <table className="table table-striped">
+      <table className="table table-striped ">
         <thead className="b-0">
           <tr>
             <th scope="col">Invoice</th>
@@ -81,8 +81,8 @@ const OrderStatus = () => {
           </tr>
         </thead>
         <tbody>
-          {data.map((item) => (
-            <tr>
+          {data.map((item, i) => (
+            <tr key={i}>
               <td>{item.invoice}</td>
               <td>{item.user}</td>
               <td className="text-secondary">{item.orderdate}</td>

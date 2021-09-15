@@ -8,7 +8,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Collapse from "@material-ui/core/Collapse";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
-import { Speedometer } from "react-bootstrap-icons";
+import { Speedometer, MenuApp, Inbox } from "react-bootstrap-icons";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -56,6 +56,7 @@ export default function NestedList({ isClose }) {
     {
       name: "Dashboard",
       key: "dashboard",
+      Icon: Speedometer,
       links: [
         {
           href: "/",
@@ -79,6 +80,7 @@ export default function NestedList({ isClose }) {
     {
       name: "Apps",
       key: "apps",
+      Icon: MenuApp,
 
       links: [
         {
@@ -110,6 +112,7 @@ export default function NestedList({ isClose }) {
     {
       name: "Inbox",
       key: "inbox",
+      Icon: Inbox,
 
       links: [
         {
@@ -131,17 +134,17 @@ export default function NestedList({ isClose }) {
   return (
     <>
       {menu.map((menuItem) => {
-        const { key } = menuItem;
+        const { key, Icon } = menuItem;
 
         return (
-          <List className={classes.root}>
+          <List className={classes.root} key={menuItem.name}>
             <ListItem
               button
               onClick={() => handleClick(key)}
-              className={[classes.item, open[key] && classes.activeLink]}
+              className={classes.item}
             >
               <ListItemIcon color="inherit">
-                <Speedometer size={20} color="inherit" />
+                <Icon size={20} color="inherit" />
               </ListItemIcon>
               <ListItemText primary={menuItem.name} />
               <span className={classes.items}> {menuItem.links.length}</span>
@@ -151,6 +154,7 @@ export default function NestedList({ isClose }) {
               <List component="div" disablePadding>
                 {menuItem.links.map((item) => (
                   <ListItem
+                    key={item.name}
                     button
                     component="a"
                     href={item.href}
