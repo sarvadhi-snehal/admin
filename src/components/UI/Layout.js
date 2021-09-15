@@ -39,8 +39,8 @@ export default function Layout({ children }) {
       <Bar />
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        {/* <Alert /> */}
         <BreadCumb link={location.pathname.substring(1)} />
+        <Alert />
         {children}
         <Footer />
       </main>

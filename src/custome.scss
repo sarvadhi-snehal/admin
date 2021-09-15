@@ -196,3 +196,17 @@ span {
 .graph-header {
   font-weight: 500;
 }
+
+.text-orange {
+  color: #f39678;
+}
+
+.hover-orange {
+  &:hover {
+    color: #f39678;
+  }
+}
+
+.bg-orange {
+  background-color: #f39678;
+}

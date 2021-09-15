@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "../UI/ThreeCard";
 import ActivityItem from "./ActivityItem";
+import { Person, Image } from "react-bootstrap-icons";
 const Activity = () => {
   const data = [
     {
@@ -9,8 +10,8 @@ const Activity = () => {
       info: "you can write anything",
       person: "",
       action: null,
-      avatar:
-        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/2.jpg",
+      avatar: Person,
+      type: "success",
     },
     {
       title: "Send documents to Clark",
@@ -18,6 +19,9 @@ const Activity = () => {
       info: "Lorem Ipsum is simply",
       person: "",
       action: null,
+      avatar: Image,
+
+      type: "info",
     },
     {
       title: "Go to the Doctor",
@@ -51,6 +55,8 @@ const Activity = () => {
             action={item.action}
             time={item.time}
             info={item.info}
+            AvatarImg={item.avatar}
+            type={item.type}
           />
         ))}
       </div>

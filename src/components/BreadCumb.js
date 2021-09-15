@@ -13,7 +13,7 @@ const BreadCumb = ({ link }) => {
           <span className="fw-normal">Home</span>
         </li>
         <li className="breadcrumb-item active" aria-current="page">
-          <span className="fw-normal">{link}</span>
+          <span className="fw-normal text-orange text-capitalize">{link}</span>
         </li>
       </div>
       <button className="btn btn-primary  d-md-block d-lg-block d-none mx-3">

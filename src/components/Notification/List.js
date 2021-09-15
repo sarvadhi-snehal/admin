@@ -10,7 +10,7 @@ const List = () => {
   return (
     <div>
       {data.map((item) => (
-        <p className="text-dark fs-6 " key={item}>
+        <p className="p-2 fs-6 hover-orange" key={item}>
           <span className="text-success">&#10003;</span> {item}
         </p>
       ))}

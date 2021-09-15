@@ -20,16 +20,7 @@ const MsgItem = ({ msg }) => {
         {me ? "" : <h6 className="text-secondary">{msg.name}</h6>}
         <p className="flex-column ">
           {" "}
-          <p
-            className="p-2"
-            style={
-              me
-                ? { backgroundColor: "#F39678", color: "white" }
-                : {
-                    backgroundColor: "#F8F9FA",
-                  }
-            }
-          >
+          <p className={me ? "bg-orange text-white p-2" : "bg-light p-2"}>
             {msg.message}
           </p>
           <span>{msg.date}</span>

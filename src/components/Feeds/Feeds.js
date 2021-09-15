@@ -54,7 +54,7 @@ const Feeds = () => {
         {data.map((item, i) => (
           <li className="list-group-item d-flex list-group-item-action border-0 p-2 w-100">
             <item.Icon
-              size={35}
+              size={40}
               className={`bg-${item.type} rounded-circle text-white p-2`}
             />
 

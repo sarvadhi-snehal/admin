@@ -5,6 +5,7 @@ import {
   LOAD_USER,
   HEADER_COLOR,
   SIDEBAR_COLOR,
+  OPEN_NOTIFICATION,
 } from "../actions/type";
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
   user: null,
   headerColor: "#F39678",
   sidebarColor: "#ffffff",
+  open: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -55,6 +57,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         sidebarColor: payload,
+      };
+    case OPEN_NOTIFICATION:
+      return {
+        ...state,
+        open: !state.open,
       };
     default:
       return state;

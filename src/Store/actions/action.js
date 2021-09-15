@@ -4,6 +4,8 @@ import {
   LOAD_USER,
   HEADER_COLOR,
   SIDEBAR_COLOR,
+  OPEN_NOTIFICATION,
+  CLOSE_NOTIFICATION,
 } from "./type";
 
 export const loaduser = () => (dispatch) => {
@@ -46,5 +48,11 @@ export const sideBar = (getColor) => (dispatch) => {
   dispatch({
     type: SIDEBAR_COLOR,
     payload: getColor,
+  });
+};
+
+export const handleClick = (newState) => (dispatch) => {
+  dispatch({
+    type: OPEN_NOTIFICATION,
   });
 };
