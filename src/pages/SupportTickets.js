@@ -46,7 +46,7 @@ const SupportTickets = () => {
           </div>
         ))}
       </div>
-      <div className="row">
+      <div className="row mx-1">
         <SupportTable />
       </div>
     </section>

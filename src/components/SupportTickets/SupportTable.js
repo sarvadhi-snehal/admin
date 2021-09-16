@@ -7,7 +7,7 @@ const SupportTable = () => {
       OpenedBy: {
         name: "Ritesh Deshmukh",
         avatar:
-          "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users.1.jpeg",
+          "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
       },
       CustEmail: "genelia@gmail.com",
       Sbuject: "How to customize the template?",
@@ -21,7 +21,7 @@ const SupportTable = () => {
       OpenedBy: {
         name: "Jeneliya desusa",
         avatar:
-          "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users.1.jpeg",
+          "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
       },
       CustEmail: "genelia@gmail.com",
       Sbuject: "How to change colors",
@@ -35,7 +35,7 @@ const SupportTable = () => {
       OpenedBy: {
         name: "Jeneliya desusa",
         avatar:
-          "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users.1.jpeg",
+          "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
       },
       CustEmail: "genelia@gmail.com",
       Sbuject: "How to change colors",
@@ -49,7 +49,7 @@ const SupportTable = () => {
       OpenedBy: {
         name: "Ritesh Deshmukh",
         avatar:
-          "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users.1.jpeg",
+          "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
       },
       CustEmail: "genelia@gmail.com",
       Sbuject: "How to customize the template?",
@@ -63,7 +63,7 @@ const SupportTable = () => {
       OpenedBy: {
         name: "Ritesh Deshmukh",
         avatar:
-          "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users.1.jpeg",
+          "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
       },
       CustEmail: "genelia@gmail.com",
       Sbuject: "How to customize the template?",
@@ -77,7 +77,7 @@ const SupportTable = () => {
       OpenedBy: {
         name: "Ritesh Deshmukh",
         avatar:
-          "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users.1.jpeg",
+          "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
       },
       CustEmail: "genelia@gmail.com",
       Sbuject: "How to customize the template?",
@@ -91,7 +91,7 @@ const SupportTable = () => {
       OpenedBy: {
         name: "Ritesh Deshmukh",
         avatar:
-          "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users.1.jpeg",
+          "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
       },
       CustEmail: "genelia@gmail.com",
       Sbuject: "How to customize the template?",
@@ -102,8 +102,10 @@ const SupportTable = () => {
     },
   ];
   return (
-    <div>
-      <div className="overflow-auto">{data.map}</div>
+    <div className=" bg-white  d-flex align-items-center flex-column">
+      <div className="overflowY-auto w-100">
+        <Table data={data} />
+      </div>
 
       <nav aria-label="Page navigation example">
         <ul className="pagination">
