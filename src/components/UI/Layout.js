@@ -40,8 +40,10 @@ export default function Layout({ children }) {
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <BreadCumb link={location.pathname.substring(1)} />
-        <Alert />
-        {children}
+        <div className="main">
+          {/* <Alert /> */}
+          {children}
+        </div>
         <Footer />
       </main>
     </div>

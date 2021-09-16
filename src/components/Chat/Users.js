@@ -15,10 +15,17 @@ const useStyles = makeStyles((theme) => ({
   drawer: {
     [theme.breakpoints.up("sm")]: {
       width: drawerWidth,
+      height: 100,
       flexShrink: 0,
     },
   },
-
+  drawerPaper: {
+    position: "absolute",
+    width: 240,
+    height: 600,
+    top: 150,
+    left: 20,
+  },
   menuButton: {
     marginRight: theme.spacing(2),
     [theme.breakpoints.up("sm")]: {
@@ -107,7 +114,7 @@ const list = [
 const Users = (props) => {
   const drawer = (
     <>
-      <div className="bg-white p-4 border-bottom">
+      <div className="bg-white p-4 border-bottom  position-relative">
         <p>Search Contact</p>
       </div>
       <div className="scroll scroll-div2 flex-column">
@@ -144,6 +151,9 @@ const Users = (props) => {
       <nav className={classes.drawer} aria-label="user chat">
         <Hidden smUp implementation="css">
           <Drawer
+            classes={{
+              paper: classes.drawerPaper,
+            }}
             variant="temporary"
             anchor={theme.direction === "rtl" ? "right" : "left"}
             open={mobileOpen}

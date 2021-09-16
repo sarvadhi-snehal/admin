@@ -32,14 +32,20 @@ const data = [
 ];
 const ClientProject = () => {
   return (
-    <article className="row ">
+    <article className="row  d-flex">
       {/* need to align with grid */}
-      <div className="col col-md-6 col-lg-6 col col-sm-12 flex-between flex-wrap  p-0">
+      <div
+        className="col-12 col-md-6 col-lg-6 col col-sm-12 flex-between flex-wrap  h-100 p-0"
+        style={{ height: 400 }}
+      >
         {data.map((item) => (
-          <div className="col col-sm-12 col-md-6 " key={item.name}>
-            <div className="bg-white mt-4 mx-2 p-4 ">
-              <h6>{item.name}</h6>
-              <div className="body flex-between ">
+          <div
+            className="col-12 col-sm-12 col-md-6 col-lg-6  mt-4 h-100"
+            key={item.name}
+          >
+            <div className="bg-white  mx-2 p-4">
+              <h6 className="">{item.name}</h6>
+              <div className="body flex-between py-4 ">
                 <item.Icon size={50} className={`text-${item.type}`} />
                 <h1>{item.number}</h1>
               </div>
@@ -50,8 +56,8 @@ const ClientProject = () => {
 
       {/* *TODO : need  change to collaser */}
       <div
-        className="col col-md-6 col-lg-6 col col-sm-12 col-xs-12 mt-4"
-        style={{ minHeight: "rem" }}
+        className="col col-md-6 col-lg-6 col col-sm-12 col-xs-12 mt-4 "
+        style={{ minheight: 400 }}
       >
         <div
           className="info h-100 flex-center flex-column  text-center  "

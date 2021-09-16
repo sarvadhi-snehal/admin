@@ -1,4 +1,5 @@
 import React from "react";
+import SupportTable from "../components/SupportTickets/SupportTable";
 const data = [
   {
     name: "Total Tickets",
@@ -33,11 +34,11 @@ const SupportTickets = () => {
       <div className="row  bg-white mx-1 p-3 ">
         {data.map((item, i) => (
           <div
-            className="col-sm-12 col-xs-12 col-md-6 col-lg-3 bg-white"
+            className="col-sm-12 col-xs-12 col-md-6 col-lg-3 bg-white "
             key={i}
           >
             <div
-              className={`flex-column text-white  bg-${item.type} text-center py-4 rounded-3`}
+              className={`flex-column text-white mt-4  bg-${item.type} text-center py-4 rounded-3`}
             >
               <h1 className="m-0">{item.number}</h1>
               <p className="m-0">{item.name}</p>
@@ -45,7 +46,9 @@ const SupportTickets = () => {
           </div>
         ))}
       </div>
-      <div className="row">{/* ToDO//tables */}</div>
+      <div className="row">
+        <SupportTable />
+      </div>
     </section>
   );
 };

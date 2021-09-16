@@ -5,6 +5,7 @@ import Weather from "../components/Weather2";
 import UserActivity from "../components/UserActivity/Activity";
 import OrderStatus from "../components/OrderStatus";
 import Feeds from "../components/Feeds/Feeds";
+import Card from "../components/UI/ThreeCard";
 const Morden = () => {
   return (
     <section className="container-fluid bg-light  pb-4">
@@ -12,7 +13,9 @@ const Morden = () => {
       <Sales />
       <section className="row px-3 ">
         <Weather />
+
         <UserActivity />
+
         <Feeds />
       </section>
       <OrderStatus />

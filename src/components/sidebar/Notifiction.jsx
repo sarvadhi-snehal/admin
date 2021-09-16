@@ -5,7 +5,7 @@ import { Gear } from "react-bootstrap-icons";
 import MessagesList from "../Messages/MessagesList";
 import NotificationInfo from "../Notification/NotificationInfo";
 import ServicePannel from "./ServicePannel";
-
+import Bounce from "react-reveal/Bounce";
 const Notifiction = ({ panelColor }) => {
   const data = [
     {
@@ -50,27 +50,29 @@ const Notifiction = ({ panelColor }) => {
                 <Icon size={20} />
               </label>
             </div>
-            <ul className="dropdown-menu mt-2" id={target} aria-hidden="true">
-              <div className="">
+            <Bounce top>
+              <ul className="dropdown-menu mt-5" id={target} aria-hidden="true">
                 <div className="">
-                  {title && (
-                    <div className="modal-header">
-                      <p className="modal-title text-dark">{title}</p>
+                  <div className="">
+                    {title && (
+                      <div className="modal-header">
+                        <p className="modal-title text-dark">{title}</p>
+                      </div>
+                    )}
+                    <div className="row">
+                      <Component classname="scroll-div3 scroll" />
                     </div>
-                  )}
-                  <div className="row">
-                    <Component classname="scroll-div3 scroll" />
+                    {footer && (
+                      <div className=" p-3 text-center">
+                        <h6 className="fs-bold text-dark m-auto">
+                          {footer} &gt;
+                        </h6>
+                      </div>
+                    )}
                   </div>
-                  {footer && (
-                    <div className=" p-3 text-center">
-                      <h6 className="fs-bold text-dark m-auto">
-                        {footer} &gt;
-                      </h6>
-                    </div>
-                  )}
                 </div>
-              </div>
-            </ul>
+              </ul>
+            </Bounce>
           </div>
         );
       })}

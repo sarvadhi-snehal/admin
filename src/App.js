@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import "./custome.scss";
+import ".//../node_modules/toastr/build/toastr.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./App.scss";
 import Minimal from "./pages/Minimal";
@@ -11,17 +12,17 @@ import RoutesList from "./RoutesList";
 import { Provider } from "react-redux";
 import store from "./Store";
 import { loaduser } from "./Store";
-
+import Spinner from "./components/Spinner";
 function App() {
   useEffect(() => {
     store.dispatch(loaduser());
   }, []);
   return (
     <Provider store={store}>
-      <div className="App">
+      <div className="App bg-light">
         <BrowserRouter>
           <Switch>
-            <Route exact path="/" component={Login} />
+            <Route exact path="/login" component={Login} />
 
             <Layout>
               <RoutesList />

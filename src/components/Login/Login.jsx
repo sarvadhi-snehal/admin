@@ -22,7 +22,7 @@ const Login = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const history = useHistory();
-  let { from } = location.state || { from: { pathname: "/minimal" } };
+  let { from } = location.state || { from: { pathname: "/" } };
   const responseGoogle = (response) => {
     console.log(response);
     const userObj = {

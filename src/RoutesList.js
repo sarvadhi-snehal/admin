@@ -1,4 +1,3 @@
-import PrivateRoute from "./pages/PrivateRoute";
 import ContactGrid from "./pages/ContactGrid";
 import ContactDetail from "./pages/ContactDetail";
 import Inbox from "./pages/Inbox";
@@ -11,16 +10,25 @@ import SupportTickets from "./pages/SupportTickets";
 import ContactEmployee from "./pages/ContactEmployee";
 import Minimal from "./pages/Minimal";
 import Analytical from "./pages/Analytical";
+import Calender from "./pages/Calender";
+import Spinner from "./components/Spinner";
+import { useSelector } from "react-redux";
+import { Route, Redirect } from "react-router-dom";
+import PrivateRoute from "./pages/PrivateRoute";
 const RoutesList = () => {
+  const state = useSelector((state) => state);
+  console.log(state);
+  if (state.loading) <Redirect to="/login" />;
+  if (state.loading) <Spinner />;
   return (
     <>
-      <PrivateRoute exact path="/minimal">
+      <Route exact path="/">
         <Minimal />
-      </PrivateRoute>
+      </Route>
 
-      <PrivateRoute path="/analytical">
+      <Route path="/analytical">
         <Analytical />
-      </PrivateRoute>
+      </Route>
 
       <PrivateRoute exact path="/demographical">
         <Demographical />
@@ -28,31 +36,34 @@ const RoutesList = () => {
       <PrivateRoute exact path="/morden">
         <Morden />
       </PrivateRoute>
-      <PrivateRoute exact path="/chat">
+      <Route exact path="/chat">
         <Chat />
-      </PrivateRoute>
-      <PrivateRoute exact path="/support">
+      </Route>
+      <Route exact path="/support">
         <SupportTickets />
-      </PrivateRoute>
+      </Route>
 
-      <PrivateRoute exact path="/contact">
+      <Route exact path="/contact">
         <ContactEmployee />
-      </PrivateRoute>
-      <PrivateRoute exact path="/contact2">
+      </Route>
+      <Route exact path="/contact2">
         <ContactGrid />
-      </PrivateRoute>
-      <PrivateRoute exact path="/contact3">
+      </Route>
+      <Route exact path="/contact3">
         <ContactDetail />
-      </PrivateRoute>
-      <PrivateRoute exact path="/mailbox">
+      </Route>
+      <Route exact path="/mailbox">
         <Inbox />
-      </PrivateRoute>
-      <PrivateRoute exact path="/mailboxdetail">
+      </Route>
+      <Route exact path="/mailboxdetail">
         <MailBoxDetail />
-      </PrivateRoute>
-      <PrivateRoute exact path="/composemail">
+      </Route>
+      <Route exact path="/composemail">
         <ComposeMail />
-      </PrivateRoute>
+      </Route>
+      <Route exact path="/calender">
+        <Calender />
+      </Route>
     </>
   );
 };

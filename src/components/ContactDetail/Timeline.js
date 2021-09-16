@@ -6,6 +6,8 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Profile from "./Profile";
 import Setting from "./Setting";
+import UserActivity from "../UserActivity/Activity";
+import Line from "./Line";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -61,7 +63,7 @@ export default function ContactTabs() {
           </Tabs>
         </div>
         <TabPanel value={value} index={0}>
-          timeline
+          <Line />
         </TabPanel>
         <TabPanel value={value} index={1}>
           <Profile />
