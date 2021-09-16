@@ -1,3 +1,14 @@
+# Isssue
+- Private Routes not working currectly
+- Responsiveness work on reload or changing devices
+ 
+# Todo
+- calender app
+- support table
+- Weather Animation
+- Not Found Page
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
