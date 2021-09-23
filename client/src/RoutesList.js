@@ -11,6 +11,7 @@ import ContactEmployee from "./pages/ContactEmployee";
 import Minimal from "./pages/Minimal";
 import Analytical from "./pages/Analytical";
 import Calender from "./pages/Calender";
+import Usermanagement from "./pages/UerList";
 import Spinner from "./components/Spinner";
 import { useSelector } from "react-redux";
 import { Route, Redirect } from "react-router-dom";
@@ -22,20 +23,20 @@ const RoutesList = () => {
   if (state.loading) <Spinner />;
   return (
     <>
-      <PrivateRoute exact path="/">
+      <Route exact path="/">
         <Minimal />
-      </PrivateRoute>
+      </Route>
 
       <Route path="/analytical">
         <Analytical />
       </Route>
 
-      <PrivateRoute exact path="/demographical">
+      <Route exact path="/demographical">
         <Demographical />
-      </PrivateRoute>
-      <PrivateRoute exact path="/morden">
+      </Route>
+      <Route exact path="/morden">
         <Morden />
-      </PrivateRoute>
+      </Route>
       <Route exact path="/chat">
         <Chat />
       </Route>
@@ -63,6 +64,9 @@ const RoutesList = () => {
       </Route>
       <Route exact path="/calender">
         <Calender />
+      </Route>
+      <Route exact path="/users">
+        <Usermanagement />
       </Route>
     </>
   );

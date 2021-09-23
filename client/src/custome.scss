@@ -210,3 +210,30 @@ span {
 .bg-orange {
   background-color: #f39678;
 }
+
+.form-container {
+  height: 100vh;
+  width: calc(100% - 20%);
+  margin: 0 auto;
+  max-width: 30rem;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  .form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      border: none;
+      padding: 0.2rem;
+      // &:last-child {
+      //   margin-top: 1rem;
+      // }
+    }
+  }
+}

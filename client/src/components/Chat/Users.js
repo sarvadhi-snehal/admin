@@ -1,38 +1,9 @@
 import React from "react";
-import Drawer from "@material-ui/core/Drawer";
-import Hidden from "@material-ui/core/Hidden";
-import IconButton from "@material-ui/core/IconButton";
 
 import MenuIcon from "@material-ui/icons/Menu";
-
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import "./chat.scss";
+import { ArrowRightShort } from "react-bootstrap-icons";
 import Avatar from "@material-ui/core/Avatar";
-const drawerWidth = 240;
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-  },
-  drawer: {
-    [theme.breakpoints.up("sm")]: {
-      width: drawerWidth,
-      height: 100,
-      flexShrink: 0,
-    },
-  },
-  drawerPaper: {
-    position: "absolute",
-    width: 240,
-    height: 600,
-    top: 150,
-    left: 20,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-    [theme.breakpoints.up("sm")]: {
-      display: "none",
-    },
-  },
-}));
 
 const list = [
   {
@@ -136,58 +107,26 @@ const Users = (props) => {
       </div>
     </>
   );
-  const { window } = props;
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
-  const classes = useStyles();
-  const theme = useTheme();
+
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
   return (
-    <div className={`border-end   bg-white ${props.className} `}>
-      <nav className={classes.drawer} aria-label="user chat">
-        <Hidden smUp implementation="css">
-          <Drawer
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            variant="temporary"
-            anchor={theme.direction === "rtl" ? "right" : "left"}
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
-          >
-            {drawer}
-          </Drawer>
-        </Hidden>
-        <Hidden xsDown implementation="css">
-          <div
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            variant="permanent"
-            open
-          >
-            {drawer}
-          </div>
-        </Hidden>
-      </nav>
-      <main className={classes.content}>
-        <IconButton
-          color="inherit"
-          aria-label="open drawer"
-          edge="start"
-          onClick={handleDrawerToggle}
-          className={classes.menuButton}
-        >
-          <MenuIcon />
-        </IconButton>
-      </main>
+    <div
+      className={`border-end drawer-container  bg-white ${props.className} `}
+    >
+      <input
+        type="checkbox"
+        name="draweropen"
+        id="draweropen"
+        className="d-none"
+      />
+      <div className="drawer ">{drawer}</div>
+      <label htmlFor="draweropen" className="menuButton">
+        <ArrowRightShort size={25} />
+      </label>
     </div>
   );
 };

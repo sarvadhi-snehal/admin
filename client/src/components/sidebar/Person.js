@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
@@ -8,15 +8,15 @@ import { Wallet2 } from "react-bootstrap-icons";
 import { Envelope } from "react-bootstrap-icons";
 import { Gear } from "react-bootstrap-icons";
 import { Power } from "react-bootstrap-icons";
-import { GoogleLogout } from "react-google-login";
-import { useSelector, useDispatch } from "react-redux";
-import { loaduser } from "../../Store";
-const Person = ({ open, responseGoogle }) => {
-  const state = useSelector((state) => state);
+import { logout } from "../../Store/actions/action";
+import { useDispatch } from "react-redux";
+const Person = ({ open }) => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(loaduser());
-  }, [dispatch]);
+
+  const [result, setResult] = useState(
+    JSON.parse(localStorage.getItem("userObj"))
+  );
+
   const action = [
     {
       name: "Profile",
@@ -31,6 +31,10 @@ const Person = ({ open, responseGoogle }) => {
       Icon: Envelope,
     },
   ];
+  useEffect(() => {
+    const token = result?.token;
+    setResult(JSON.parse(localStorage.getItem("userObj")));
+  }, [result]);
 
   const body = (
     <div className="dropdown w-75">
@@ -42,7 +46,7 @@ const Person = ({ open, responseGoogle }) => {
         aria-expanded="false"
         style={{ color: "grey" }}
       >
-        {state.user === null ? "" : state.user.name}
+        {result === null ? "user" : result?.user.name}
       </label>
       <Flip right>
         <ul
@@ -63,21 +67,14 @@ const Person = ({ open, responseGoogle }) => {
           </a>
 
           <hr />
-          <GoogleLogout
-            clientId="962281289281-o8jti4ni3imnsljch6j4i4pqp6ppb4mb.apps.googleusercontent.com"
-            render={(renderProps) => (
-              <label
-                onClick={renderProps.onClick}
-                disabled={renderProps.disabled}
-                className="dropdown-item  p-2"
-              >
-                <Power className="me-1" />
-                Logout
-              </label>
-            )}
-            buttonText="Logout"
-            onLogoutSuccess={responseGoogle}
-          ></GoogleLogout>
+
+          <label
+            onClick={() => dispatch(logout())}
+            className="dropdown-item  p-2"
+          >
+            <Power className="me-1" />
+            Logout
+          </label>
         </ul>
       </Flip>
     </div>
@@ -89,8 +86,8 @@ const Person = ({ open, responseGoogle }) => {
         <div className="d-flex align-items-center flex-column justify-content-center pt-4 pb-5">
           <div className="avatar">
             <Avatar
-              alt={state.user === null ? "" : state.user.name}
-              src={state.user === null ? "" : state.user.imageUrl}
+              alt={result?.user === null ? "user" : result?.user.name}
+              src={result?.user === null ? "" : result?.user.imageUrl}
             />
           </div>
           {body}
@@ -99,8 +96,8 @@ const Person = ({ open, responseGoogle }) => {
         <ListItem button>
           <ListItemIcon>
             <Avatar
-              alt={state.user === null ? "" : state.user.name}
-              src={state.user === null ? "" : state.user.imageUrl}
+              alt={result?.user === null ? "user" : result?.user.name}
+              src={result?.user === null ? "" : result?.user.imageUrl}
             />
           </ListItemIcon>
         </ListItem>

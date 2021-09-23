@@ -13,16 +13,18 @@ import { Provider } from "react-redux";
 import store from "./Store";
 import { loaduser } from "./Store";
 import Spinner from "./components/Spinner";
+import Signup from "./components/Login/SignUp";
 function App() {
   useEffect(() => {
     store.dispatch(loaduser());
   }, []);
   return (
     <Provider store={store}>
-      <div className="App bg-light">
+      <div className="App bg-light ">
         <BrowserRouter>
           <Switch>
             <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={Signup} />
 
             <Layout>
               <RoutesList />

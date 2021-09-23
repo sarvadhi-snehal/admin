@@ -1,47 +1,67 @@
+import { useState } from "react";
 import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
+
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import RadioButtonUncheckedIcon from "@material-ui/icons/RadioButtonUnchecked";
-import { GoogleLogout } from "react-google-login";
-import { useStyles } from "./style";
-
-const SiteLinks = ({ responseGoogle }) => {
+import { useStyles, ListItem } from "./style";
+import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logout } from "../../Store/actions/action";
+import "./style.scss";
+const SiteLinks = ({ open }) => {
+  const [selectedIndex, setSelectedIndex] = useState();
+  const [isShown, setShown] = useState(false);
+  const handleListItemClick = (event, index) => {
+    setSelectedIndex(index);
+  };
   const classes = useStyles();
-
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const onClick = () => {
+    dispatch(logout());
+    history.push("/login");
+  };
   return (
     <List>
-      <ListItem button className={classes.hover}>
-        <ListItemIcon>
+      <ListItem
+        button
+        selected={selectedIndex === 20}
+        onClick={(event) => handleListItemClick(event, 20)}
+      >
+        <ListItemIcon className="hover-menu">
           <RadioButtonUncheckedIcon color="secondary" />
         </ListItemIcon>
-        <ListItemText primary="Documents" />
+
+        {open && <ListItemText className="menu" primary="Documents" />}
       </ListItem>
 
-      {/* <GoogleLogout
-        clientId="962281289281-o8jti4ni3imnsljch6j4i4pqp6ppb4mb.apps.googleusercontent.com"
-        render={(renderProps) => (
-          <ListItem
-            button
-            onClick={renderProps.onClick}
-            disabled={renderProps.disabled}
-            className={classes.hover}
-          >
-            <ListItemIcon>
-              <RadioButtonUncheckedIcon color="error" />
-            </ListItemIcon>
-            <ListItemText primary="Log out" />
-          </ListItem>
-        )}
-        buttonText="Logout"
-        onLogoutSuccess={responseGoogle}
-      ></GoogleLogout> */}
-
-      <ListItem button className={classes.hover}>
+      <ListItem
+        buttonRef
+        className={classes.hover}
+        selected={selectedIndex === 111}
+        onClick={(event) => {
+          onClick();
+          handleListItemClick(event, 111);
+        }}
+      >
         <ListItemIcon>
-          <RadioButtonUncheckedIcon color="primary" />
+          <RadioButtonUncheckedIcon color="error" />
         </ListItemIcon>
-        <ListItemText primary="FAQ" />
+        <ListItemText primary="Log out" />{" "}
+      </ListItem>
+
+      <ListItem
+        button
+        className={classes.hover}
+        selected={selectedIndex === 22}
+        onClick={(event) => handleListItemClick(event, 22)}
+      >
+        <ListItemIcon>
+          <RadioButtonUncheckedIcon color="primary" className="menu" />
+        </ListItemIcon>
+        <ListItemText primary="FAQ" className="hover-item" />
+        {open && <ListItemText primary="FAQ" />}
       </ListItem>
     </List>
   );

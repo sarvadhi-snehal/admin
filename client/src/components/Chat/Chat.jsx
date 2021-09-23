@@ -1,6 +1,8 @@
 import MsgItem from "./MsgItem";
 import { Telegram } from "react-bootstrap-icons";
 import Users from "./Users";
+import "./chat.scss";
+
 const msges = [
   {
     name: "James Anderson",
@@ -41,9 +43,9 @@ const msges = [
 const Chat = ({ className, header, list }) => {
   return (
     <div className={className}>
-      <div className="div d-flex mt-4 ">
+      <div className="div d-flex mt-4 postion-relative">
         <Users className={list} />
-        <div className="w-100 ">
+        <div className="w-100 openDrawer">
           <div className="bg-white p-4">
             <h6>Chat</h6>
           </div>

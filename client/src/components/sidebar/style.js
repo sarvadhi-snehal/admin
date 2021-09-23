@@ -1,4 +1,5 @@
-import { makeStyles } from "@material-ui/core";
+import { makeStyles, withStyles } from "@material-ui/core";
+import MuiListItem from "@material-ui/core/ListItem";
 const drawerWidth = 230;
 
 export const useStyles = makeStyles((theme) => ({
@@ -52,14 +53,12 @@ export const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-
     top: theme.spacing(8),
     fontFamily: "Poppins",
     border: "none",
     color: "grey",
-    overflowX: "hidden",
     width: theme.spacing(8),
-    // [theme.breakpoints.up("sm")]: {
+    overflow: "show", // [theme.breakpoints.up("sm")]: {
     //   width: theme.spacing(8) + 1,
     // },
     [theme.breakpoints.down("sm")]: {
@@ -104,11 +103,7 @@ export const useStyles = makeStyles((theme) => ({
       width: `calc(100% - ${theme.spacing(9) + 1}px)`,
     },
   },
-  hover: {
-    "&:hover": {
-      color: "green",
-    },
-  },
+
   logo: {
     display: "flex",
     height: theme.spacing(8),
@@ -143,3 +138,34 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+
+export const ListItem = withStyles({
+  root: {
+    "&$selected": {
+      color: "darkOrange",
+      borderLeft: "5px solid darkOrange",
+      "& .MuiListItemIcon-root": {
+        color: "darkOrange",
+      },
+    },
+    // "&$selected:hover": {
+    //   backgroundColor: "purple",
+    //   color: "white",
+    //   "& .MuiListItemIcon-root": {
+    //     color: "white",
+    //   },
+    // },
+    "&:hover": {
+      color: "darkOrange",
+      "& .MuiListItemIcon-root": {
+        color: "darkOrange",
+      },
+    },
+    // "& .MuiListItemIcon-root": {
+    //   "&:hover": {
+    //     "& dropdown": {},
+    //   },
+    // },
+  },
+  selected: {},
+})(MuiListItem);

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index"
+    "start": "nodemon index"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,20 @@
   "bugs": {
     "url": "https://github.com/snehal-iblinfotech/admin/issues"
   },
-  "homepage": "https://github.com/snehal-iblinfotech/admin#readme"
+  "homepage": "https://github.com/snehal-iblinfotech/admin#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
+    "config": "^3.3.6",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-validator": "^6.12.1",
+    "formik": "^2.2.9",
+    "google-auth-library": "^7.9.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.6",
+    "multer": "^1.4.3",
+    "nodemon": "^2.0.12",
+    "yup": "^0.32.9"
+  }
 }

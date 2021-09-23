@@ -23,14 +23,18 @@ const Login = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   let { from } = location.state || { from: { pathname: "/" } };
-  const responseGoogle = (response) => {
+  const responseGoogle = async (response) => {
     console.log(response);
     const userObj = {
-      token: response.Zb,
-      user: response.profileObj,
+      token: response?.tokenId,
+      user: response?.profileObj,
     };
-    dispatch(login(userObj));
-    history.replace(from);
+    try {
+      dispatch(login(userObj));
+      history.replace(from);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   const responseGoogleError = (response) => {

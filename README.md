@@ -1,13 +1,11 @@
 # Isssue
+
 - Private Routes not working currectly
 - Responsiveness work on reload or changing devices
- 
-# Todo
-- calender app
-- support table
-- Weather Animation
-- Not Found Page
 
+# Todo
+
+- calender app
 
 # Getting Started with Create React App
 

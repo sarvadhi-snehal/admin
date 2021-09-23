@@ -6,6 +6,10 @@ import {
   HEADER_COLOR,
   SIDEBAR_COLOR,
   OPEN_NOTIFICATION,
+  CREATE_USER,
+  UPDATE_USER,
+  DELETE_USER,
+  GET_USERS,
 } from "../actions/type";
 
 const initialState = {
@@ -16,6 +20,7 @@ const initialState = {
   headerColor: "#F39678",
   sidebarColor: "#ffffff",
   open: false,
+  users: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -32,7 +37,6 @@ const reducer = (state = initialState, action) => {
     case LOGIN_SUCCESS:
       return {
         ...state,
-
         token: payload.token,
         user: payload.user,
         isAuthenticated: true,
@@ -62,6 +66,29 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         open: !state.open,
+      };
+    case CREATE_USER:
+      return {
+        ...state,
+        users: [...state.users, payload],
+      };
+    case UPDATE_USER:
+      console.log("updateduser", payload);
+      return {
+        ...state,
+        users: state.users.map((user) =>
+          user._id === payload._id ? payload : user
+        ),
+      };
+    case DELETE_USER:
+      return {
+        ...state,
+        users: state.users.filter((user) => user._id !== payload),
+      };
+    case GET_USERS:
+      return {
+        ...state,
+        users: payload,
       };
     default:
       return state;

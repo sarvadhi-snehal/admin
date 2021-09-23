@@ -13,7 +13,7 @@ function GoogleSignin({ responseGoogle }) {
       onSuccess={responseGoogle}
       onFailure={responseGoogleError}
       cookiePolicy={"single_host_origin"}
-      isSignedIn={true}
+      // isSignedIn={true}
     />
   );
 }

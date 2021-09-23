@@ -2,14 +2,15 @@ import { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
+
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Collapse from "@material-ui/core/Collapse";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import { Speedometer, MenuApp, Inbox } from "react-bootstrap-icons";
-
+import { ListItem } from "./style";
+import "./style.scss";
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
@@ -17,9 +18,9 @@ const useStyles = makeStyles((theme) => ({
   },
   nested: {
     paddingLeft: theme.spacing(8),
-    "&:hover": {
-      color: "green",
-    },
+  },
+  item: {
+    position: "relative",
   },
   items: {
     backgroundColor: "#4DC0C8",
@@ -27,29 +28,19 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "0.7rem",
     color: "White",
   },
-  item: {
-    color: "grey",
-    "&:hover": {
-      color: "orange",
-    },
-    fontFamily: "Poppins",
-  },
-  activeLink: {
-    color: "orange",
-  },
 }));
 
 export default function NestedList({ isClose }) {
+  const [selectedIndex, setSelectedIndex] = useState();
   const classes = useStyles();
   const [open, setOpen] = useState({});
   const [isselescted, setIsSelected] = useState({});
 
   const handleClick = (key) => {
-    setOpen({ [key]: !open[key] });
+    !isClose ? setOpen({ [key]: false }) : setOpen({ [key]: !open[key] });
   };
-  const SelectedMenu = (item) => {
-    console.log(item);
-    setIsSelected({ [item]: !isselescted[item] });
+  const handleListItemClick = (event, index) => {
+    setSelectedIndex(index);
   };
 
   const menu = [
@@ -76,7 +67,12 @@ export default function NestedList({ isClose }) {
         },
       ],
     },
-
+    {
+      name: "Users",
+      key: "users",
+      Icon: MenuApp,
+      links: null,
+    },
     {
       name: "Apps",
       key: "apps",
@@ -133,40 +129,56 @@ export default function NestedList({ isClose }) {
 
   return (
     <>
-      {menu.map((menuItem) => {
+      {menu.map((menuItem, index) => {
         const { key, Icon } = menuItem;
 
         return (
           <List className={classes.root} key={menuItem.name}>
             <ListItem
               button
-              onClick={() => handleClick(key)}
-              className={classes.item}
+              component={key === "users" && "a"}
+              href={key === "users" && key}
+              selected={selectedIndex === index}
+              onClick={(event) => {
+                handleListItemClick(event, index);
+                handleClick(key);
+              }}
+              className="item"
             >
-              <ListItemIcon color="inherit">
-                <Icon size={20} color="inherit" />
+              <ListItemIcon className="menu">
+                <Icon size={20} />
               </ListItemIcon>
+
               <ListItemText primary={menuItem.name} />
-              <span className={classes.items}> {menuItem.links.length}</span>
-              {open[key] ? <ExpandLess /> : <ExpandMore />}
+
+              {menuItem.links && (
+                <>
+                  <span className={classes.items}>{menuItem.links.length}</span>
+                  {open[key] ? <ExpandLess /> : <ExpandMore />}
+                </>
+              )}
             </ListItem>
             <Collapse in={open[key]} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
-                {menuItem.links.map((item) => (
-                  <ListItem
-                    key={item.name}
-                    button
-                    component="a"
-                    href={item.href}
-                    onClick={() => SelectedMenu(item.name)}
-                    className={[
-                      classes.nested,
-                      isselescted[item.name] && classes.activeLink,
-                    ]}
-                  >
-                    <ListItemText primary={item.name} />
-                  </ListItem>
-                ))}
+                {menuItem.links &&
+                  menuItem.links.map((item, index) => (
+                    <ListItem
+                      key={item.name}
+                      button
+                      component="a"
+                      href={item.href}
+                      selected={selectedIndex === index * 5 + 25}
+                      onClick={(event) => {
+                        handleListItemClick(event, index * 5 + 25);
+                      }}
+                      className={[
+                        classes.nested,
+                        isselescted[item.name] && classes.activeLink,
+                      ]}
+                    >
+                      <ListItemText primary={item.name} />
+                    </ListItem>
+                  ))}
               </List>
             </Collapse>
           </List>
