@@ -23,6 +23,7 @@
     "draft-js": "^0.11.7",
     "formik": "^2.2.9",
     "formik-material-ui": "^4.0.0-alpha.1",
+    "immutable": "^4.0.0-rc.15",
     "node-sass": "^5.0.0",
     "react": "^17.0.2",
     "react-awesome-reveal": "^3.8.1",
