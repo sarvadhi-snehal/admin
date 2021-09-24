@@ -117,7 +117,10 @@ const ServicePannel = () => {
                 className="m-2"
                 style={{ backgroundColor: text, width: size, height: size }}
                 key={index}
-                onClick={() => dispatch(panelColor(text))}
+                onClick={() => {
+                  dispatch(panelColor(text));
+                  dispatch(sideBar("white"));
+                }}
               ></div>
             ))}
           </div>

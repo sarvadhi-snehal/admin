@@ -19,8 +19,7 @@ const SiteLinks = ({ open }) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const onClick = () => {
-    dispatch(logout());
-    history.push("/login");
+    dispatch(logout(history));
   };
   return (
     <List>

@@ -14,62 +14,61 @@ import Calender from "./pages/Calender";
 import Usermanagement from "./pages/UerList";
 import Spinner from "./components/Spinner";
 import { useSelector } from "react-redux";
-import { Route, Redirect } from "react-router-dom";
 import PrivateRoute from "./pages/PrivateRoute";
-const RoutesList = () => {
+const PrivateRoutesList = () => {
   const state = useSelector((state) => state);
   console.log(state);
 
   if (state.loading) <Spinner />;
   return (
     <>
-      <Route exact path="/">
+      <PrivateRoute exact path="/">
         <Minimal />
-      </Route>
+      </PrivateRoute>
 
-      <Route path="/analytical">
+      <PrivateRoute path="/analytical">
         <Analytical />
-      </Route>
+      </PrivateRoute>
 
-      <Route exact path="/demographical">
+      <PrivateRoute exact path="/demographical">
         <Demographical />
-      </Route>
-      <Route exact path="/morden">
+      </PrivateRoute>
+      <PrivateRoute exact path="/morden">
         <Morden />
-      </Route>
-      <Route exact path="/chat">
+      </PrivateRoute>
+      <PrivateRoute exact path="/chat">
         <Chat />
-      </Route>
-      <Route exact path="/support">
+      </PrivateRoute>
+      <PrivateRoute exact path="/support">
         <SupportTickets />
-      </Route>
+      </PrivateRoute>
 
-      <Route exact path="/contact">
+      <PrivateRoute exact path="/contact">
         <ContactEmployee />
-      </Route>
-      <Route exact path="/contact2">
+      </PrivateRoute>
+      <PrivateRoute exact path="/contact2">
         <ContactGrid />
-      </Route>
-      <Route exact path="/contact3">
+      </PrivateRoute>
+      <PrivateRoute exact path="/contact3">
         <ContactDetail />
-      </Route>
-      <Route exact path="/mailbox">
+      </PrivateRoute>
+      <PrivateRoute exact path="/mailbox">
         <Inbox />
-      </Route>
-      <Route exact path="/mailboxdetail">
+      </PrivateRoute>
+      <PrivateRoute exact path="/mailboxdetail">
         <MailBoxDetail />
-      </Route>
-      <Route exact path="/composemail">
+      </PrivateRoute>
+      <PrivateRoute exact path="/composemail">
         <ComposeMail />
-      </Route>
-      <Route exact path="/calender">
+      </PrivateRoute>
+      <PrivateRoute exact path="/calender">
         <Calender />
-      </Route>
-      <Route exact path="/users">
+      </PrivateRoute>
+      <PrivateRoute exact path="/users">
         <Usermanagement />
-      </Route>
+      </PrivateRoute>
     </>
   );
 };
 
-export default RoutesList;
+export default PrivateRoutesList;

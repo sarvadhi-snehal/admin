@@ -2,7 +2,7 @@ import { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 import List from "@material-ui/core/List";
-
+import { Link } from "react-router-dom";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Collapse from "@material-ui/core/Collapse";
@@ -165,17 +165,15 @@ export default function NestedList({ isClose }) {
                     <ListItem
                       key={item.name}
                       button
-                      component="a"
-                      href={item.href}
+                      component={Link}
+                      to={item.href}
                       selected={selectedIndex === index * 5 + 25}
                       onClick={(event) => {
                         handleListItemClick(event, index * 5 + 25);
                       }}
-                      className={[
-                        classes.nested,
-                        isselescted[item.name] && classes.activeLink,
-                      ]}
+                      className={[classes.nested]}
                     >
+                      {" "}
                       <ListItemText primary={item.name} />
                     </ListItem>
                   ))}

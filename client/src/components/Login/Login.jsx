@@ -1,10 +1,10 @@
 import GoogleSignin from "./GoogleLogin";
 import LoginForm from "./LoginForm";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../Store/actions/action";
+import { signin } from "../../Store/actions/action";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory, useLocation, Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,16 +22,18 @@ const Login = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const history = useHistory();
-  let { from } = location.state || { from: { pathname: "/" } };
+  // let { from } = location.state || { from: { pathname: "/" } };
   const responseGoogle = async (response) => {
     console.log(response);
     const userObj = {
-      token: response?.tokenId,
-      user: response?.profileObj,
+      token: response.tokenId,
+      user: response.profileObj,
     };
+    console.log("user", userObj);
     try {
-      dispatch(login(userObj));
-      history.replace(from);
+      const isGoogleSignin = true;
+      dispatch(signin(userObj, history, isGoogleSignin));
+      // history.replace(from);
     } catch (e) {
       console.log(e);
     }
@@ -46,10 +48,15 @@ const Login = () => {
       {
         <Grid container className={classes.root}>
           <LoginForm />
-          <GoogleSignin
-            responseGoogle={responseGoogle}
-            responseGoogleError={responseGoogleError}
-          />
+          <div className="flex-between">
+            <Link to="/signup" className="m-3 btn-white shadow p-2 btn">
+              Create Account
+            </Link>
+            <GoogleSignin
+              responseGoogle={responseGoogle}
+              responseGoogleError={responseGoogleError}
+            />
+          </div>
         </Grid>
       }{" "}
     </>

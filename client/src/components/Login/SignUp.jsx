@@ -1,30 +1,35 @@
 import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { TextField } from "formik-material-ui";
+import { TextField, CheckboxWithLabel } from "formik-material-ui";
 import { Link, useHistory } from "react-router-dom";
 import { signup } from "../../Store/actions/action";
 import { useDispatch } from "react-redux";
+import Button from "@material-ui/core/Button";
+
 const SignUp = () => {
   const history = useHistory();
   const [avatarFile, setAvatarFile] = useState();
   const dispatch = useDispatch();
   const initialValues = {
-    firstName: "",
-    term: "",
+    name: "",
+    checked: "",
     email: "",
     password: "",
     password2: "",
     avatar: null,
   };
   const validationSchema = Yup.object({
-    firstName: Yup.string().required("Required"),
-    term: Yup.string().required("You need to agre with Terms"),
+    name: Yup.string().required("Required"),
+    checked: Yup.boolean()
+      .oneOf([true], "Must Accept Terms and Conditions")
+      .required("Must Accept Terms and Conditions"),
     email: Yup.string().email("invalid email").required("Required"),
     password: Yup.string().required("required").min(6),
     password2: Yup.string()
       .required("Required")
       .oneOf([Yup.ref("password"), null], "Passwords must match"),
+    // term: Yup.boolean().required("Required"),
   });
   const validateavatarFile = (file) => {
     let error;
@@ -35,18 +40,7 @@ const SignUp = () => {
   };
   var formData = new FormData();
   const onSubmit = (values) => {
-    // console.log(values);
-
-    formData.append("name", values.firstName);
-    formData.append("password", values.password);
-    formData.append("email", values.email);
-    formData.append("avatar", values.avatar);
-    //   name: ,
-    //   email: values.email,
-    //   password: values.password,
-    //   avatar: values.avatar,
-
-    dispatch(signup(formData, history));
+    dispatch(signup(values, history));
   };
   return (
     <Formik
@@ -64,11 +58,11 @@ const SignUp = () => {
               <div className="form-control">
                 <Field
                   type="text"
-                  name="firstName"
+                  name="name"
                   placeholder="Name"
                   component={TextField}
                 />
-                {/* <ErrorMessage name="firstName" /> */}
+                {/* <ErrorMessage name="name" /> */}
               </div>
 
               <div className="form-control">
@@ -88,8 +82,7 @@ const SignUp = () => {
                   component={TextField}
                 />
                 {/* <ErrorMessage name="password" /> */}
-              </div>
-              <div className="form-control">
+
                 <Field
                   type="password"
                   name="password2"
@@ -99,7 +92,7 @@ const SignUp = () => {
                 {/* <ErrorMessage name="password2" /> */}
               </div>
 
-              <div className="form-control">
+              <div className="form-contro flex-row">
                 <Field type="file" name="avatar" validate={validateavatarFile}>
                   {({ field, form }) => {
                     return (
@@ -117,45 +110,72 @@ const SignUp = () => {
                           }}
                           className="d-none"
                         />
-                        {avatarFile && (
-                          <img
-                            width={100}
-                            height={100}
-                            src={window.URL.createObjectURL(avatarFile)}
-                            alt="avatar"
-                            className=""
-                            required
-                          />
-                        )}
                       </>
                     );
                   }}
                 </Field>
-                <label htmlFor="avatar" className="bg-info btn w-50 text-white">
-                  Select Avatar
-                </label>
-                <ErrorMessage name="avatar">
-                  {(msg) => <div className="text-danger">{msg}</div>}
-                </ErrorMessage>
+                <div>
+                  <label
+                    htmlFor="avatar"
+                    className="bg-white shadow btn text-secondary "
+                  >
+                    {avatarFile ? (
+                      <span>Selected Avatar</span>
+                    ) : (
+                      <span>Select Avatar</span>
+                    )}
+                  </label>
+                  <ErrorMessage name="avatar">
+                    {(msg) => (
+                      <div
+                        className="text-danger"
+                        style={{ fontSize: "0.8rem" }}
+                      >
+                        {msg}
+                      </div>
+                    )}
+                  </ErrorMessage>
+                </div>
+                {avatarFile && (
+                  <img
+                    width={100}
+                    height={100}
+                    src={window.URL.createObjectURL(avatarFile)}
+                    alt="avatar"
+                    className=""
+                    required
+                  />
+                )}
               </div>
-              <div className="form-control  flex-row  ">
+              <div className="form-control  ">
                 <Field
                   type="checkbox"
-                  name="term"
-                  id="term"
-                  className="form-check-input "
+                  name="checked"
+                  component={CheckboxWithLabel}
+                  // error={formik.errors.checked}
+                  Label={{ label: " I agree to all Terms" }}
                 />
-                <label htmlFor="term" className="form-check-label ms-2">
-                  I agree to all Terms
-                </label>
-                <ErrorMessage name="term">
-                  {(msg) => <div className="text-danger">{msg}</div>}
+                <ErrorMessage name="checked">
+                  {(msg) => (
+                    <div
+                      className="text-danger "
+                      style={{ fontSize: "0.8rem" }}
+                    >
+                      {msg}
+                    </div>
+                  )}
                 </ErrorMessage>
               </div>
+
               <div className="form-action  m-auto w-100 p-3">
-                <button className="btn btn-primary rounded-pill" type="submit">
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                >
                   Submit
-                </button>
+                </Button>
               </div>
 
               <p className="text-center">

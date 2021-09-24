@@ -1,4 +1,5 @@
 import axios from "axios";
+import * as api from "../../API/index";
 import {
   LOGIN_SUCCESS,
   LOG_OUT,
@@ -13,33 +14,24 @@ import {
   GET_USERS,
 } from "./type";
 
-export const loaduser = () => (dispatch) => {
-  if (localStorage.getItem("userObj")) {
-    let userObj = localStorage.getItem("userObj");
-
+export const loadUser = () => (dispatch) => {
+  if (localStorage.getItem("profile")) {
+    let userObj = JSON.parse(localStorage.getItem("profile"));
+    console.log(userObj);
     dispatch({
       type: LOAD_USER,
-      payload: JSON.parse(userObj),
+      payload: userObj,
     });
   } else {
     return;
   }
 };
 
-export const login = (userObj) => (dispatch) => {
-  localStorage.setItem("userObj", JSON.stringify(userObj));
-  dispatch({
-    type: LOGIN_SUCCESS,
-    payload: userObj,
-  });
-  dispatch(loaduser());
-};
-
-export const logout = (userObj) => (dispatch) => {
-  localStorage.removeItem("userObj");
+export const logout = (history) => (dispatch) => {
   dispatch({
     type: LOG_OUT,
   });
+  history.push("/login");
 };
 
 export const panelColor = (getColor) => (dispatch) => {
@@ -62,20 +54,49 @@ export const handleClick = (newState) => (dispatch) => {
   });
 };
 
-export const signup = (formData, history) => async (dispatch) => {
-  console.log(formData);
+export const signup = (values, history) => async (dispatch) => {
+  const formData = new FormData();
+  formData.append("name", values.name);
+  formData.append("email", values.email);
+  formData.append("password", values.password);
+  formData.append("password2", values.password2);
+  formData.append("avatar", values.avatar);
+
   try {
-    //sed to server config
+    const { data } = await api.signup(formData);
+
+    console.log("action", data);
+    dispatch({
+      type: LOGIN_SUCCESS,
+      data,
+    });
     history.push("/");
-  } catch (error) {}
+  } catch (error) {
+    console.error(error);
+  }
 };
-export const signin = (formData, history) => async (dispatch) => {
-  console.log(formData);
-  try {
-    //sed to server config
-    history.push("/");
-  } catch (error) {}
-};
+export const signin =
+  (formData, history, isGoogleSignin = false) =>
+  async (dispatch) => {
+    console.log("google login", formData);
+
+    try {
+      let data;
+      if (isGoogleSignin) {
+        data = formData;
+      } else {
+        const res = await api.signin(formData);
+        data = res.data;
+      }
+      dispatch({
+        type: LOGIN_SUCCESS,
+        data,
+      });
+      history.push("/");
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
 export const createUser = (user) => async (dispatch) => {
   try {
@@ -87,10 +108,7 @@ export const createUser = (user) => async (dispatch) => {
     formData.append("age", user.age);
     formData.append("avatar", user.avatar);
     // console.log(formData.get("avatar"));
-    const res = await axios.post(
-      "http://localhost:4000/api/users/create",
-      formData
-    );
+    const res = await axios.post("/api/users/create", formData);
     console.log("datar", res.data);
     dispatch({
       type: CREATE_USER,
@@ -102,7 +120,7 @@ export const createUser = (user) => async (dispatch) => {
 };
 export const deleteUser = (id) => async (dispatch) => {
   try {
-    await axios.delete(`http://localhost:4000/api/users/${id}`);
+    await axios.delete(`/api/users/${id}`);
 
     dispatch({
       type: DELETE_USER,
@@ -120,10 +138,7 @@ export const editUser = (user) => async (dispatch) => {
   });
 
   try {
-    const res = await axios.post(
-      "http://localhost:4000/api/users/editUser",
-      updatedUser
-    );
+    const res = await axios.post("/api/users/editUser", updatedUser);
     console.log("response", res.data);
     dispatch({
       type: UPDATE_USER,
@@ -133,7 +148,7 @@ export const editUser = (user) => async (dispatch) => {
 };
 
 export const getUsers = () => async (dispatch) => {
-  const res = await axios.get("http://localhost:4000/api/users");
+  const res = await axios.get("/api/users");
   console.log(res.data);
   try {
     dispatch({

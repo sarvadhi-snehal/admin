@@ -40,9 +40,11 @@ export const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
+
     top: theme.spacing(8),
     border: "none",
     color: "grey",
+
     "&::-webkit-scrollbar": {
       display: "none",
     },
@@ -53,12 +55,13 @@ export const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+
     top: theme.spacing(8),
     fontFamily: "Poppins",
     border: "none",
     color: "grey",
     width: theme.spacing(8),
-    overflow: "show", // [theme.breakpoints.up("sm")]: {
+    // overflow: "scroll", // [theme.breakpoints.up("sm")]: {
     //   width: theme.spacing(8) + 1,
     // },
     [theme.breakpoints.down("sm")]: {

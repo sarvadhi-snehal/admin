@@ -1,12 +1,11 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import BreadCumb from "../BreadCumb";
-import { useLocation } from "react-router-dom";
+import { useLocation, Redirect } from "react-router-dom";
 import Bar from "../sidebar/Bar";
 import Alert from "../Alert";
 import Footer from "../Footer";
 import { useSelector } from "react-redux";
-
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -26,14 +25,19 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     flexGrow: 1,
+    marginBottom: 0,
   },
 }));
 
 export default function Layout({ children }) {
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
   const location = useLocation();
   const classes = useStyles();
   const state = useSelector((state) => state);
-  console.log(state);
+  console.log("layout", state);
+  if (!state.isAuthenticated) {
+    return <Redirect to="/login" />;
+  }
   return (
     <div className={classes.root}>
       <Bar />

@@ -9,32 +9,35 @@ import { Envelope } from "react-bootstrap-icons";
 import { Gear } from "react-bootstrap-icons";
 import { Power } from "react-bootstrap-icons";
 import { logout } from "../../Store/actions/action";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+const action = [
+  {
+    name: "Profile",
+    Icon: PersonIcon,
+  },
+  {
+    name: "My Balance",
+    Icon: Wallet2,
+  },
+  {
+    name: "Inbox",
+    Icon: Envelope,
+  },
+];
 const Person = ({ open }) => {
   const dispatch = useDispatch();
+  const history = useHistory();
+  const user = useSelector((state) => state.user.user);
 
-  const [result, setResult] = useState(
-    JSON.parse(localStorage.getItem("userObj"))
-  );
+  const [profile, setProfile] = useState(user);
+  //   JSON.parse(localStorage.getItem("profile")).user
+  // );
+  // console.log(profile);
 
-  const action = [
-    {
-      name: "Profile",
-      Icon: PersonIcon,
-    },
-    {
-      name: "My Balance",
-      Icon: Wallet2,
-    },
-    {
-      name: "Inbox",
-      Icon: Envelope,
-    },
-  ];
-  useEffect(() => {
-    const token = result?.token;
-    setResult(JSON.parse(localStorage.getItem("userObj")));
-  }, [result]);
+  // useEffect(() => {
+  //   setProfile(JSON.parse(localStorage.getItem("profile")).user);
+  // }, [profile?.token]);
 
   const body = (
     <div className="dropdown w-75">
@@ -46,7 +49,7 @@ const Person = ({ open }) => {
         aria-expanded="false"
         style={{ color: "grey" }}
       >
-        {result === null ? "user" : result?.user.name}
+        {profile === null ? "user" : profile?.name}
       </label>
       <Flip right>
         <ul
@@ -69,7 +72,7 @@ const Person = ({ open }) => {
           <hr />
 
           <label
-            onClick={() => dispatch(logout())}
+            onClick={() => dispatch(logout(history))}
             className="dropdown-item  p-2"
           >
             <Power className="me-1" />
@@ -86,8 +89,13 @@ const Person = ({ open }) => {
         <div className="d-flex align-items-center flex-column justify-content-center pt-4 pb-5">
           <div className="avatar">
             <Avatar
-              alt={result?.user === null ? "user" : result?.user.name}
-              src={result?.user === null ? "" : result?.user.imageUrl}
+              alt={profile === null ? "user" : profile?.name}
+              src={
+                profile === null
+                  ? ""
+                  : profile.imageUrl ||
+                    `http://localhost:4000/admin/${profile?.avatar}`
+              }
             />
           </div>
           {body}
@@ -96,8 +104,13 @@ const Person = ({ open }) => {
         <ListItem button>
           <ListItemIcon>
             <Avatar
-              alt={result?.user === null ? "user" : result?.user.name}
-              src={result?.user === null ? "" : result?.user.imageUrl}
+              alt={profile?.user === null ? "user" : profile?.name}
+              src={
+                profile?.user === null
+                  ? ""
+                  : profile.imageUrl ||
+                    `http://localhost:4000/admin/${profile?.avatar}`
+              }
             />
           </ListItemIcon>
         </ListItem>

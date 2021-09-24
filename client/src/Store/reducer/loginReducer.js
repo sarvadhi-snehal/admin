@@ -13,10 +13,10 @@ import {
 } from "../actions/type";
 
 const initialState = {
-  token: null,
-  isAuthenticated: false,
   loading: true,
-  user: null,
+  user: [],
+  isAuthenticated: false,
+
   headerColor: "#F39678",
   sidebarColor: "#ffffff",
   open: false,
@@ -29,21 +29,21 @@ const reducer = (state = initialState, action) => {
     case LOAD_USER:
       return {
         ...state,
-        token: payload.token,
-        user: payload.user,
+        user: payload,
         isAuthenticated: true,
         loading: false,
       };
     case LOGIN_SUCCESS:
+      localStorage.setItem("profile", JSON.stringify(action.data));
       return {
         ...state,
-        token: payload.token,
-        user: payload.user,
+        user: action.data,
         isAuthenticated: true,
         loading: false,
       };
     case LOGIN_FAILURE:
     case LOG_OUT:
+      localStorage.removeItem("profile");
       return {
         ...state,
 

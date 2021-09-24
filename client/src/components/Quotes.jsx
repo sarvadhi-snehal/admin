@@ -23,7 +23,7 @@ export default function Quotes({ className }) {
   useEffect(() => {
     const setTime = setInterval(() => {
       getQuotes();
-    }, 1000);
+    }, 8000);
 
     return () => clearInterval(setTime);
   }, [getQuotes]);

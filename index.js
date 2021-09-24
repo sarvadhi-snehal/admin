@@ -6,9 +6,9 @@ const app = express();
 app.use(express.static("uploads"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// app.use("/api/auth", require("./Routes/API/auth.js"));
 app.use(cors({ origin: true, credentials: true }));
-app.use("/api/users", require("./Routes/API/users.js"));
+app.use("/api/auth", require("./Routes/auth.js"));
+app.use("/api/users", require("./Routes/users.js"));
 mongoose.connect(
   "mongodb+srv://root:root123@cluster0.4wkwj.mongodb.net/adminTable?retryWrites=true&w=majority",
   console.log("database connected"),

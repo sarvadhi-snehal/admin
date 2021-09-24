@@ -9,34 +9,33 @@ import Login from "./components/Login/Login";
 import NotFound from "./pages/NotFound";
 import RoutesList from "./RoutesList";
 // redux
-import { Provider } from "react-redux";
-import store from "./Store";
-import { loaduser } from "./Store";
+import { useDispatch } from "react-redux";
+import { loadUser } from "./Store/actions/action";
 import Spinner from "./components/Spinner";
 import Signup from "./components/Login/SignUp";
+// import PrivateRoute from "./pages/PrivateRoute";
 function App() {
+  const dispatch = useDispatch();
   useEffect(() => {
-    store.dispatch(loaduser());
-  }, []);
+    dispatch(loadUser());
+  }, [dispatch]);
   return (
-    <Provider store={store}>
-      <div className="App bg-light ">
-        <BrowserRouter>
-          <Switch>
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/signup" component={Signup} />
+    <div className="App bg-light ">
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={Signup} />
 
-            <Layout>
-              <RoutesList />
-            </Layout>
-            <Route exact path="/notfound" component={NotFound} />
-            <Route path="*" component={NotFound} />
-          </Switch>
+          <Layout>
+            <RoutesList />
+          </Layout>
+          <Route exact path="/notfound" component={NotFound} />
+          <Route path="*" component={NotFound} />
+        </Switch>
 
-          {/* <Route path="*" component={Login} /> */}
-        </BrowserRouter>
-      </div>
-    </Provider>
+        {/* <Route path="*" component={Login} /> */}
+      </BrowserRouter>
+    </div>
   );
 }
 
