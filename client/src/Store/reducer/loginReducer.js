@@ -46,7 +46,6 @@ const reducer = (state = initialState, action) => {
       localStorage.removeItem("profile");
       return {
         ...state,
-
         token: null,
         isAuthenticated: false,
         loading: false,
@@ -73,7 +72,6 @@ const reducer = (state = initialState, action) => {
         users: [...state.users, payload],
       };
     case UPDATE_USER:
-      console.log("updateduser", payload);
       return {
         ...state,
         users: state.users.map((user) =>

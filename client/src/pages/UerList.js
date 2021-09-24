@@ -14,7 +14,7 @@ const UerList = () => {
   const history = useHistory();
   const usersData = useSelector((state) => state.users);
   const [value, setValue] = useState(null);
-  console.log(usersData);
+
   const initialValues = {
     name: "",
     email: "",

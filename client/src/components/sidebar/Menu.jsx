@@ -136,8 +136,8 @@ export default function NestedList({ isClose }) {
           <List className={classes.root} key={menuItem.name}>
             <ListItem
               button
-              component={key === "users" && "a"}
-              href={key === "users" && key}
+              component={key === "users" && Link}
+              to={key === "users" && key}
               selected={selectedIndex === index}
               onClick={(event) => {
                 handleListItemClick(event, index);
