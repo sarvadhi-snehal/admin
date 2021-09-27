@@ -3,7 +3,7 @@ import { People } from "react-bootstrap-icons";
 import { Wallet } from "react-bootstrap-icons";
 import { Folder } from "react-bootstrap-icons";
 import { Folder2 } from "react-bootstrap-icons";
-
+import { Link } from "react-router-dom";
 const data = [
   {
     name: "NEW CLIENTS",
@@ -57,21 +57,25 @@ const ClientProject = () => {
       {/* *TODO : need  change to collaser */}
       <div
         className="col col-md-6 col-lg-6 col col-sm-12 col-xs-12 mt-4 "
-        style={{ minheight: 400 }}
+        style={{ height: 380 }}
       >
         <div
-          className="info h-100 flex-center flex-column  text-center  "
+          className="info h-100 flex-center flex-column  text-center  px-4 pb-5 "
           style={{
             backgroundImage: `url('http://eliteadmin.themedesigner.in/demos/bt4/assets/images/news/slide1.jpg') `,
             backgroundSize: "cover",
           }}
         >
-          <button className="btn-s bg-danger mt-auto">primary</button>
+          <button className="btn-s bg-danger mt-auto text-capitalize d-grid place-items-center">
+            primary
+          </button>
           <p className="text-white">
             It has survived not only five centuries, but also the leap into
             electronic typesetting, remaining essentially unchanged.
           </p>
-          <a href="nowhre">read more</a>
+          <label to="nowhre" className="text-orange text-capitalize text">
+            read more
+          </label>
         </div>
       </div>
     </article>

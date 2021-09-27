@@ -42,7 +42,7 @@ const Minimal = () => {
   if (state.loading) <Spinner />;
 
   return (
-    <section className="container-fluid bg-light px-4 pb-4">
+    <section className="container-fluid  px-4 pb-4">
       <>
         <Summary />
         <section className="row ">

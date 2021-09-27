@@ -54,12 +54,12 @@ const Salse = () => {
   return (
     <article className="row mt-4 mx-3 bg-white p-4 ">
       <h6 className="graph-header"> SALES IN 2018 </h6>
-      <div className="col col-sm-12 col-md-4 col-lg-4 p-4">
+      <div className="col col-sm-12 col-md-4 col-lg-4 pt-5 ">
         <p>
           Lorem ipsum dolor sit amet, ectetur adipiscing elit. viverra tellus.
           ipsumdolorsitda amet, ectetur adipiscing elit.
         </p>
-        <p>
+        <p className="pt-4">
           Ectetur adipiscing elit. viverra tellus.ipsum dolor sit amet, dag adg
           ecteturadipiscingda elitdglj. vadghiverra tellus.
         </p>

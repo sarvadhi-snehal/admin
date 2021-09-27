@@ -29,6 +29,7 @@ const UerList = () => {
   });
 
   const onSubmit = (values, { resetForm }) => {
+    console.log(values);
     if (!values._id) {
       console.log("create");
       dispatch(createUser(values));
@@ -36,8 +37,7 @@ const UerList = () => {
       dispatch(editUser(values));
       console.log("edit");
     }
-    resetForm({});
-    history.go(0);
+    resetForm();
   };
   useEffect(
     (usersData) => {
@@ -105,6 +105,8 @@ const UerList = () => {
                         return (
                           <input
                             type="file"
+                            // name="avatar"
+
                             onChange={(event) => {
                               console.log(event.currentTarget.files[0]);
                               form.setFieldValue(

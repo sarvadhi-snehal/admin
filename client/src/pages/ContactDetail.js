@@ -3,7 +3,7 @@ import COntactCard from "../components/ContactDetail/COntactCard";
 import ContactTabs from "../components/ContactDetail/Timeline";
 const ContactDetail = () => {
   return (
-    <section className="contact-detail container-fluid bg-light">
+    <section className="contact-detail container-fluid ">
       <article className="row mx-2">
         <COntactCard />
         <ContactTabs />

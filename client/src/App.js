@@ -20,7 +20,7 @@ function App() {
     dispatch(loadUser());
   }, [dispatch]);
   return (
-    <div className="App bg-light ">
+    <div className="App  ">
       <BrowserRouter>
         <Switch>
           <Route exact path="/login" component={Login} />

@@ -20,7 +20,7 @@ const ContactCard = () => {
         <h5 className="">John doe</h5>
         <p className="fs-6"> info@myadmin.com </p>
       </div>
-      <div className="info flex-between h-25 px-5 text-center">
+      <div className="info d-flex align-items-center justify-content-evenly h-25 px-3 text-center ">
         <div>
           <h5>12K</h5>
           <h6>Followers</h6>

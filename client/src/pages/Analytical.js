@@ -9,7 +9,7 @@ import ContactCard from "../components/ContactCard";
 
 const Analytical = () => {
   return (
-    <section className="container-fluid bg-light px-4 ">
+    <section className="container-fluid  px-4 ">
       <SiteTraffic />
       <div className="row mx-1 bg-white mt-4">
         <Map />

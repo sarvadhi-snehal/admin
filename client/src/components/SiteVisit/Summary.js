@@ -19,8 +19,8 @@ const Summary = () => {
     },
   ];
   return (
-    <div style={{ height: 150 }}>
-      <div className="d-flex text-center   w-100 h-100">
+    <div style={{ height: 150 }} className="w-100">
+      <div className="d-flex justify-content-evenly align-items-center  text-center   w-100 h-100">
         {data.map((item) => (
           <div className="lines w-100" key={item.name}>
             <div className={`outer bg-${item.type}`}>

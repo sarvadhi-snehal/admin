@@ -88,7 +88,7 @@ const contacts = [
 ];
 const ContactGrid = () => {
   return (
-    <section className="container-fluid bg-light pb-4">
+    <section className="container-fluid  pb-4">
       <div className="row mx-1 ">
         {contacts.map((contact, i) => (
           <div

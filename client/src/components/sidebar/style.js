@@ -2,11 +2,14 @@ import { makeStyles, withStyles } from "@material-ui/core";
 import MuiListItem from "@material-ui/core/ListItem";
 const drawerWidth = 230;
 
+const sbcolor = JSON.parse(localStorage.getItem("sbcolor"));
+
 export const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     border: "none",
   },
+
   appBar: {
     height: "auto",
     // width: `calc(100% - ${theme.spacing(9) + 1}px)`,
@@ -40,6 +43,7 @@ export const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
+    backgroundColor: sbcolor,
 
     top: theme.spacing(8),
     border: "none",
@@ -55,7 +59,7 @@ export const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-
+    backgroundColor: sbcolor,
     top: theme.spacing(8),
     fontFamily: "Poppins",
     border: "none",

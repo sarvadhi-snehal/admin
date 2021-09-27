@@ -51,16 +51,19 @@ const MailMenu = () => {
     { name: "Corporate", type: "success" },
   ];
   return (
-    <div className="col col-sm-12 col-xs-12 col-md-4 col-lg-4 ">
-      <div className="ms-4 mt-4 flex-column h-100  w-100  ">
-        <div className="bg-white flex-column h-100 p-4">
+    <div className="col col-sm-12 col-xs-12 col-md-3 col-lg-3  bg-white">
+      <div className=" mt-4 flex-column   w-100  ">
+        <div className=" flex-column h-100 w-100 ">
           <button className="btn btn-danger">Compose</button>
           <nav className="flex-column p-3">
             <ul className="p-0">
               {menu.map((item, i) => (
-                <li className="flex-view p-2 mt-4" key={i}>
+                <li
+                  className="btn d-flex align-items-center p-2 mt-4 btn-hover"
+                  key={i}
+                >
                   <item.Icon />
-                  <span className="ms-2">{item.name}</span>
+                  <p className="ms-2">{item.name}</p>
                   {item.number && (
                     <button
                       className={`ms-auto btn-${item.type}  px-2 border-0 rounded-3`}
@@ -77,7 +80,6 @@ const MailMenu = () => {
             <ul className="p-0">
               {labels.map((label, i) => (
                 <li className="text-danger p-3" key={i}>
-                  ð
                   <CircleFill className={`text-${label.type} me-3`} />
                   {label.name}
                 </li>

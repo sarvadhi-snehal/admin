@@ -3,11 +3,11 @@ import MailMenu from "./MailMenu";
 import Toolbar from "./ToolBar";
 const MailLayout = ({ children, className }) => {
   return (
-    <div className="container-fluid ">
-      <div className="row bg-light ">
+    <div className="container-fluid p-4">
+      <div className="row   mx-1">
         <MailMenu />
 
-        <div className="col col-md-8 col-lg-8 col-sm-12 col-xs-12  bg-light d-flex  flex-column p-4 ">
+        <div className="col-12 col-md-9 col-lg-9 col-sm-12  bg-light d-flex  flex-column p-4 ">
           <div className="">
             <Toolbar className={className} />
             <>{children}</>

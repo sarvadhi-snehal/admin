@@ -8,7 +8,7 @@ import Feeds from "../components/Feeds/Feeds";
 import Card from "../components/UI/ThreeCard";
 const Morden = () => {
   return (
-    <section className="container-fluid bg-light  pb-4">
+    <section className="container-fluid">
       <Visit />
       <Sales />
       <section className="row px-3 ">

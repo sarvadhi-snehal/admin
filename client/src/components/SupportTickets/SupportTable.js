@@ -1,143 +1,608 @@
-import React from "react";
+import { useMemo } from "react";
 import Table from "./Table";
 const SupportTable = () => {
   const data = [
     {
-      ID: 123,
-      OpenedBy: {
-        name: "Ritesh Deshmukh",
-        avatar:
-          "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
-      },
-      CustEmail: "genelia@gmail.com",
-      Sbuject: "How to customize the template?",
-      Status: "New",
+      id: 123,
+
+      name: "Ritesh Deshmukh",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+
+      custemail: "genelia@gmail.com",
+      subject: "How to customize the template?",
+      status: "New",
       type: "warning",
-      Assignto: "Jonathan",
+      assignto: "Jonathan",
       date: "14-10-2017",
     },
     {
-      ID: 123,
-      OpenedBy: {
-        name: "Jeneliya desusa",
-        avatar:
-          "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
-      },
-      CustEmail: "genelia@gmail.com",
-      Sbuject: "How to change colors",
-      Status: "Complete",
+      id: 123,
+
+      name: "Jeneliya desusa",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+
+      custemail: "genelia@gmail.com",
+      subject: "How to change colors",
+      status: "Complete",
       type: "success",
-      Assignto: "Jonathan",
+      assignto: "Jonathan",
       date: "14-10-2017",
     },
     {
-      ID: 123,
-      OpenedBy: {
-        name: "Jeneliya desusa",
-        avatar:
-          "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
-      },
-      CustEmail: "genelia@gmail.com",
-      Sbuject: "How to change colors",
-      Status: "Complete",
+      id: 123,
+
+      name: "Jeneliya desusa",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+
+      custemail: "genelia@gmail.com",
+      subject: "How to change colors",
+      status: "Complete",
       type: "success",
-      Assignto: "Jonathan",
+      assignto: "Jonathan",
       date: "14-10-2017",
     },
     {
-      ID: 123,
-      OpenedBy: {
-        name: "Ritesh Deshmukh",
-        avatar:
-          "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
-      },
-      CustEmail: "genelia@gmail.com",
-      Sbuject: "How to customize the template?",
-      Status: "Pending",
+      id: 123,
+
+      name: "Ritesh Deshmukh",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+
+      custemail: "genelia@gmail.com",
+      subject: "How to customize the template?",
+      status: "Pending",
       type: "dark",
-      Assignto: "Jonathan",
+      assignto: "Jonathan",
       date: "14-10-2017",
     },
     {
-      ID: 123,
-      OpenedBy: {
-        name: "Ritesh Deshmukh",
-        avatar:
-          "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
-      },
-      CustEmail: "genelia@gmail.com",
-      Sbuject: "How to customize the template?",
-      Status: "Complete",
+      id: 123,
+
+      name: "Ritesh Deshmukh",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+      custemail: "genelia@gmail.com",
+      subject: "How to customize the template?",
+      status: "Complete",
       type: "sucess",
-      Assignto: "Jonathan",
+      assignto: "Jonathan",
       date: "14-10-2017",
     },
     {
-      ID: 123,
-      OpenedBy: {
-        name: "Ritesh Deshmukh",
-        avatar:
-          "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
-      },
-      CustEmail: "genelia@gmail.com",
-      Sbuject: "How to customize the template?",
-      Status: "New",
+      id: 123,
+      name: "Ritesh Deshmukh",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+      custemail: "genelia@gmail.com",
+      subject: "How to customize the template?",
+      status: "New",
       type: "warning",
-      Assignto: "Jonathan",
+      assignto: "Jonathan",
       date: "14-10-2017",
     },
     {
-      ID: 123,
-      OpenedBy: {
-        name: "Ritesh Deshmukh",
-        avatar:
-          "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
-      },
-      CustEmail: "genelia@gmail.com",
-      Sbuject: "How to customize the template?",
-      Status: "Complete",
+      id: 123,
+
+      name: "Ritesh Deshmukh",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+
+      custemail: "genelia@gmail.com",
+      subject: "How to customize the template?",
+      status: "Complete",
       type: "sucess",
-      Assignto: "Jonathan",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+
+      name: "Ritesh Deshmukh",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+
+      custemail: "genelia@gmail.com",
+      subject: "How to customize the template?",
+      status: "New",
+      type: "warning",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+
+      name: "Jeneliya desusa",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+
+      custemail: "genelia@gmail.com",
+      subject: "How to change colors",
+      status: "Complete",
+      type: "success",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+
+      name: "Jeneliya desusa",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+
+      custemail: "genelia@gmail.com",
+      subject: "How to change colors",
+      status: "Complete",
+      type: "success",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+
+      name: "Ritesh Deshmukh",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+
+      custemail: "genelia@gmail.com",
+      subject: "How to customize the template?",
+      status: "Pending",
+      type: "dark",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+
+    {
+      id: 123,
+
+      name: "Ritesh Deshmukh",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+
+      custemail: "genelia@gmail.com",
+      subject: "How to customize the template?",
+      status: "Complete",
+      type: "sucess",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+
+      name: "Ritesh Deshmukh",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+
+      custemail: "genelia@gmail.com",
+      subject: "How to customize the template?",
+      status: "New",
+      type: "warning",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+
+      name: "Jeneliya desusa",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+
+      custemail: "genelia@gmail.com",
+      subject: "How to change colors",
+      status: "Complete",
+      type: "success",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+
+      name: "Jeneliya desusa",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+
+      custemail: "genelia@gmail.com",
+      subject: "How to change colors",
+      status: "Complete",
+      type: "success",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+
+      name: "Ritesh Deshmukh",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+
+      custemail: "genelia@gmail.com",
+      subject: "How to customize the template?",
+      status: "Pending",
+      type: "dark",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+
+      name: "Ritesh Deshmukh",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+      custemail: "genelia@gmail.com",
+      subject: "How to customize the template?",
+      status: "Complete",
+      type: "sucess",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+      name: "Ritesh Deshmukh",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+      custemail: "genelia@gmail.com",
+      subject: "How to customize the template?",
+      status: "New",
+      type: "warning",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+
+      name: "Ritesh Deshmukh",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+
+      custemail: "genelia@gmail.com",
+      subject: "How to customize the template?",
+      status: "Complete",
+      type: "sucess",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+
+      name: "Ritesh Deshmukh",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+
+      custemail: "genelia@gmail.com",
+      subject: "How to customize the template?",
+      status: "New",
+      type: "warning",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+
+      name: "Jeneliya desusa",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+
+      custemail: "genelia@gmail.com",
+      subject: "How to change colors",
+      status: "Complete",
+      type: "success",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+
+      name: "Jeneliya desusa",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+
+      custemail: "genelia@gmail.com",
+      subject: "How to change colors",
+      status: "Complete",
+      type: "success",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+
+      name: "Ritesh Deshmukh",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+
+      custemail: "genelia@gmail.com",
+      subject: "How to customize the template?",
+      status: "Pending",
+      type: "dark",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+
+      name: "Ritesh Deshmukh",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+      custemail: "genelia@gmail.com",
+      subject: "How to customize the template?",
+      status: "Complete",
+      type: "sucess",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+      name: "Ritesh Deshmukh",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+      custemail: "genelia@gmail.com",
+      subject: "How to customize the template?",
+      status: "New",
+      type: "warning",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+
+      name: "Ritesh Deshmukh",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+
+      custemail: "genelia@gmail.com",
+      subject: "How to customize the template?",
+      status: "Complete",
+      type: "sucess",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+
+      name: "Ritesh Deshmukh",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+
+      custemail: "genelia@gmail.com",
+      subject: "How to customize the template?",
+      status: "New",
+      type: "warning",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+
+      name: "Jeneliya desusa",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+
+      custemail: "genelia@gmail.com",
+      subject: "How to change colors",
+      status: "Complete",
+      type: "success",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+
+      name: "Jeneliya desusa",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+
+      custemail: "genelia@gmail.com",
+      subject: "How to change colors",
+      status: "Complete",
+      type: "success",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+
+      name: "Ritesh Deshmukh",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+
+      custemail: "genelia@gmail.com",
+      subject: "How to customize the template?",
+      status: "Pending",
+      type: "dark",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+
+      name: "Ritesh Deshmukh",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+      custemail: "genelia@gmail.com",
+      subject: "How to customize the template?",
+      status: "Complete",
+      type: "sucess",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+      name: "Ritesh Deshmukh",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+      custemail: "genelia@gmail.com",
+      subject: "How to customize the template?",
+      status: "New",
+      type: "warning",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+
+      name: "Ritesh Deshmukh",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+
+      custemail: "genelia@gmail.com",
+      subject: "How to customize the template?",
+      status: "Complete",
+      type: "sucess",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+
+      name: "Ritesh Deshmukh",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+
+      custemail: "genelia@gmail.com",
+      subject: "How to customize the template?",
+      status: "New",
+      type: "warning",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+
+      name: "Jeneliya desusa",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+
+      custemail: "genelia@gmail.com",
+      subject: "How to change colors",
+      status: "Complete",
+      type: "success",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+
+      name: "Jeneliya desusa",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+
+      custemail: "genelia@gmail.com",
+      subject: "How to change colors",
+      status: "Complete",
+      type: "success",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+
+      name: "Ritesh Deshmukh",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+
+      custemail: "genelia@gmail.com",
+      subject: "How to customize the template?",
+      status: "Pending",
+      type: "dark",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+
+      name: "Ritesh Deshmukh",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+      custemail: "genelia@gmail.com",
+      subject: "How to customize the template?",
+      status: "Complete",
+      type: "sucess",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+      name: "Ritesh Deshmukh",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+      custemail: "genelia@gmail.com",
+      subject: "How to customize the template?",
+      status: "New",
+      type: "warning",
+      assignto: "Jonathan",
+      date: "14-10-2017",
+    },
+    {
+      id: 123,
+
+      name: "Ritesh Deshmukh",
+      avatar:
+        "http://eliteadmin.themedesigner.in/demos/bt4/assets/images/users/1.jpg",
+
+      custemail: "genelia@gmail.com",
+      subject: "How to customize the template?",
+      status: "Complete",
+      type: "sucess",
+      assignto: "Jonathan",
       date: "14-10-2017",
     },
   ];
-  return (
-    <div className=" bg-white  d-flex align-items-center flex-column">
-      <div className="overflowY-auto w-100">
-        <Table data={data} />
-      </div>
 
-      <nav aria-label="Page navigation example">
-        <ul className="pagination">
-          <li className="page-item">
-            <a className="page-link" href="#sdfsd" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-              <span className="sr-only">Previous</span>
-            </a>
-          </li>
-          <li className="page-item">
-            <a className="page-link" href="#ffasd">
-              1
-            </a>
-          </li>
-          <li className="page-item">
-            <a className="page-link" href="#ffasd">
-              2
-            </a>
-          </li>
-          <li className="page-item">
-            <a className="page-link" href="#ffasd">
-              3
-            </a>
-          </li>
-          <li className="page-item">
-            <a className="page-link" href="#fdf" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-              <span className="sr-only">Next</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
+  const columns = [
+    {
+      Header: "ID #",
+      accessor: "id",
+    },
+    {
+      Header: "Open By",
+      accessor: "name",
+      Cell: (row) => {
+        return (
+          <div className="d-flex">
+            <img
+              height={34}
+              className="rounded-circle"
+              src={row.row.original.avatar}
+              alt={row.row.original.name}
+            />
+            <p className="ms-2">{row.row.original.name}</p>
+          </div>
+        );
+      },
+    },
+    {
+      Header: "Cust. Email",
+      accessor: "custemail",
+    },
+    {
+      Header: "Subject",
+      accessor: "subject",
+    },
+    {
+      Header: "Status",
+      accessor: "status",
+      Cell: (row) => {
+        return (
+          <button className={`btn-sx bg-${row.row.original.type}`}>
+            {row.row.original.status}
+          </button>
+        );
+      },
+    },
+    {
+      Header: "Assign To",
+      accessor: "assignto",
+    },
+    {
+      Header: "Date",
+      accessor: "date",
+    },
+  ];
+  return (
+    <div className=" bg-white  d-flex align-items-center flex-column p-4">
+      <Table tabledata={data} tabelcolumns={columns} />
     </div>
   );
 };

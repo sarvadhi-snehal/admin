@@ -52,11 +52,15 @@ const reducer = (state = initialState, action) => {
         user: null,
       };
     case HEADER_COLOR:
+      localStorage.setItem("color", JSON.stringify(payload));
+
       return {
         ...state,
         headerColor: payload,
       };
     case SIDEBAR_COLOR:
+      localStorage.setItem("sbcolor", JSON.stringify(payload));
+
       return {
         ...state,
         sidebarColor: payload,

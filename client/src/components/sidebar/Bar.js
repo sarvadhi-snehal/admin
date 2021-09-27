@@ -11,7 +11,7 @@ import SiteLinks from "./SiteLinks";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../Store/actions/action";
-import { Paper } from "@material-ui/core";
+
 const Bar = () => {
   const classes = useStyles();
   const history = useHistory();
@@ -44,18 +44,23 @@ const Bar = () => {
           }),
         }}
       >
-        <Person open={open} responseGoogle={responseGoogle} />
+        <div
+          className="drawer h-100 "
+          style={{ backgroundColor: sidebarColor }}
+        >
+          <Person open={open} responseGoogle={responseGoogle} />
 
-        {open && (
-          <span
-            className="text-uppercase"
-            style={{ fontSize: "0.7rem", letterSpacing: "2px" }}
-          >
-            <span style={{ fontSize: "1rem" }}>---</span> personal
-          </span>
-        )}
-        <Menu isClose={open} />
-        <SiteLinks responseGoogle={responseGoogle} open={open} />
+          {open && (
+            <span
+              className="text-uppercase"
+              style={{ fontSize: "0.7rem", letterSpacing: "2px" }}
+            >
+              <span style={{ fontSize: "1rem" }}>---</span> personal
+            </span>
+          )}
+          <Menu isClose={open} />
+          <SiteLinks responseGoogle={responseGoogle} open={open} />
+        </div>
       </Drawer>
     </>
   );
