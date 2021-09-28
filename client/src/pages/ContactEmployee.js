@@ -393,27 +393,27 @@ const ContactEmployee = () => {
   ];
 
   return (
-    <div className="container-fluid   flex-center">
-      <div className="row bg-white m-4 w-100">
-        <div className="flex-column col-12 col-sm-12 col-md-4 col-lg-3">
-          <div className="header flex-between p-3 border-bottom">
+    <div className="container-fluid overflow-hidden   flex-center">
+      <div className="row bg-white mb-0 m-4 w-100">
+        <div className="flex-column p-3  col-12 col-sm-12 col-md-4 col-lg-3 border-end ">
+          <div className="header pt-4 flex-between  ">
             <h6>ALl Contacts</h6>
             <h6>123</h6>
           </div>
-          <div className="list p-3">
-            <div className="flex-between">
+          <div className="list p-3 border-top">
+            <div className="flex-between p-2">
               <p>Work</p>
               <p> 103</p>
             </div>
-            <div className="flex-between">
+            <div className="flex-between p-2">
               <p>Family</p>
               <p> 19</p>
             </div>
-            <div className="flex-between">
+            <div className="flex-between p-2">
               <p>Friends </p>
               <p>623</p>
             </div>
-            <div className="flex-between">
+            <div className="flex-between p-2">
               <p>Private </p>
               <p>53</p>
             </div>
@@ -423,22 +423,22 @@ const ContactEmployee = () => {
 
         <div className="flex-column col-12 col-sm-12 col-md-8 col-lg-9">
           <div className="flex-between flex-wrap ">
-            <div className="header">
+            <div className="header ">
               <h5>Contacts / Employee List</h5>
             </div>
 
-            <div className="   ">
-              <div className="header flex-column ">
+            <div className="header d-flex flex-column">
+              <div className="h-100">
                 <input
                   type="text"
-                  name=""
-                  id=""
-                  className="form-control shadow-none border-0  border-bottom mb-3"
+                  className="orange-input h-100 border-3"
+                  placeholder=""
                 />
-                <button className="btn btn-primary rounded-pill mx-2">
-                  Add new contact
-                </button>
               </div>
+
+              <button className="btn btn-primary rounded-pill  mt-4 ">
+                Add new contact
+              </button>
             </div>
           </div>
           <Table tableColumns={columns} tableData={data} />

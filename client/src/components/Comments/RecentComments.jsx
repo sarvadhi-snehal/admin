@@ -5,7 +5,7 @@ import Card from "../UI/HalfCard";
 const comments = [
   {
     name: "James Anderson",
-    avatar: "https://material-ui.com/static/images/avatar/1.jpg",
+    avatar: "https://mui.com/static/images/avatar/1.jpg",
     comment:
       "Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has beenorem Ipsum is simply dummy text of the printing and type setting industry",
     date: "April 14, 2016",
@@ -14,7 +14,7 @@ const comments = [
   },
   {
     name: "Micheal Jorden",
-    avatar: "https://material-ui.com/static/images/avatar/2.jpg",
+    avatar: "https://mui.com/static/images/avatar/2.jpg",
 
     comment:
       "Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has beenorem Ipsum is simply dummy text of the printing and type setting industry",
@@ -24,7 +24,7 @@ const comments = [
   },
   {
     name: "Jonathan Doeting",
-    avatar: "https://material-ui.com/static/images/avatar/3.jpg",
+    avatar: "https://mui.com/static/images/avatar/3.jpg",
 
     comment:
       "Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has beenorem Ipsum is simply dummy text of the printing and type setting industry.",
@@ -38,7 +38,7 @@ const comments = [
       "Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has beenorem Ipsum is simply dummy text of the printing and type setting industry..",
     date: "April 14, 2016",
     type: "primary",
-    avatar: "https://material-ui.com/static/images/avatar/1.jpg",
+    avatar: "https://mui.com/static/images/avatar/1.jpg",
     text: "Pending",
   },
 ];

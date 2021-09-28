@@ -16,7 +16,7 @@ const COntactCard = () => {
         <div className="content position-absolute  flex-center flex-column w-100 text-center">
           <div>
             <img
-              src="https://material-ui.com/static/images/avatar/1.jpg"
+              src="https://mui.com/static/images/avatar/1.jpg"
               alt="avatr user"
               className="img-fluid rounded-circle"
             />

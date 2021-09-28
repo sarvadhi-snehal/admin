@@ -34,7 +34,7 @@ const Table = ({ tabelcolumns, tabledata }) => {
 
   return (
     <>
-      <table {...getTableProps()} className="table border table-hover">
+      <table {...getTableProps()} className="table border w-100 table-hover">
         <thead>
           {/* <tr className="tr ">
           <th className="p-3 " scope="col">

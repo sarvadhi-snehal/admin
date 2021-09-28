@@ -24,7 +24,7 @@ const data = [
 ];
 const SupportTickets = () => {
   return (
-    <section className="container-fluid  p-4">
+    <section className="container-fluid pb-0  p-4">
       <div className="row bg-white mx-1">
         <div className="col p-4">
           <h6>Support Ticket List</h6>

@@ -601,7 +601,7 @@ const SupportTable = () => {
     },
   ];
   return (
-    <div className=" bg-white  d-flex align-items-center flex-column p-4">
+    <div className=" overflow-auto bg-white  d-flex align-items-center flex-column p-4">
       <Table tabledata={data} tabelcolumns={columns} />
     </div>
   );

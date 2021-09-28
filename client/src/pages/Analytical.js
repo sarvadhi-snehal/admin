@@ -18,7 +18,7 @@ const Analytical = () => {
           <Summary />
         </div>
       </div>
-      <div className="row    d-flex">
+      <div className="row d-flex">
         <BrowserState />
         <Cpu />
         <ContactCard />

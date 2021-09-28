@@ -2,23 +2,16 @@ import React from "react";
 import { Line } from "react-chartjs-2";
 
 const data = {
-  labels: ["2010", "2011", "2012", "2013", "2014", "2015", "2016"],
+  labels: ["2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017"],
   datasets: [
     {
       label: "Site A",
-      data: [0, 130, 80, 70, 180, 150, 250],
+      data: [0, 1130, 4980, 3707, 6810, 4150, 15590, 0],
       fill: true,
 
-      backgroundColor: "#9EF1F4",
-      borderColor: "#9EF1F4",
-    },
-    {
-      label: "Site B",
-      data: [0, 100, 60, 200, 150, 100, 150],
-      fill: true,
-
-      backgroundColor: "#F3F5F7",
-      borderColor: "#F3F5F7",
+      backgroundColor: "rgb(220,239,232)",
+      borderColor: "rgb(220,239,232)",
+      lineTension: 0.4,
     },
   ],
 };

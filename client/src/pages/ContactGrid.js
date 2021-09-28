@@ -6,95 +6,92 @@ const contacts = [
     job: "Web Designer",
     address: "795 Folsom Ave, Suite 600 San Francisco, CADGE 94107",
     phone: "(123) 456-7890",
-    avatar: "https://material-ui.com/static/images/avatar/1.jpg",
+    avatar: "https://mui.com/static/images/avatar/1.jpg",
   },
   {
     name: "Johnathan Doe",
     job: "Web Designer",
     address: "795 Folsom Ave, Suite 600 San Francisco, CADGE 94107",
     phone: "(123) 456-7890",
-    avatar: "https://material-ui.com/static/images/avatar/1.jpg",
+    avatar: "https://mui.com/static/images/avatar/1.jpg",
   },
   {
     name: "Johnathan Doe",
     job: "Web Designer",
     address: "795 Folsom Ave, Suite 600 San Francisco, CADGE 94107",
     phone: "(123) 456-7890",
-    avatar: "https://material-ui.com/static/images/avatar/1.jpg",
+    avatar: "https://mui.com/static/images/avatar/1.jpg",
   },
   {
     name: "Johnathan Doe",
     job: "Web Designer",
     address: "795 Folsom Ave, Suite 600 San Francisco, CADGE 94107",
     phone: "(123) 456-7890",
-    avatar: "https://material-ui.com/static/images/avatar/1.jpg",
+    avatar: "https://mui.com/static/images/avatar/1.jpg",
   },
   {
     name: "Johnathan Doe",
     job: "Web Designer",
     address: "795 Folsom Ave, Suite 600 San Francisco, CADGE 94107",
     phone: "(123) 456-7890",
-    avatar: "https://material-ui.com/static/images/avatar/1.jpg",
+    avatar: "https://mui.com/static/images/avatar/1.jpg",
   },
   {
     name: "Johnathan Doe",
     job: "Web Designer",
     address: "795 Folsom Ave, Suite 600 San Francisco, CADGE 94107",
     phone: "(123) 456-7890",
-    avatar: "https://material-ui.com/static/images/avatar/1.jpg",
+    avatar: "https://mui.com/static/images/avatar/1.jpg",
   },
   {
     name: "Johnathan Doe",
     job: "Web Designer",
     address: "795 Folsom Ave, Suite 600 San Francisco, CADGE 94107",
     phone: "(123) 456-7890",
-    avatar: "https://material-ui.com/static/images/avatar/1.jpg",
+    avatar: "https://mui.com/static/images/avatar/1.jpg",
   },
   {
     name: "Johnathan Doe",
     job: "Web Designer",
     address: "795 Folsom Ave, Suite 600 San Francisco, CADGE 94107",
     phone: "(123) 456-7890",
-    avatar: "https://material-ui.com/static/images/avatar/1.jpg",
+    avatar: "https://mui.com/static/images/avatar/1.jpg",
   },
   {
     name: "Johnathan Doe",
     job: "Web Designer",
     address: "795 Folsom Ave, Suite 600 San Francisco, CADGE 94107",
     phone: "(123) 456-7890",
-    avatar: "https://material-ui.com/static/images/avatar/1.jpg",
+    avatar: "https://mui.com/static/images/avatar/1.jpg",
   },
   {
     name: "Johnathan Doe",
     job: "Web Designer",
     address: "795 Folsom Ave, Suite 600 San Francisco, CADGE 94107",
     phone: "(123) 456-7890",
-    avatar: "https://material-ui.com/static/images/avatar/1.jpg",
+    avatar: "https://mui.com/static/images/avatar/1.jpg",
   },
   {
     name: "Johnathan Doe",
     job: "Web Designer",
     address: "795 Folsom Ave, Suite 600 San Francisco, CADGE 94107",
     phone: "(123) 456-7890",
-    avatar: "https://material-ui.com/static/images/avatar/1.jpg",
+    avatar: "https://mui.com/static/images/avatar/1.jpg",
   },
   {
     name: "Johnathan Doe",
     job: "Web Designer",
     address: "795 Folsom Ave, Suite 600 San Francisco, CADGE 94107",
     phone: "(123) 456-7890",
-    avatar: "https://material-ui.com/static/images/avatar/1.jpg",
+    avatar: "https://mui.com/static/images/avatar/1.jpg",
   },
 ];
 const ContactGrid = () => {
   return (
-    <section className="container-fluid  pb-4">
+    <section className="container-fluid ">
       <div className="row mx-1 ">
         {contacts.map((contact, i) => (
-          <div
-            className="col-sm-12 col-xs-12 col-md-6 col-lg-6 bg-light"
-            key={i}
-          >
+          <div className="col-sm-12 col-xs-12 col-md-6 col-lg-6 " key={i}>
             <div className="mt-4  p-4 bg-white d-flex">
               <div className="avatarImg">
                 <img

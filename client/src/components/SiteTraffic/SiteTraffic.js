@@ -4,19 +4,17 @@ const SiteTraffic = () => {
   const data = [
     {
       name: "A",
-      growth: "80.40%",
-      daily: "5.40%",
-      monthly: "20.40%",
+
       data: {
         labels: ["2010", "2011", "2012", "2013", "2014", "2015", "2016"],
         datasets: [
           {
             label: "Site A",
-            data: [0, 130, 80, 70, 180, 150, 250],
+            data: [0, 4, 8, 4, 6, 2, 5],
             fill: true,
 
-            backgroundColor: "green",
-            borderColor: "green",
+            backgroundColor: "#99D683",
+            borderColor: "#99D683",
           },
         ],
       },
@@ -39,19 +37,18 @@ const SiteTraffic = () => {
     },
     {
       name: "B",
-      growth: "80.40%",
-      daily: "5.40%",
-      monthly: "20.40%",
+
       data: {
         labels: ["2010", "2011", "2012", "2013", "2014", "2015", "2016"],
         datasets: [
           {
             label: "Site A",
-            data: [0, 130, 80, 70, 180, 150, 250],
+            data: [0, 4, 8, 4, 6, 2, 5],
+
             fill: true,
 
-            backgroundColor: "cyan",
-            borderColor: "cyan",
+            backgroundColor: "#5DDAFE",
+            borderColor: "#5DDAFE",
           },
         ],
       },
@@ -85,8 +82,8 @@ const SiteTraffic = () => {
             data: [0, 100, 60, 200, 150, 100, 150],
             fill: true,
 
-            backgroundColor: "yellow",
-            borderColor: "yellow",
+            backgroundColor: "#F7DB4B",
+            borderColor: "#F7DB4B",
           },
         ],
       },

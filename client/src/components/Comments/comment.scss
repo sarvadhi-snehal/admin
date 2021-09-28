@@ -7,17 +7,19 @@
 
 .customHoverFocus {
   &:hover {
-    color: "#64b5f6";
+    color: #64b5f6;
   }
 }
 .customHoverFocusRed {
-  &:hover {
-    color: "#ff4081";
-  }
+  color: #ff4081;
 }
 .hover-effect {
   background-color: #fff;
   &:hover {
     background-color: #fafafa;
   }
+}
+
+.red {
+  color: "#ff4081";
 }

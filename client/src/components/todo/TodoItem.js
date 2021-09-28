@@ -18,7 +18,7 @@ const TodoItem = ({ todo }) => {
         <p>{todo.text}</p>
         <span className="d-flex ">{todo.date === "" ? avatr : todo.date}</span>
       </div>
-      <button className={`bg-${todo.variant} btn-s h-100`}>
+      <button className={`bg-${todo.variant} btn-s h-100 `}>
         {todo.status}
       </button>
     </div>

@@ -60,16 +60,18 @@ export const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
     backgroundColor: sbcolor,
-    top: theme.spacing(8),
+    top: theme.spacing(4),
     fontFamily: "Poppins",
     border: "none",
     color: "grey",
     width: theme.spacing(8),
-    // overflow: "scroll", // [theme.breakpoints.up("sm")]: {
+    position: "relative",
+    height: "100%",
+    // [theme.breakpoints.up("sm")]: {
     //   width: theme.spacing(8) + 1,
     // },
     [theme.breakpoints.down("sm")]: {
-      width: theme.spacing(0) + 1,
+      display: "none",
     },
   },
   toolbar: {
@@ -150,7 +152,7 @@ export const ListItem = withStyles({
   root: {
     "&$selected": {
       color: "darkOrange",
-      borderLeft: "5px solid darkOrange",
+      borderLeft: "1px solid darkOrange",
       "& .MuiListItemIcon-root": {
         color: "darkOrange",
       },
@@ -168,11 +170,6 @@ export const ListItem = withStyles({
         color: "darkOrange",
       },
     },
-    // "& .MuiListItemIcon-root": {
-    //   "&:hover": {
-    //     "& dropdown": {},
-    //   },
-    // },
   },
   selected: {},
 })(MuiListItem);

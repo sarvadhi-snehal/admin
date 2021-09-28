@@ -101,19 +101,18 @@ const Person = ({ open }) => {
           {body}
         </div>
       ) : (
-        <ListItem button>
-          <ListItemIcon>
-            <Avatar
-              alt={profile?.user === null ? "user" : profile?.name}
-              src={
-                profile?.user === null
-                  ? ""
-                  : profile.imageUrl ||
-                    `http://localhost:4000/admin/${profile?.avatar}`
-              }
-            />
-          </ListItemIcon>
-        </ListItem>
+        <div className="p-2">
+          <Avatar
+            width={20}
+            alt={profile?.user === null ? "user" : profile?.name}
+            src={
+              profile?.user === null
+                ? ""
+                : profile.imageUrl ||
+                  `http://localhost:4000/admin/${profile?.avatar}`
+            }
+          />
+        </div>
       )}
     </>
   );

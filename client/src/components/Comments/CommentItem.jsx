@@ -25,11 +25,11 @@ function CommetnItem({ comment }) {
           </button>
 
           <span className={!show ? "hover" : undefined}>
-            <label className="p-1 customHoverFocus">
-              <PencilSquare />
+            <label className="p-1">
+              <PencilSquare className="customHoverFocus" />
             </label>
-            <label className="p-1 customHoverFocus">
-              <XCircle />
+            <label className="p-1 ">
+              <XCircle className="customHoverFocus" />
             </label>
             <label
               className={`p-1 ${

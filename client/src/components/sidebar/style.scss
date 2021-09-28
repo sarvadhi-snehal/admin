@@ -1,15 +1,21 @@
-.item {
+.menu {
   position: relative;
-  margin-top: 5rem;
-}
-.hover-item {
-  display: none;
-  position: absolute;
-  background-color: red;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
-.menu:hover .hover-item {
+.hover-menu {
+  display: none;
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+  margin-left: 43px;
+  z-index: 1500;
+  min-width: 200px;
+}
+
+.hover-menu a:hover {
+  background-color: #fff;
+  color: grey;
+}
+.item:hover .hover-menu {
   display: block;
 }

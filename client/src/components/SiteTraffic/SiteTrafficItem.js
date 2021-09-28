@@ -22,7 +22,7 @@ const SiteTrafficItem = ({ name, growth, monthly, daily, data, options }) => {
           </div>
         </div>
         <div className="w-100">
-          <Line height={40} data={data} options={options} />
+          <Line height={60} data={data} options={options} />
         </div>
       </div>
     </div>

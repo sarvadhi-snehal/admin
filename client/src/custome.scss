@@ -51,6 +51,7 @@
   color: white;
   font-weight: 500;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .btn-sx {
@@ -64,6 +65,7 @@
   color: white;
   font-weight: 500;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .scroll-div {
@@ -235,5 +237,21 @@ span {
       //   margin-top: 1rem;
       // }
     }
+  }
+}
+
+.text-violet {
+  color: rgb(150, 117, 206);
+}
+
+.bg-violet {
+  background-color: rgb(150, 117, 206);
+}
+.orange-input {
+  outline: none;
+
+  border-bottom: 2px solid rgb(0, 0, 0);
+  &:focus {
+    border-bottom: 2px solid #f39678;
   }
 }

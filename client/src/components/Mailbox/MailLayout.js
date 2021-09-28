@@ -3,7 +3,7 @@ import MailMenu from "./MailMenu";
 import Toolbar from "./ToolBar";
 const MailLayout = ({ children, className }) => {
   return (
-    <div className="container-fluid p-4">
+    <div className="container-fluid p-4 pb-0">
       <div className="row   mx-1">
         <MailMenu />
 

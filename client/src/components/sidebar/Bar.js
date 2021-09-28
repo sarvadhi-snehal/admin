@@ -4,7 +4,7 @@ import Drawer from "@material-ui/core/Drawer";
 
 import Person from "./Person";
 import Menu from "./Menu";
-
+import { Paper } from "@material-ui/core";
 import AppBarContainer from "./AppBar";
 import { useStyles } from "./style";
 import SiteLinks from "./SiteLinks";
@@ -30,38 +30,67 @@ const Bar = () => {
   return (
     <>
       <AppBarContainer open={open} handleDrawerOpen={handleDrawerOpen} />
-
-      <Drawer
-        variant="permanent"
-        className={clsx({
-          [classes.drawerOpen]: open,
-          [classes.drawerClose]: !open,
-        })}
-        classes={{
-          paper: clsx({
+      {open ? (
+        <Drawer
+          variant="permanent"
+          className={clsx({
             [classes.drawerOpen]: open,
-            [classes.drawerClose]: !open,
-          }),
-        }}
-      >
-        <div
-          className="drawer h-100 "
-          style={{ backgroundColor: sidebarColor }}
+          })}
+          classes={{
+            paper: clsx({
+              [classes.drawerOpen]: open,
+            }),
+          }}
         >
-          <Person open={open} responseGoogle={responseGoogle} />
+          <div
+            className="drawer h-100 overflow-show"
+            style={{ backgroundColor: sidebarColor }}
+          >
+            <Person open={open} responseGoogle={responseGoogle} />
 
-          {open && (
-            <span
-              className="text-uppercase"
-              style={{ fontSize: "0.7rem", letterSpacing: "2px" }}
-            >
-              <span style={{ fontSize: "1rem" }}>---</span> personal
-            </span>
-          )}
-          <Menu isClose={open} />
-          <SiteLinks responseGoogle={responseGoogle} open={open} />
-        </div>
-      </Drawer>
+            {open && (
+              <span
+                className="text-uppercase"
+                style={{ fontSize: "0.7rem", letterSpacing: "2px" }}
+              >
+                <span style={{ fontSize: "1rem" }}>---</span> personal
+              </span>
+            )}
+            <Menu isClose={open} />
+            <SiteLinks responseGoogle={responseGoogle} open={open} />
+          </div>
+        </Drawer>
+      ) : (
+        <Drawer
+          variant="permanent"
+          className={clsx({
+            [classes.drawerClose]: !open,
+          })}
+          classes={{
+            paper: clsx({
+              [classes.drawerClose]: !open,
+            }),
+          }}
+        >
+          <div
+            className="position-fixed h-100    p-1 overflow-show  "
+            style={{ backgroundColor: sidebarColor }}
+          >
+            <Person open={open} responseGoogle={responseGoogle} />
+
+            {open && (
+              <span
+                className="text-uppercase"
+                style={{ fontSize: "0.7rem", letterSpacing: "2px" }}
+              >
+                <span style={{ fontSize: "1rem" }}>---</span> personal
+              </span>
+            )}
+            <Menu isClose={open} />
+            <SiteLinks responseGoogle={responseGoogle} open={open} />
+          </div>
+        </Drawer>
+      )}
     </>
   );
 };

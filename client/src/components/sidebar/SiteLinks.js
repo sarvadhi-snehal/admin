@@ -6,10 +6,11 @@ import ListItemText from "@material-ui/core/ListItemText";
 import RadioButtonUncheckedIcon from "@material-ui/icons/RadioButtonUnchecked";
 import { useStyles, ListItem } from "./style";
 import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../Store/actions/action";
 import "./style.scss";
 const SiteLinks = ({ open }) => {
+  const sidebarColor = useSelector((state) => state.sidebarColor);
   const [selectedIndex, setSelectedIndex] = useState();
   const [isShown, setShown] = useState(false);
   const handleListItemClick = (event, index) => {
@@ -21,47 +22,42 @@ const SiteLinks = ({ open }) => {
   const onClick = () => {
     dispatch(logout(history));
   };
+
+  const link = [
+    {
+      name: "Documents",
+      index: 20,
+      color: "secondary",
+    },
+    {
+      name: "Log out",
+      index: 111,
+      color: "secondary",
+    },
+    {
+      name: "FAQ",
+      index: 22,
+      color: "primary",
+    },
+  ];
   return (
     <List>
-      <ListItem
-        button
-        selected={selectedIndex === 20}
-        onClick={(event) => handleListItemClick(event, 20)}
-      >
-        <ListItemIcon className="hover-menu">
-          <RadioButtonUncheckedIcon color="secondary" />
-        </ListItemIcon>
-
-        {open && <ListItemText className="menu" primary="Documents" />}
-      </ListItem>
-
-      <ListItem
-        buttonRef
-        className={classes.hover}
-        selected={selectedIndex === 111}
-        onClick={(event) => {
-          onClick();
-          handleListItemClick(event, 111);
-        }}
-      >
-        <ListItemIcon>
-          <RadioButtonUncheckedIcon color="error" />
-        </ListItemIcon>
-        <ListItemText primary="Log out" />{" "}
-      </ListItem>
-
-      <ListItem
-        button
-        className={classes.hover}
-        selected={selectedIndex === 22}
-        onClick={(event) => handleListItemClick(event, 22)}
-      >
-        <ListItemIcon>
-          <RadioButtonUncheckedIcon color="primary" className="menu" />
-        </ListItemIcon>
-        <ListItemText primary="FAQ" className="hover-item" />
-        {open && <ListItemText primary="FAQ" />}
-      </ListItem>
+      {link.map((item) => (
+        <ListItem
+          key={item.index}
+          button
+          selected={selectedIndex === item.index}
+          onClick={(event) => handleListItemClick(event, item.index)}
+          className={` ${!open ? "item" : ""}`}
+        >
+          <RadioButtonUncheckedIcon color={item.color} />
+          <ListItemText
+            className={!open ? "hover-menu p-2 mt-0 " : "ms-2"}
+            primary={item.name}
+            style={{ backgroundColor: sidebarColor }}
+          />
+        </ListItem>
+      ))}
     </List>
   );
 };

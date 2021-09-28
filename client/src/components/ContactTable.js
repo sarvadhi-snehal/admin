@@ -28,10 +28,10 @@ const ContactTable = ({ tableColumns, tableData }) => {
     usePagination
   );
   return (
-    <div>
-      <div className="overflow-scroll w-100">
+    <div className="overflow-auto m-3">
+      <div className="  ">
         <table
-          class="table table-hover table-bordered w-100"
+          class="w-100 table table-hover table-bordered "
           {...getTableProps()}
         >
           <thead>
@@ -46,15 +46,15 @@ const ContactTable = ({ tableColumns, tableData }) => {
               </tr>
             ))}
           </thead>
-          <tbody {...getTableBodyProps()} className="w-100">
+          <tbody {...getTableBodyProps()}>
             {page.map((row, i) => {
               prepareRow(row);
               return (
-                <tr {...row.getRowProps()} className="w-100">
-                  <td className="w-100 p-2">{i + 1}</td>
+                <tr {...row.getRowProps()}>
+                  <td className=" p-2">{i + 1}</td>
                   {row.cells.map((cell) => {
                     return (
-                      <td {...cell.getCellProps()} className="w-100 p-2">
+                      <td {...cell.getCellProps()} className="p-2">
                         <p className="w-100 text-nowrap">
                           {" "}
                           {cell.render("Cell")}
@@ -98,6 +98,11 @@ const ContactTable = ({ tableColumns, tableData }) => {
             <li class="page-item">
               <button onClick={() => gotoPage(1)} class="page-link">
                 2
+              </button>
+            </li>
+            <li class="page-item">
+              <button onClick={() => gotoPage(3)} class="page-link">
+                3
               </button>
             </li>
 
