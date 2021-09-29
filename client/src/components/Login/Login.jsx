@@ -12,7 +12,10 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "column",
-    height: "100vh",
+    width: "calc(100%-20%)",
+    padding: "1rem",
+    maxWidth: "30rem",
+    backgroundColor: "white",
   },
 }));
 
@@ -45,22 +48,20 @@ const Login = () => {
   if (state.isAuthenticated) history.replace(from);
 
   return (
-    <>
-      {
-        <Grid container className={classes.root}>
-          <LoginForm />
-          <div className="flex-between">
-            <Link to="/signup" className="m-3 btn-white shadow p-2 btn">
-              Create Account
-            </Link>
-            <GoogleSignin
-              responseGoogle={responseGoogle}
-              responseGoogleError={responseGoogleError}
-            />
-          </div>
-        </Grid>
-      }{" "}
-    </>
+    <div className="vh-100 flex-center">
+      <Grid container className={classes.root}>
+        <LoginForm />
+        <div className="flex-between">
+          <Link to="/signup" className="m-3 btn-white shadow p-2 btn">
+            Create Account
+          </Link>
+          <GoogleSignin
+            responseGoogle={responseGoogle}
+            responseGoogleError={responseGoogleError}
+          />
+        </div>
+      </Grid>
+    </div>
   );
 };
 

@@ -38,7 +38,7 @@ const Calender = () => {
   }
   return (
     <section className="container-fluid ">
-      <div className="row demo-app m-4 ">
+      <div className="row demo-app m-4 bg-white p-3">
         <div className="col col-sm-12 col-lg-4 col-md-4">
           <div className="demo-app-sidebar">
             <div className="demo-app-sidebar-section">
@@ -83,7 +83,6 @@ const Calender = () => {
             dayMaxEvents={true}
             weekends={state.weekendsVisible}
           />
-          ;
         </div>
       </div>
     </section>

@@ -12,7 +12,7 @@ const Map = () => {
     >
       <div>
         <h6 className="graph-header">World Map</h6>
-        <ComposableMap>
+        <ComposableMap height={450}>
           <Geographies geography={geoUrl}>
             {({ geographies }) =>
               geographies.map((geo) => (
