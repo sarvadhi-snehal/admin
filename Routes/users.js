@@ -6,7 +6,7 @@ const {
   getAll,
   deleteUser,
   editUser,
-} = require("../Controllers/Users.js");
+} = require("../Controllers/users.js");
 const multerStorage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "uploads");

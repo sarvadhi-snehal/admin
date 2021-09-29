@@ -24,12 +24,11 @@ const Login = () => {
   const history = useHistory();
   let { from } = location.state || { from: { pathname: "/" } };
   const responseGoogle = async (response) => {
-    console.log(response);
     const userObj = {
       token: response.tokenId,
       user: response.profileObj,
     };
-    console.log("user", userObj);
+
     try {
       const isGoogleSignin = true;
       dispatch(signin(userObj, history, isGoogleSignin, from));

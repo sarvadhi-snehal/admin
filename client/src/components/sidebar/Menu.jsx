@@ -148,7 +148,7 @@ export default function NestedList({ isClose }) {
                 handleListItemClick(event, index);
                 handleClick(key);
               }}
-              className={` ${!isClose ? "item" : ""}`}
+              className={!isClose ? "item" : ""}
             >
               <Icon size={20} className="menu " />
 
@@ -210,7 +210,7 @@ export default function NestedList({ isClose }) {
                         onClick={(event) => {
                           handleListItemClick(event, index * 5 + 25);
                         }}
-                        className={[classes.nested]}
+                        className={classes.nested}
                       >
                         {" "}
                         <ListItemText primary={item.name} />
