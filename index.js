@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const port = process.env.PORT || 4000;
+
 const app = express();
 app.use(express.static("uploads"));
 app.use(express.json());
@@ -13,5 +13,7 @@ mongoose.connect(
   "mongodb+srv://root:root123@cluster0.4wkwj.mongodb.net/adminTable?retryWrites=true&w=majority",
   console.log("database connected"),
 
-  app.listen(port, () => console.log("server listening on port " + port))
+  app.listen(process.env.PORT || 4000, () =>
+    console.log("server listening on port " + port)
+  )
 );
