@@ -1,11 +1,9 @@
-# Isssue
 
-- Private Routes not working currectly
-- Responsiveness work on reload or changing devices
 
 # Todo
 
 - calender app
+- toast color
 
 # Getting Started with Create React App
 
