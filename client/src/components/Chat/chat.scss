@@ -3,16 +3,18 @@
 }
 @media (max-width: 576px) {
   .drawer-container {
-    position: relative;
-    display: flex;
+    display: grid;
+    place-items: center;
+
     .menuButton {
       display: block;
-      margin-left: auto;
-      top: 50%;
-      position: absolute;
-
+      border-top: 1px solid #000;
+      margin: 0 auto;
       border: 1px solid grey;
-      border-radius: 50%;
+      border-left: none;
+
+      border-bottom-right-radius: 110px;
+      border-top-right-radius: 110px;
     }
 
     .drawer {
@@ -21,7 +23,7 @@
   }
   #draweropen:checked ~ .drawer {
     display: block;
-    position: absolute;
+
     background-color: #fff;
   }
 }

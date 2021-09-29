@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     position: "relative",
+    marginBottom: 0,
     [theme.breakpoints.down("sm")]: {
       flexDirection: "column",
     },
@@ -25,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     flexGrow: 1,
-    marginBottom: 0,
   },
 }));
 

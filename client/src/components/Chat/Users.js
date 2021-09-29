@@ -86,7 +86,7 @@ const Users = (props) => {
   const drawer = (
     <>
       <div className="bg-white p-4 border-bottom  position-relative">
-        <p>Search Contact</p>
+        <p className="text-nowrap">Search Contact</p>
       </div>
       <div className="scroll scroll-div2 flex-column">
         {list.map((item, i) => (
@@ -114,16 +114,15 @@ const Users = (props) => {
     setMobileOpen(!mobileOpen);
   };
   return (
-    <div
-      className={`border-end drawer-container  bg-white ${props.className} `}
-    >
+    <div className={`  drawer-container d-flex  bg-white ${props.className} `}>
       <input
         type="checkbox"
         name="draweropen"
         id="draweropen"
         className="d-none"
       />
-      <div className="drawer ">{drawer}</div>
+      <div className="drawer border-end">{drawer}</div>
+
       <label htmlFor="draweropen" className="menuButton">
         <ArrowRightShort size={25} />
       </label>

@@ -10,7 +10,7 @@ export default function Quotes({ className }) {
 
   const getQuotes = useCallback(
     () =>
-      fetch(`https://breaking-bad-quotes.herokuapp.com/v1/quotes`)
+      fetch(`https://www.breakingbadapi.com/api/quote/random`)
         .then((response) => response.json())
         .then((data) => {
           setQoute({
