@@ -1,9 +1,6 @@
 import React from "react";
-import { People } from "react-bootstrap-icons";
-import { Wallet } from "react-bootstrap-icons";
-import { Folder } from "react-bootstrap-icons";
-import { Folder2 } from "react-bootstrap-icons";
-import { Link } from "react-router-dom";
+import { People, Wallet, Folder, Folder2 } from "react-bootstrap-icons";
+
 const data = [
   {
     name: "NEW CLIENTS",

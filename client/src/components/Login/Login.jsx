@@ -22,7 +22,7 @@ const Login = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const history = useHistory();
-  // let { from } = location.state || { from: { pathname: "/" } };
+  let { from } = location.state || { from: { pathname: "/" } };
   const responseGoogle = async (response) => {
     console.log(response);
     const userObj = {
@@ -32,8 +32,7 @@ const Login = () => {
     console.log("user", userObj);
     try {
       const isGoogleSignin = true;
-      dispatch(signin(userObj, history, isGoogleSignin));
-      // history.replace(from);
+      dispatch(signin(userObj, history, isGoogleSignin, from));
     } catch (e) {
       console.log(e);
     }

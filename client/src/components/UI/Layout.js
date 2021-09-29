@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import BreadCumb from "../BreadCumb";
 import { useLocation, Redirect } from "react-router-dom";
 import Bar from "../sidebar/Bar";
-import Alert from "../Alert";
+
 import Footer from "../Footer";
 import { useSelector } from "react-redux";
 const useStyles = makeStyles((theme) => ({
@@ -30,11 +30,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Layout({ children }) {
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+  // const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
   const location = useLocation();
   const classes = useStyles();
   const state = useSelector((state) => state);
-  console.log("layout", state);
+
   if (!state.isAuthenticated) {
     return <Redirect to="/login" />;
   }

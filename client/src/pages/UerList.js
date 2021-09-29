@@ -10,8 +10,9 @@ import {
 } from "../Store/actions/action";
 import { useDispatch, useSelector } from "react-redux";
 const UerList = () => {
+  const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
-  const history = useHistory();
+  // const history = useHistory();
   const usersData = useSelector((state) => state.users);
   const [value, setValue] = useState(null);
 
@@ -28,16 +29,14 @@ const UerList = () => {
     age: Yup.number("Invalid digit").required("required"),
   });
 
-  const onSubmit = (values, { resetForm }) => {
-    console.log(values);
+  const onSubmit = (values, onSubmitProps) => {
     if (!values._id) {
-      console.log("create");
       dispatch(createUser(values));
     } else {
       dispatch(editUser(values));
-      console.log("edit");
     }
-    resetForm();
+    onSubmitProps.resetForm();
+    setShowModal(false);
   };
   useEffect(
     (usersData) => {
@@ -53,96 +52,124 @@ const UerList = () => {
   return (
     <section className="container-fluid">
       <div className="m-4 p-4 bg-white">
-        <article>
+        <article className="">
           <button
             type="button"
             className="btn btn-primary"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
+            onClick={() => {
+              setValue(null);
+              setShowModal(!showModal);
+            }}
           >
             Add user
           </button>
 
-          <div
-            className="modal fade"
-            id="exampleModal"
-            tabindex="-1"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
-          >
-            <div className="modal-dialog modal-dialog-centered">
-              <Formik
-                initialValues={value || initialValues}
-                onSubmit={onSubmit}
-                validationSchema={validationSchema}
-                validateOnChange={true}
-                validateOnBlur={true}
-                enableReinitialize
-              >
-                <Form className="modal-content">
-                  <div className="modal-header">
-                    <h5 className="modal-title" id="exampleModalLabel">
-                      Add User
-                    </h5>
-                    <button
-                      type="button"
-                      className="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                  <div className="modal-body">
-                    <div className="form-control">
-                      <Field type="text" placeholder="name" name="name" />
-                      <ErrorMessage name="name" component={TextError} />
-                    </div>
-                    <div className="form-control">
-                      <Field type="text" placeholder="email" name="email" />
-                      <ErrorMessage name="email" component={TextError} />
-                    </div>
-                    <div className="form-control">
-                      <Field type="file" name="avatar">
-                        {({ field, form }) => {
-                          return (
-                            <input
-                              type="file"
-                              // name="avatar"
-
-                              onChange={(event) => {
-                                console.log(event.currentTarget.files[0]);
-                                form.setFieldValue(
-                                  "avatar",
-                                  event.currentTarget.files[0]
+          {showModal && (
+            <div className=" modal-main   ">
+              <div
+                className="modal-overlay"
+                onClick={() => setShowModal(false)}
+              />
+              <div className="modal-center">
+                <Formik
+                  initialValues={value || initialValues}
+                  onSubmit={onSubmit}
+                  validationSchema={validationSchema}
+                  validateOnChange={true}
+                  validateOnBlur={true}
+                  enableReinitialize
+                >
+                  {(formik) => {
+                    return (
+                      <Form className="modal-content">
+                        <div className="modal-header">
+                          <h5 className="modal-title" id="exampleModalLabel">
+                            {value?._id ? "Update User" : "Add User"}
+                          </h5>
+                          <button
+                            type="button"
+                            className="btn-close "
+                            onClick={() => setShowModal(false)}
+                          ></button>
+                        </div>
+                        <div className="modal-body">
+                          <div>
+                            <Field
+                              type="text"
+                              placeholder="name"
+                              className="form-control"
+                              name="name"
+                            />
+                            <ErrorMessage name="name" component={TextError} />
+                          </div>
+                          <div>
+                            <Field
+                              className="form-control"
+                              type="text"
+                              placeholder="email"
+                              name="email"
+                            />
+                            <ErrorMessage name="email" component={TextError} />
+                          </div>
+                          <div>
+                            <Field type="file" name="avatar">
+                              {({ field, form }) => {
+                                return (
+                                  <input
+                                    type="file"
+                                    // name="avatar"
+                                    className="form-control"
+                                    onChange={(event) => {
+                                      form.setFieldValue(
+                                        "avatar",
+                                        event.currentTarget.files[0]
+                                      );
+                                    }}
+                                  />
                                 );
                               }}
+                            </Field>
+                            <ErrorMessage name="file" component={TextError} />
+                          </div>
+                          <div>
+                            <Field
+                              type="text"
+                              className="form-control"
+                              placeholder="age "
+                              name="age"
                             />
-                          );
-                        }}
-                      </Field>
-                      <ErrorMessage name="file" component={TextError} />
-                    </div>
-                    <div className="form-control">
-                      <Field type="text" placeholder="age " name="age" />
-                      <ErrorMessage name="age" component={TextError} />
-                    </div>
-                  </div>
-                  <div className="modal-footer">
-                    <input type="reset" value="Reset" />
-                    <button
-                      type="button"
-                      className="btn btn-secondary"
-                      data-bs-dismiss="modal"
-                    >
-                      Close
-                    </button>
-                    <button type="submit" className="btn btn-primary">
-                      {value?._id ? "Update " : "Save"}
-                    </button>
-                  </div>
-                </Form>
-              </Formik>
+                            <ErrorMessage name="age" component={TextError} />
+                          </div>
+                        </div>
+                        <div className="modal-footer">
+                          <button
+                            type="reset"
+                            className="btn btn-warning"
+                            onClick={() => {
+                              setValue(null);
+                              formik.resetForm();
+                            }}
+                          >
+                            Reset All
+                          </button>
+                          <button
+                            type="button"
+                            className="btn btn-danger"
+                            onClick={() => setShowModal(false)}
+                          >
+                            Close
+                          </button>
+                          <button type="submit" className="btn btn-primary">
+                            {value?._id ? "Update " : "Save"}
+                          </button>
+                        </div>
+                      </Form>
+                    );
+                  }}
+                </Formik>
+              </div>
             </div>
-          </div>
+          )}
         </article>
         <article className="overflow-auto ">
           <table class="table table-striped">
@@ -157,16 +184,22 @@ const UerList = () => {
             <tbody>
               {usersData.map((user, i) => (
                 <tr key={user._id}>
-                  <th scope="row">
+                  <th scope="d-flex">
                     <img
-                      className="img-fluid"
-                      width={150}
+                      className="img-fluid rounded-circle"
+                      width={100}
+                      height={150}
                       src={`http://localhost:4000/${user.avatar}`}
                       alt="user"
-                    />{" "}
-                    {user.name}
+                    />
+                    <label className="ms-4 mt-0 fw-normal fs-5">
+                      {" "}
+                      {user.name}
+                    </label>
                   </th>
-                  <td>{user.email}</td>
+                  <td>
+                    <p className="fs-6">{user.email}</p>
+                  </td>
                   <td>{user.age}</td>
                   <td>
                     <button
@@ -177,10 +210,11 @@ const UerList = () => {
                     </button>
                     <button
                       type="button"
-                      onClick={() => setValue(user)}
-                      className="btn btn-primary"
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
+                      onClick={() => {
+                        setShowModal(!showModal);
+                        setValue(user);
+                      }}
+                      className="btn btn-info"
                     >
                       edit user
                     </button>

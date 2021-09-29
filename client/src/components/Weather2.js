@@ -77,11 +77,19 @@ const Weather2 = () => {
           </div>
         </div>
         <div className=" bg-white py-4">
-          <div className=" row flex-between  flex-wrap p-2">
+          <div className=" row flex-between  flex-wrap px-3">
             {data.map((item, i) => (
-              <div className="col col-lg-6 col-sm-12 col-xs-12 d-flex p-3 ">
-                <p className="text-start">{Object.keys(item)} : </p>
-                <p className="fw-bolder ms-2"> {Object.values(item)}</p>
+              <div
+                className="col-12 col-lg-6 col-sm-12 col-xs-12 d-flex p-3 "
+                key={i}
+              >
+                <p className="text-start text-nowrap">
+                  <label className="text-secondary">{Object.keys(item)} </label>
+                  <label className="fs-6  fw-normal ms-2">
+                    {" "}
+                    {Object.values(item)}
+                  </label>
+                </p>
               </div>
             ))}
           </div>

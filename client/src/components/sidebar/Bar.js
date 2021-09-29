@@ -4,7 +4,6 @@ import Drawer from "@material-ui/core/Drawer";
 
 import Person from "./Person";
 import Menu from "./Menu";
-import { Paper } from "@material-ui/core";
 import AppBarContainer from "./AppBar";
 import { useStyles } from "./style";
 import SiteLinks from "./SiteLinks";

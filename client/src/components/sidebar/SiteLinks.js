@@ -1,10 +1,8 @@
 import { useState } from "react";
 import List from "@material-ui/core/List";
-
-import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import RadioButtonUncheckedIcon from "@material-ui/icons/RadioButtonUnchecked";
-import { useStyles, ListItem } from "./style";
+import { ListItem } from "./style";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../Store/actions/action";
@@ -12,11 +10,11 @@ import "./style.scss";
 const SiteLinks = ({ open }) => {
   const sidebarColor = useSelector((state) => state.sidebarColor);
   const [selectedIndex, setSelectedIndex] = useState();
-  const [isShown, setShown] = useState(false);
+
   const handleListItemClick = (event, index) => {
     setSelectedIndex(index);
   };
-  const classes = useStyles();
+
   const history = useHistory();
   const dispatch = useDispatch();
   const onClick = () => {
@@ -47,7 +45,12 @@ const SiteLinks = ({ open }) => {
           key={item.index}
           button
           selected={selectedIndex === item.index}
-          onClick={(event) => handleListItemClick(event, item.index)}
+          onClick={(event) => {
+            if (item.index === 22) {
+              onClick();
+            }
+            handleListItemClick(event, item.index);
+          }}
           className={` ${!open ? "item" : ""}`}
         >
           <RadioButtonUncheckedIcon color={item.color} />

@@ -5,7 +5,6 @@ import Weather from "../components/Weather2";
 import UserActivity from "../components/UserActivity/Activity";
 import OrderStatus from "../components/OrderStatus";
 import Feeds from "../components/Feeds/Feeds";
-import Card from "../components/UI/ThreeCard";
 const Morden = () => {
   return (
     <section className="container-fluid">

@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "../UI/ThreeCard";
-import { Bell, Server, Cart, Person } from "react-bootstrap-icons";
-import Avatar from "@material-ui/core/Avatar";
+import { Bell, Server, Person } from "react-bootstrap-icons";
+
 const Feeds = () => {
   const data = [
     {
@@ -52,7 +52,10 @@ const Feeds = () => {
     <Card title="User Activity">
       <ul className="p-2 bg-white list-group ">
         {data.map((item, i) => (
-          <li className="list-group-item d-flex list-group-item-action border-0 p-2 w-100">
+          <li
+            className="list-group-item d-flex list-group-item-action border-0 p-2 w-100"
+            key={i}
+          >
             <item.Icon
               size={40}
               className={`bg-${item.type} rounded-circle text-white p-2`}

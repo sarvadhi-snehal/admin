@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import Table from "../components/ContactTable";
 const ContactEmployee = () => {
   const data = [

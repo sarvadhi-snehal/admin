@@ -1,7 +1,6 @@
 import React from "react";
-import { Facebook } from "react-bootstrap-icons";
-import { Twitter } from "react-bootstrap-icons";
-import { Youtube } from "react-bootstrap-icons";
+import { Facebook, Twitter, Youtube } from "react-bootstrap-icons";
+
 const COntactCard = () => {
   return (
     <div className="col-sm-12 col-xs-12 col-md-4 col-lg-4 flex-column h-100 mb-4">

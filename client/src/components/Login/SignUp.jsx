@@ -38,7 +38,7 @@ const SignUp = () => {
     }
     return error;
   };
-  var formData = new FormData();
+  // var formData = new FormData();
   const onSubmit = (values) => {
     dispatch(signup(values, history));
   };

@@ -1,5 +1,4 @@
 import { useMemo } from "react";
-import Avatar from "@material-ui/core/Avatar";
 import { useTable, usePagination } from "react-table";
 
 import "./table.scss";
@@ -21,7 +20,7 @@ const Table = ({ tabelcolumns, tabledata }) => {
     nextPage,
     previousPage,
 
-    state: { pageIndex, pageSize },
+    state: { pageIndex },
   } = useTable(
     {
       columns,

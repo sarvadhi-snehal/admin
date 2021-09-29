@@ -7,7 +7,6 @@ import {
   HEADER_COLOR,
   SIDEBAR_COLOR,
   OPEN_NOTIFICATION,
-  SIGN_UP,
   DELETE_USER,
   UPDATE_USER,
   CREATE_USER,
@@ -17,7 +16,7 @@ import {
 export const loadUser = () => (dispatch) => {
   if (localStorage.getItem("profile")) {
     let userObj = JSON.parse(localStorage.getItem("profile"));
-    console.log(userObj);
+
     dispatch({
       type: LOAD_USER,
       payload: userObj,
@@ -65,21 +64,16 @@ export const signup = (values, history) => async (dispatch) => {
   try {
     const { data } = await api.signup(formData);
 
-    console.log("action", data);
     dispatch({
       type: LOGIN_SUCCESS,
       data,
     });
     history.push("/");
-  } catch (error) {
-    console.error(error);
-  }
+  } catch (error) {}
 };
 export const signin =
-  (formData, history, isGoogleSignin = false) =>
+  (formData, history, isGoogleSignin = false, from) =>
   async (dispatch) => {
-    console.log("google login", formData);
-
     try {
       let data;
       if (isGoogleSignin) {
@@ -92,7 +86,7 @@ export const signin =
         type: LOGIN_SUCCESS,
         data,
       });
-      history.push("/");
+      history.replace(from);
     } catch (error) {
       console.error(error);
     }
@@ -107,9 +101,9 @@ export const createUser = (user) => async (dispatch) => {
     formData.append("email", user.email);
     formData.append("age", user.age);
     formData.append("avatar", user.avatar);
-    // console.log(formData.get("avatar"));
+
     const res = await axios.post("/api/users/create", formData);
-    console.log("datar", res.data);
+
     dispatch({
       type: CREATE_USER,
       payload: res.data.user,
@@ -139,7 +133,7 @@ export const editUser = (user) => async (dispatch) => {
 
   try {
     const res = await axios.post("/api/users/editUser", updatedUser);
-    console.log("response", res.data);
+
     dispatch({
       type: UPDATE_USER,
       payload: res.data,
@@ -149,7 +143,7 @@ export const editUser = (user) => async (dispatch) => {
 
 export const getUsers = () => async (dispatch) => {
   const res = await axios.get("/api/users");
-  console.log(res.data);
+
   try {
     dispatch({
       type: GET_USERS,

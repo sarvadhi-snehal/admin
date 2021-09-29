@@ -8,7 +8,6 @@ import {
   CircleFill,
 } from "react-bootstrap-icons";
 const MailMenu = () => {
-  console.log("MailMenu");
   const menu = [
     {
       name: "Inbox",

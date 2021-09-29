@@ -1,6 +1,5 @@
 import React from "react";
 
-import MenuIcon from "@material-ui/icons/Menu";
 import "./chat.scss";
 import { ArrowRightShort } from "react-bootstrap-icons";
 import Avatar from "@material-ui/core/Avatar";
@@ -108,11 +107,6 @@ const Users = (props) => {
     </>
   );
 
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
   return (
     <div className={`  drawer-container d-flex  bg-white ${props.className} `}>
       <input

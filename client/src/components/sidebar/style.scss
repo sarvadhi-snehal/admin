@@ -12,9 +12,12 @@
   min-width: 200px;
 }
 
-.hover-menu a:hover {
-  background-color: #fff;
+.hover-menu a {
   color: grey;
+  &:hover {
+    background-color: #fff;
+    color: orange;
+  }
 }
 .item:hover .hover-menu {
   display: block;

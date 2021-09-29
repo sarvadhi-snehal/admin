@@ -81,8 +81,8 @@ const Line = () => {
     <div className="p-4">
       <div className=" p-4 ">
         <div className="border-start">
-          {data.map((item) => (
-            <div className="px-3" style={style.root}>
+          {data.map((item, i) => (
+            <div className="px-3" style={style.root} key={i}>
               <Avatar src={item.avatar} style={style.avatar} />
 
               <div className="px-3">

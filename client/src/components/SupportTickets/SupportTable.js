@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import Table from "./Table";
 const SupportTable = () => {
   const data = [

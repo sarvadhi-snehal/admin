@@ -255,3 +255,23 @@ span {
     border-bottom: 2px solid #f39678;
   }
 }
+
+.modal-main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  .modal-overlay {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100%;
+  }
+  .modal-center {
+    width: calc(100% - 20%);
+    max-width: 30rem;
+  }
+}

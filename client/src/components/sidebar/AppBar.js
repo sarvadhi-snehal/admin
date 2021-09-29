@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 const AppBarContainer = ({ open, handleDrawerOpen }) => {
   const classes = useStyles();
   const headerColor = useSelector((state) => state.headerColor);
-  console.log(typeof headerColor);
+
   return (
     <>
       <AppBar

@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
+
 import Flip from "react-reveal/Flip";
 import { Person as PersonIcon } from "react-bootstrap-icons";
 import { Wallet2 } from "react-bootstrap-icons";
@@ -28,9 +26,8 @@ const action = [
 const Person = ({ open }) => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const user = useSelector((state) => state.user.user);
+  const profile = useSelector((state) => state.user.user);
 
-  const [profile, setProfile] = useState(user);
   //   JSON.parse(localStorage.getItem("profile")).user
   // );
   // console.log(profile);

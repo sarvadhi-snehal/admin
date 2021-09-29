@@ -1,7 +1,8 @@
-import { Envelope } from "react-bootstrap-icons";
-import { PencilSquare } from "react-bootstrap-icons";
-import { LayoutThreeColumns } from "react-bootstrap-icons";
-import { Gear } from "react-bootstrap-icons";
+import {
+  PencilSquare,
+  LayoutThreeColumns,
+  Envelope,
+} from "react-bootstrap-icons";
 import MessagesList from "../Messages/MessagesList";
 import NotificationInfo from "../Notification/NotificationInfo";
 import ServicePannel from "./ServicePannel";

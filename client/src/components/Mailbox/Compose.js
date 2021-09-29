@@ -7,10 +7,7 @@ const Compose = () => {
   return (
     <div className="w-100">
       <h3 className="mb-3">Compose New Message</h3>
-      <form
-        class="row g-3 needs-validation d-flex justify-content-between"
-        novalidate
-      >
+      <form class="row g-3 needs-validation d-flex justify-content-between">
         <div class="col-12">
           <input
             type="text"

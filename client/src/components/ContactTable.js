@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { makeStyles } from "@material-ui/core";
+
 import { useTable, usePagination } from "react-table";
 const ContactTable = ({ tableColumns, tableData }) => {
   const data = useMemo(() => tableData, [tableData]);
@@ -17,7 +17,7 @@ const ContactTable = ({ tableColumns, tableData }) => {
     gotoPage,
     nextPage,
     previousPage,
-    state: { pageIndex, pageSize },
+    state: { pageIndex },
   } = useTable(
     {
       columns,
