@@ -1,11 +1,10 @@
-const Admin = require("../Model/auth.js");
+const Admin = require("../Model/Auth.js");
 const express = require("express");
 
 const { check, validationResult } = require("express-validator");
 
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const User = require("../Model/user");
 const config = require("config");
 const router = express.Router();
 const multer = require("multer");
