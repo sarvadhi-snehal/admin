@@ -6,7 +6,7 @@ import Person from "./Person";
 import Menu from "./Menu";
 import AppBarContainer from "./AppBar";
 import { useStyles } from "./style";
-import SiteLinks from "./SiteLinks";
+
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../Store/actions/action";
@@ -56,7 +56,6 @@ const Bar = () => {
               </span>
             )}
             <Menu isClose={open} />
-            <SiteLinks responseGoogle={responseGoogle} open={open} />
           </div>
         </Drawer>
       ) : (
@@ -86,7 +85,6 @@ const Bar = () => {
               </span>
             )}
             <Menu isClose={open} />
-            <SiteLinks responseGoogle={responseGoogle} open={open} />
           </div>
         </Drawer>
       )}

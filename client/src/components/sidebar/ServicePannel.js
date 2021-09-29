@@ -149,7 +149,7 @@ const ServicePannel = () => {
       <div className="p-4">
         <h6>Chat options</h6>
         {people.map((person, index) => (
-          <div button key={index} className="d-flex py-3">
+          <div key={index} className="d-flex py-3">
             <div className="w-25">
               <img
                 src={person.img}

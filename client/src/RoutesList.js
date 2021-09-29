@@ -17,7 +17,6 @@ import { useSelector } from "react-redux";
 import PrivateRoute from "./pages/PrivateRoute";
 const PrivateRoutesList = () => {
   const state = useSelector((state) => state);
-  console.log(state);
 
   if (state.loading) <Spinner />;
   return (

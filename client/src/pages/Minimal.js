@@ -9,29 +9,34 @@ import Todo from "../components/todo/Todo";
 import Message from "../components/Messages/Message";
 import Chat from "../components/Chat/Chat";
 import GraphContainer from "../components/SalesDiffrnce/GrapContainer";
-import * as toastr from "toastr";
-import "../../node_modules/toastr/toastr.scss";
+// import toastr from "toastr";
+// import "toastr/build/toastr.min.css";
+import { ToastContainer, toast } from "react-toastify";
 const Minimal = () => {
   const fourbyTwelve = "col-12 col-sm-12 col-md-4 ";
-
-  toastr.options = {
-    closeButton: true,
-
-    newestOnTop: true,
-    progressBar: true,
-    positionClass: "toast-top-right",
-    preventDuplicates: true,
-    onclick: null,
-    showDuration: "300",
-    hideDuration: "1000",
-    timeOut: "5000",
-    extendedTimeOut: "1000",
-    showEasing: "swing",
-    hideEasing: "linear",
-    showMethod: "show",
-    hideMethod: "fadeOut",
-  };
-  const notify = () => toastr.info("lorem ipsum est lt ist", "Welcome");
+  const Msg = ({ closeToast }) => (
+    <div className="">
+      <p className="fs-6 fw-normal"> Welcome Admin</p>
+      <p>lorem Ips idfd djf dfddc d f dbdf dfb ddfgdfg df</p>
+    </div>
+  );
+  const notify = () => toast.info(<Msg />);
+  // toastr.options = {
+  //   closeButton: true,
+  //   newestOnTop: true,
+  //   progressBar: true,
+  //   positionClass: "toast-top-right",
+  //   preventDuplicates: true,
+  //   showDuration: "300",
+  //   hideDuration: "1000",
+  //   timeOut: "5000",
+  //   extendedTimeOut: "1000",
+  //   showEasing: "swing",
+  //   hideEasing: "linear",
+  //   showMethod: "show",
+  //   hideMethod: "fadeOut",
+  // };
+  // const notify = () => toastr.info("lorem ipsum est lt ist", "Welcome");
 
   useEffect(() => {
     notify();
@@ -39,6 +44,7 @@ const Minimal = () => {
 
   return (
     <section className="container-fluid  px-4 ">
+      <ToastContainer />
       <Summary />
       <section className="row ">
         <Graph />

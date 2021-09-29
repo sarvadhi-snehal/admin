@@ -158,14 +158,14 @@ const Visit = () => {
     <article className="row   mx-1">
       {visits.map((item, i) => (
         <div
-          className=" border-0 col-sm-12 col-xs-12 col-md-6 col-lg-3  mt-4 "
+          className=" border-0 col-sm-12 col-xs-12 col-md-6 col-lg-3  mt-4 h-100"
           key={i}
         >
-          <div className=" bg-white w-100 p-2 pb-5 pt-3">
+          <div className=" bg-white w-100 pb-5 p-3 h-100">
             <div className="d-flex flex-column text-start align-items-center   ">
-              <h6 className="w-100 ps-4 graph-header">{item.name}</h6>
-              <div className="flex-between w-100 px-4 flex-row-reverse ps-4">
-                <h2>
+              <h6 className="w-100 graph-header">{item.name}</h6>
+              <div className="flex-between w-100  flex-row-reverse ">
+                <h2 className="text-nowrap">
                   <ArrowUp className={`text-${item.type}`} />
                   {item.number}
                 </h2>

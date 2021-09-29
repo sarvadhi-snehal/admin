@@ -82,16 +82,16 @@ const Line = () => {
       <div className=" p-4 ">
         <div className="border-start">
           {data.map((item, i) => (
-            <div className="px-3" style={style.root} key={i}>
+            <div className="px-2" style={style.root} key={i}>
               <Avatar src={item.avatar} style={style.avatar} />
 
-              <div className="px-3">
+              <div className="px-3 ">
                 <p>
                   {item.name} <span>{item.time}</span>
                 </p>
-                <p className="d-flex">
+                <di className="d-flex">
                   {item.title} <p className="text-orange ms-2">{item.link}</p>
-                </p>
+                </di>
                 <div className="row d-flex ">
                   {item.images &&
                     item.images.map((img) => (

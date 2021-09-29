@@ -16,9 +16,9 @@ const Wind = () => {
           y2="36.19"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stop-color="#d4d7dd" />
-          <stop offset=".45" stop-color="#d4d7dd" />
-          <stop offset="1" stop-color="#bec1c6" />
+          <stop offset="0" stopColor="#d4d7dd" />
+          <stop offset=".45" stopColor="#d4d7dd" />
+          <stop offset="1" stopColor="#bec1c6" />
         </linearGradient>
         <linearGradient
           id="b"
@@ -32,10 +32,10 @@ const Wind = () => {
       <path
         fill="none"
         stroke="url(#a)"
-        stroke-dasharray="35 22"
-        stroke-linecap="round"
-        stroke-miterlimit="10"
-        stroke-width="3"
+        strokeDasharray="35 22"
+        strokeLinecap="round"
+        strokeMiterlimit="10"
+        strokeWidth="3"
         d="M43.64 20a5 5 0 113.61 8.46h-35.5"
       >
         <animate
@@ -48,10 +48,10 @@ const Wind = () => {
       <path
         fill="none"
         stroke="url(#b)"
-        stroke-dasharray="24 15"
-        stroke-linecap="round"
-        stroke-miterlimit="10"
-        stroke-width="3"
+        strokeDasharray="24 15"
+        strokeLinecap="round"
+        strokeMiterlimit="10"
+        strokeWidth="3"
         d="M29.14 44a5 5 0 103.61-8.46h-21"
       >
         <animate

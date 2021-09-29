@@ -4,7 +4,9 @@ const SiteTraffic = () => {
   const data = [
     {
       name: "A",
-
+      growth: "80.40%",
+      daily: "5.40%",
+      monthly: "20.40%",
       data: {
         labels: ["2010", "2011", "2012", "2013", "2014", "2015", "2016"],
         datasets: [
@@ -37,7 +39,9 @@ const SiteTraffic = () => {
     },
     {
       name: "B",
-
+      growth: "80.40%",
+      daily: "5.40%",
+      monthly: "20.40%",
       data: {
         labels: ["2010", "2011", "2012", "2013", "2014", "2015", "2016"],
         datasets: [

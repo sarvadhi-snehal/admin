@@ -59,7 +59,6 @@ b {
   max-width: 1100px;
   margin: 0 auto;
 }
-@import "../node_modules/toastr/toastr.scss";
 .map-selected {
   fill: #e3da37;
 }
@@ -72,3 +71,5 @@ b {
 .map-unselected:hover {
   cursor: pointer;
 }
+
+// toastr

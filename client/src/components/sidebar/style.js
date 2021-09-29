@@ -1,9 +1,9 @@
-import { makeStyles, withStyles } from "@material-ui/core";
-import MuiListItem from "@material-ui/core/ListItem";
+import { makeStyles } from "@material-ui/core";
+
 const drawerWidth = 230;
 
-const sbcolor = JSON.parse(localStorage.getItem("sbcolor"));
-
+const sbcolor = () => JSON.parse(localStorage.getItem("sbcolor"));
+console.log(sbcolor());
 export const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -43,7 +43,6 @@ export const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
-    backgroundColor: sbcolor,
 
     top: theme.spacing(8),
     border: "none",
@@ -59,7 +58,7 @@ export const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    backgroundColor: sbcolor,
+
     top: theme.spacing(4),
     fontFamily: "Poppins",
     border: "none",
@@ -147,29 +146,3 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-
-export const ListItem = withStyles({
-  root: {
-    "&$selected": {
-      color: "darkOrange",
-      borderLeft: "1px solid darkOrange",
-      "& .MuiListItemIcon-root": {
-        color: "darkOrange",
-      },
-    },
-    // "&$selected:hover": {
-    //   backgroundColor: "purple",
-    //   color: "white",
-    //   "& .MuiListItemIcon-root": {
-    //     color: "white",
-    //   },
-    // },
-    "&:hover": {
-      color: "darkOrange",
-      "& .MuiListItemIcon-root": {
-        color: "darkOrange",
-      },
-    },
-  },
-  selected: {},
-})(MuiListItem);

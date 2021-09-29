@@ -1,86 +1,49 @@
 import React from "react";
-
+import TextField from "@material-ui/core/TextField";
+import NativeSelect from "@material-ui/core/NativeSelect";
 const Setting = () => {
   return (
     <form action="#">
       <div className="row my-3">
-        <div className="col p-1">
+        <div className="col p-1 flex-column">
           <label className="form-label">First Name</label>
-          <input
-            type="text"
-            name="fullName"
-            className="form-control border-0 shadow-none border-bottom"
-            placeholder="Full name"
-            aria-label="Full name"
-            required
-          />
+
+          <TextField color="secondary" />
         </div>
       </div>
       <div className="row my-3">
-        <div className="col p-1">
+        <div className="col p-1 flex-column">
           <label className="form-label">Email</label>
-          <input
-            type="email"
-            name="email"
-            className="form-control border-0 shadow-none border-bottom"
-            placeholder="Email"
-            aria-label="Email"
-            required
-          />
+          <TextField color="secondary" />
         </div>
       </div>
       <div className="row my-3">
-        <div className="col p-1">
+        <div className="col p-1 flex-column">
           <label className="form-label">Phone no</label>
-          <input
-            type="text"
-            name="phone"
-            className="form-control border-0 shadow-none border-bottom"
-            placeholder="Phone"
-            aria-label="Phone"
-          />
+          <TextField color="secondary" />
         </div>
       </div>
       <div className="row my-3">
-        <div className="col p-1">
+        <div className="col p-1 flex-column">
           <label className="form-label">Subject</label>
-          <input
-            type="text"
-            name="subject"
-            className="form-control border-0 shadow-none border-bottom"
-            placeholder="Subject"
-            aria-label="Subject"
-            required
-          />
+          <TextField color="secondary" />
         </div>
       </div>
       <div className="row my-3">
-        <div className="col p-1">
+        <div className="col p-1 flex-column">
           <label className="form-label">Message</label>
-          <textarea
-            type="text"
-            name="message"
-            className="form-control border-0 shadow-none border-bottom"
-            placeholder="Message"
-            aria-label="Message"
-            rows="5"
-            required
-          ></textarea>
+          <TextField color="secondary" multiline rows={4} row={4} />
         </div>
       </div>
       <div className="row my-3">
-        <div className="col p-1">
+        <div className="col p-1 flex-column">
           <p className="form-label">Select Country</p>
-          <select
-            name="country"
-            id=""
-            className="form-control border-bottom border-0 shadow-none"
-          >
+          <NativeSelect name="country" color="secondary">
             <option value="london">London</option>
             <option value="india">India</option>
             <option value="Usa">Usa</option>
             <option value="Canada">China</option>
-          </select>
+          </NativeSelect>
         </div>
       </div>
       <button type="submit" className="btn btn-success mt-2">

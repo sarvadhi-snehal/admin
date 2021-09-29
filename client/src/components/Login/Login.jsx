@@ -18,11 +18,13 @@ const useStyles = makeStyles((theme) => ({
 
 const Login = () => {
   const state = useSelector((state) => state);
-  console.log(state);
+  const classes = useStyles();
+
   const location = useLocation();
   const dispatch = useDispatch();
   const history = useHistory();
   let { from } = location.state || { from: { pathname: "/" } };
+  console.log("location", location.state);
   const responseGoogle = async (response) => {
     const userObj = {
       token: response.tokenId,
@@ -40,7 +42,8 @@ const Login = () => {
   const responseGoogleError = (response) => {
     alert(`Something went wrong, login again`);
   };
-  const classes = useStyles();
+  if (state.isAuthenticated) history.replace(from);
+
   return (
     <>
       {

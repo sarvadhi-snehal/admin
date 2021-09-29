@@ -72,9 +72,9 @@ const Profile = () => {
             <h6>
               {skill.name} {skill.percent}%
             </h6>
-            <div class="progress" style={{ height: 8 }}>
+            <div className="progress" style={{ height: 8 }}>
               <div
-                class={`progress-bar bg-${skill.type}`}
+                className={`progress-bar bg-${skill.type}`}
                 role="progressbar"
                 style={{ width: `${skill.percent}%` }}
                 aria-valuenow="25"

@@ -7,7 +7,8 @@ import "./_custome.scss";
 import "bootstrap/dist/css/bootstrap.css";
 import { Provider } from "react-redux";
 import store from "./Store";
-
+import "toastr/build/toastr.min.css";
+import "react-toastify/dist/ReactToastify.min.css";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(

@@ -1,4 +1,6 @@
 import Table from "../components/ContactTable";
+import TextField from "@material-ui/core/TextField";
+
 const ContactEmployee = () => {
   const data = [
     {
@@ -428,10 +430,10 @@ const ContactEmployee = () => {
 
             <div className="header d-flex flex-column">
               <div className="h-100">
-                <input
-                  type="text"
-                  className="orange-input h-100 border-3"
-                  placeholder=""
+                <TextField
+                  id="standard-basic"
+                  variant="standard"
+                  color="secondary"
                 />
               </div>
 

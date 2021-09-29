@@ -7,17 +7,13 @@
   position: absolute;
   top: 0;
   white-space: nowrap;
-  margin-left: 43px;
+  margin-left: 40px;
   z-index: 1500;
   min-width: 200px;
 }
 
 .hover-menu a {
   color: grey;
-  &:hover {
-    background-color: #fff;
-    color: orange;
-  }
 }
 .item:hover .hover-menu {
   display: block;

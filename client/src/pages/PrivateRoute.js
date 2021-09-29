@@ -7,8 +7,8 @@ const PrivateRoute = ({ children, ...rest }) => {
   return (
     <Route
       {...rest}
-      render={({ location }) =>
-        isAuthenticated ? (
+      render={({ location }) => {
+        return isAuthenticated ? (
           children
         ) : (
           <Redirect
@@ -17,8 +17,8 @@ const PrivateRoute = ({ children, ...rest }) => {
               state: { from: location },
             }}
           />
-        )
-      }
+        );
+      }}
     />
   );
 };

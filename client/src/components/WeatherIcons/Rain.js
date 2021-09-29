@@ -18,9 +18,9 @@ const Rain = ({ height, width }) => {
           y2="48.05"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stop-color="orange" />
-          <stop offset=".45" stop-color="orange" />
-          <stop offset="1" stop-color="orange" />
+          <stop offset="0" stopColor="orange" />
+          <stop offset=".45" stopColor="orange" />
+          <stop offset="1" stopColor="orange" />
         </linearGradient>
         <linearGradient
           id="c"
@@ -42,16 +42,16 @@ const Rain = ({ height, width }) => {
       <path
         fill="url(#b)"
         stroke="orange"
-        stroke-miterlimit="10"
-        stroke-width="4"
+        strokeMiterlimit="10"
+        strokeWidth="4"
         d="M46.5 31.5h-.32a10.49 10.49 0 00-19.11-8 7 7 0 00-10.57 6 7.21 7.21 0 00.1 1.14A7.5 7.5 0 0018 45.5a4.19 4.19 0 00.5 0v0h28a7 7 0 000-14z"
       />
       <path
         fill="none"
         stroke="url(#a)"
-        stroke-linecap="round"
-        stroke-miterlimit="10"
-        stroke-width="3"
+        strokeLinecap="round"
+        strokeMiterlimit="10"
+        strokeWidth="3"
         d="M24.39 43.03l-.78 5"
       >
         <animateTransform
@@ -71,9 +71,9 @@ const Rain = ({ height, width }) => {
       <path
         fill="none"
         stroke="url(#c)"
-        stroke-linecap="round"
-        stroke-miterlimit="10"
-        stroke-width="3"
+        strokeLinecap="round"
+        strokeMiterlimit="10"
+        strokeWidth="3"
         d="M31.39 43.03l-.78 5"
       >
         <animateTransform
@@ -95,9 +95,9 @@ const Rain = ({ height, width }) => {
       <path
         fill="none"
         stroke="url(#d)"
-        stroke-linecap="round"
-        stroke-miterlimit="10"
-        stroke-width="3"
+        strokeLinecap="round"
+        strokeMiterlimit="10"
+        strokeWidth="3"
         d="M38.39 43.03l-.78 5"
       >
         <animateTransform

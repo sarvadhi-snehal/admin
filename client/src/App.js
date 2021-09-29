@@ -1,17 +1,16 @@
 import { useEffect } from "react";
 import "./custome.scss";
-import ".//../node_modules/toastr/build/toastr.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./App.scss";
 import Layout from "./components/UI/Layout";
 import Login from "./components/Login/Login";
 import NotFound from "./pages/NotFound";
 import RoutesList from "./RoutesList";
+import Signup from "./components/Login/SignUp";
 // redux
 import { useDispatch } from "react-redux";
 import { loadUser } from "./Store/actions/action";
-
-import Signup from "./components/Login/SignUp";
+import "react-toastify/dist/ReactToastify.css";
 // import PrivateRoute from "./pages/PrivateRoute";
 function App() {
   const dispatch = useDispatch();
