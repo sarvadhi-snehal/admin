@@ -6,13 +6,13 @@ const CardItem = ({ title, Icon, number, type }) => {
       <div className="flex-between pt-3 px-3 ">
         <div className="">
           <Icon size={25} className="d-block mb-2" />
-          <p className="text-secondary" style={{ fontSize: "0.9rem" }}>
+          <p className="text-secondary " style={{ fontSize: "0.9rem" }}>
             {title}
           </p>
         </div>
         <h1 className={`text-${type}`}>{number}</h1>
       </div>
-      <div className="progress mx-3 mb-3" style={{ height: "5px" }}>
+      <div className="progress mx-3 mb-3 " style={{ height: "5px" }}>
         <div
           className={`progress-bar bg-${type} `}
           role="progressbar"

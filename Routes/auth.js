@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { signup, signin } = require("../Controllers/admin.js");
+const { signup, signin } = require("../Controllers/Admin.js");
 const multer = require("multer");
 
 const multerStorage = multer.diskStorage({
