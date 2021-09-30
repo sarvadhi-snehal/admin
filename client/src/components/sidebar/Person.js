@@ -88,10 +88,8 @@ const Person = ({ open }) => {
             <Avatar
               alt={profile === null ? "user" : profile?.name}
               src={
-                profile === null
-                  ? ""
-                  : profile.imageUrl ||
-                    `http://localhost:4000/admin/${profile?.avatar}`
+                profile === null ? "" : profile.imageUrl || profile?.avatar
+                // `http://localhost:4000/admin/${profile?.avatar}`
               }
             />
           </div>
@@ -103,10 +101,8 @@ const Person = ({ open }) => {
             width={20}
             alt={profile?.user === null ? "user" : profile?.name}
             src={
-              profile?.user === null
-                ? ""
-                : profile.imageUrl ||
-                  `http://localhost:4000/admin/${profile?.avatar}`
+              profile?.user === null ? "" : profile.imageUrl || profile?.avatar
+              // `http://localhost:4000/admin/${profile?.avatar}`
             }
           />
         </div>

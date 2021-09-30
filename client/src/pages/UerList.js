@@ -233,7 +233,8 @@ const UerList = () => {
                       className="img-fluid rounded-circle"
                       width={100}
                       height={150}
-                      src={`http://localhost:4000/${user.avatar}`}
+                      // src= {`http://localhost:4000/${user.avatar}`}
+                      src={user.avatar}
                       alt="user"
                     />
                     <label className="ms-4 mt-0 fw-normal fs-5">
