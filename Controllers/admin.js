@@ -1,4 +1,4 @@
-const Admin = require("../Model/Auth.js");
+const Admin = require("../Model/Auth");
 const express = require("express");
 
 const { check, validationResult } = require("express-validator");
